@@ -1,0 +1,1233 @@
+2022-08-24 10:00:08,811 INFO    StreamThr :1320262 [internal.py:wandb_internal():90] W&B internal server running at pid: 1320262, started at: 2022-08-24 10:00:08.810711
+2022-08-24 10:00:08,812 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: status
+2022-08-24 10:00:08,813 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: status
+2022-08-24 10:00:08,814 DEBUG   SenderThread:1320262 [sender.py:send():302] send: header
+2022-08-24 10:00:08,814 INFO    WriterThread:1320262 [datastore.py:open_for_write():75] open: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/run-2g0u03rd.wandb
+2022-08-24 10:00:08,814 DEBUG   SenderThread:1320262 [sender.py:send():302] send: run
+2022-08-24 10:00:09,758 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: check_version
+2022-08-24 10:00:09,760 INFO    SenderThread:1320262 [dir_watcher.py:__init__():216] watching files in: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files
+2022-08-24 10:00:09,760 INFO    SenderThread:1320262 [sender.py:_start_run_threads():913] run started: 2g0u03rd with start time 1661315408.807867
+2022-08-24 10:00:09,760 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:00:09,760 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:00:09,760 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: check_version
+2022-08-24 10:00:09,927 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: run_start
+2022-08-24 10:00:09,932 DEBUG   HandlerThread:1320262 [meta.py:__init__():35] meta init
+2022-08-24 10:00:09,932 DEBUG   HandlerThread:1320262 [meta.py:__init__():50] meta init done
+2022-08-24 10:00:09,933 DEBUG   HandlerThread:1320262 [meta.py:probe():216] probe
+2022-08-24 10:00:09,939 DEBUG   HandlerThread:1320262 [meta.py:_setup_git():206] setup git
+2022-08-24 10:00:09,942 DEBUG   HandlerThread:1320262 [meta.py:_setup_git():213] setup git done
+2022-08-24 10:00:09,942 DEBUG   HandlerThread:1320262 [meta.py:_save_pip():54] save pip
+2022-08-24 10:00:09,942 DEBUG   HandlerThread:1320262 [meta.py:_save_pip():68] save pip done
+2022-08-24 10:00:09,942 DEBUG   HandlerThread:1320262 [meta.py:probe():254] probe done
+2022-08-24 10:00:09,944 DEBUG   SenderThread:1320262 [sender.py:send():302] send: files
+2022-08-24 10:00:09,944 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-metadata.json with policy now
+2022-08-24 10:00:09,948 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:00:09,948 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:00:10,506 DEBUG   SenderThread:1320262 [sender.py:send():302] send: telemetry
+2022-08-24 10:00:10,763 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_created():275] file/dir created: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:00:10,763 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_created():275] file/dir created: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:00:10,763 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_created():275] file/dir created: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/requirements.txt
+2022-08-24 10:00:10,763 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_created():275] file/dir created: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-metadata.json
+2022-08-24 10:00:11,105 INFO    Thread-16 :1320262 [upload_job.py:push():138] Uploaded file /tmp/tmpx0nbmg2pwandb/38wae2qe-wandb-metadata.json
+2022-08-24 10:00:12,267 DEBUG   SenderThread:1320262 [sender.py:send():302] send: telemetry
+2022-08-24 10:00:12,761 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:00:13,761 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:00:22,594 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:22,594 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:00:22,594 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:00:22,596 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:00:22,763 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:00:23,763 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:00:24,763 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:00:25,638 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:00:25,638 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:00:33,176 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,176 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,177 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,178 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,179 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,179 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,180 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,180 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,181 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,181 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,182 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,182 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,184 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,184 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,185 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,185 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,186 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,186 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,187 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,188 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,188 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,189 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,189 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,190 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,190 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,191 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,191 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,192 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,193 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,194 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,194 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,195 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,196 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,196 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,197 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,197 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,206 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,207 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,207 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,208 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,208 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,208 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,208 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,209 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,209 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,209 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,209 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,209 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,210 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,210 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,210 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,210 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,210 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,211 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,211 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,211 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,211 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,212 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,212 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,217 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:33,223 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:00:33,236 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:00:33,245 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:00:33,766 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:00:34,766 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:00:38,315 DEBUG   SenderThread:1320262 [sender.py:send():302] send: stats
+2022-08-24 10:00:40,767 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/config.yaml
+2022-08-24 10:00:41,175 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:00:41,175 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:00:43,058 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:43,062 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:00:43,062 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:00:43,068 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:00:43,768 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:00:44,768 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:00:52,912 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,930 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,931 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,931 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,931 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,932 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,932 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,932 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,932 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,933 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,933 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,933 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,933 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,933 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,933 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,933 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,934 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,934 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,934 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,934 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,934 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,934 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,934 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,935 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,935 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,935 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,935 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,935 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,935 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,936 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,936 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,936 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,936 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,973 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,973 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,974 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,974 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,974 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,974 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,974 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,975 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,975 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,975 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,975 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,975 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,975 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,976 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,976 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,976 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,976 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,976 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,976 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,976 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,976 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,976 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,977 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,977 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,977 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,977 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,977 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:00:52,987 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:00:52,994 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:00:53,000 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:00:53,770 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:00:54,770 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:00:56,701 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:00:56,702 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:01:02,831 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:02,835 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:01:02,835 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:01:02,841 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:01:03,773 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:01:04,773 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:01:08,671 DEBUG   SenderThread:1320262 [sender.py:send():302] send: stats
+2022-08-24 10:01:12,165 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:01:12,165 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:01:12,586 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,587 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,587 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,588 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,588 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,589 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,589 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,590 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,590 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,591 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,591 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,591 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,593 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,594 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,594 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,594 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,595 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,595 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,596 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,596 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,597 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,597 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,598 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,598 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,599 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,599 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,600 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,617 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,618 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,618 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,618 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,619 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,619 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,619 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,619 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,619 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,620 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,620 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,620 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,620 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,620 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,620 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,620 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,621 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,621 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,621 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,621 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,621 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,621 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,621 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,621 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,621 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,622 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,622 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,622 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,622 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,622 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,622 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,622 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,626 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:12,687 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:01:12,692 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:01:12,697 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:01:12,775 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:01:14,775 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:01:22,282 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:22,288 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:01:22,289 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:01:22,295 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:01:22,777 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:01:24,777 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:01:27,698 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:01:27,698 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:01:32,215 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,216 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,216 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,217 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,217 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,218 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,218 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,219 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,219 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,220 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,220 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,221 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,223 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,223 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,223 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,224 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,225 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,225 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,226 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,226 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,226 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,227 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,227 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,228 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,228 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,229 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,229 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,230 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,231 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,232 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,233 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,277 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,278 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,278 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,278 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,278 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,279 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,279 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,279 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,279 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,279 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,279 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,279 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,280 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,280 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,280 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,280 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,280 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,280 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,280 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,280 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,281 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,281 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,281 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,281 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,281 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,281 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,281 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,281 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,281 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:32,291 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:01:32,296 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:01:32,302 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:01:32,779 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:01:34,780 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:01:39,005 DEBUG   SenderThread:1320262 [sender.py:send():302] send: stats
+2022-08-24 10:01:42,170 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:42,174 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:01:42,174 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:01:42,179 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:01:42,782 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:01:43,142 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:01:43,142 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:01:44,782 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:01:52,065 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,065 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,066 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,066 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,067 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,068 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,068 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,069 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,069 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,070 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,070 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,071 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,072 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,073 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,073 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,074 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,074 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,075 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,075 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,076 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,076 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,077 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,077 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,078 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,078 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,079 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,097 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,098 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,098 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,098 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,099 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,099 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,099 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,099 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,099 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,100 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,100 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,100 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,100 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,100 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,101 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,101 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,101 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,101 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,101 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,101 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,102 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,102 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,102 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,102 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,102 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,102 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,103 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,103 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,103 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,103 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,103 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,103 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,104 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,104 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:01:52,115 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:01:52,119 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:01:52,124 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:01:52,784 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:01:54,785 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:01:58,590 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:01:58,590 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:02:02,314 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:02,317 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:02:02,317 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:02:02,322 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:02:02,786 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:02:04,787 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:02:09,344 DEBUG   SenderThread:1320262 [sender.py:send():302] send: stats
+2022-08-24 10:02:12,295 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,313 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,314 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,315 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,315 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,315 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,315 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,316 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,316 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,316 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,316 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,316 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,317 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,317 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,317 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,317 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,318 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,318 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,318 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,318 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,318 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,318 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,318 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,319 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,319 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,319 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,319 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,319 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,319 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,320 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,320 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,320 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,320 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,357 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,358 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,358 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,358 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,358 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,359 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,359 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,359 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,359 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,359 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,360 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,360 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,360 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,360 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,360 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,360 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,361 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,361 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,361 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,361 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,361 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,361 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,361 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,361 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,361 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,362 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,362 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:12,371 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:02:12,378 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:02:12,384 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:02:12,789 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:02:14,060 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:02:14,060 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:02:14,789 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:02:22,126 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:22,129 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:02:22,130 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:02:22,135 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:02:22,791 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:02:24,792 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:02:29,531 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:02:29,531 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:02:31,980 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,981 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,981 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,982 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,982 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,983 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,983 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,984 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,984 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,985 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,985 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,986 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,987 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,988 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,988 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,989 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,989 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,990 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,990 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,991 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,991 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,992 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,992 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,993 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,993 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,994 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,994 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,995 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,996 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,997 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,997 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,998 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,998 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,999 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:31,999 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,000 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,000 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,000 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,001 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,001 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,002 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,002 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,003 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,003 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,005 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,006 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,006 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,007 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,007 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,008 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,008 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,009 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,009 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,010 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,010 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,011 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,012 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,012 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,013 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,019 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:32,024 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:02:32,038 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:02:32,044 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:02:32,794 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:02:34,794 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:02:39,709 DEBUG   SenderThread:1320262 [sender.py:send():302] send: stats
+2022-08-24 10:02:41,900 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:41,904 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:02:41,904 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:02:41,909 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:02:42,796 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:02:42,796 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:02:45,020 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:02:45,020 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:02:51,511 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,512 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,512 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,513 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,513 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,514 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,514 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,515 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,515 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,516 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,516 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,517 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,519 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,519 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,519 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,520 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,520 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,521 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,521 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,522 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,522 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,523 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,523 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,524 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,524 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,525 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,525 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,526 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,527 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,528 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,529 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,529 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,530 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,530 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,531 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,531 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,532 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,532 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,533 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,533 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,534 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,534 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,535 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,535 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,537 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,537 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,538 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,538 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,539 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,539 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,540 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,540 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,541 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,541 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,542 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,542 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,543 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,543 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,544 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,549 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:02:51,559 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:02:51,563 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:02:51,570 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:02:51,798 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:02:52,798 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:03:00,506 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:03:00,506 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:03:01,477 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:01,480 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:03:01,481 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:03:01,486 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:03:01,800 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:03:02,800 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:03:10,075 DEBUG   SenderThread:1320262 [sender.py:send():302] send: stats
+2022-08-24 10:03:11,509 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,527 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,528 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,528 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,528 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,528 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,529 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,529 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,529 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,529 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,529 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,530 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,530 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,530 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,530 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,530 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,530 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,531 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,531 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,531 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,531 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,531 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,531 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,531 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,532 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,532 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,532 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,532 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,532 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,532 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,532 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,532 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,533 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,569 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,569 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,570 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,570 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,570 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,570 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,570 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,570 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,571 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,571 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,571 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,571 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,571 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,571 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,572 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,572 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,572 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,572 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,572 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,572 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,572 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,572 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,572 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,573 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,573 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,573 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,573 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:11,582 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:03:11,588 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:03:11,592 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:03:11,802 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:03:12,803 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:03:16,011 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:03:16,012 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:03:21,455 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:21,461 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:03:21,462 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:03:21,467 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:03:21,805 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:03:22,805 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:03:31,325 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,326 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,326 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,327 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,327 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,328 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,328 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,329 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,329 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,330 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,330 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,331 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,333 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,333 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,333 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,334 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,334 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,335 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,335 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,336 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,336 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,337 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,337 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,338 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,338 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,339 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,339 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,340 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,341 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,342 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,342 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,343 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,343 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,344 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,344 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,345 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,345 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,346 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,346 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,347 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,389 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,389 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,390 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,390 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,390 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,390 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,390 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,391 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,391 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,391 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,391 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,391 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,392 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,392 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,392 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,392 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,392 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,393 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,393 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,393 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:31,406 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:03:31,415 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:03:31,420 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:03:31,493 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:03:31,493 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:03:31,807 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:03:32,807 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:03:40,432 DEBUG   SenderThread:1320262 [sender.py:send():302] send: stats
+2022-08-24 10:03:41,337 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:41,342 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:03:41,343 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:03:41,348 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:03:41,809 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:03:42,810 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:03:46,930 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:03:46,931 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:03:51,830 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,831 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,832 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,832 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,833 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,833 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,834 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,834 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,835 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,835 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,836 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,836 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,838 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,838 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,839 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,839 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,840 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,840 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,858 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,859 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,859 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,859 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,860 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,860 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,860 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,860 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,861 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,861 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,861 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,861 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,861 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,862 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,862 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,862 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,862 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,862 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,862 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,863 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,863 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,863 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,863 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,864 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,864 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,864 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,864 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,864 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,865 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,865 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,865 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,865 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,865 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,865 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,866 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,866 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,866 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,866 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,866 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,867 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,867 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,872 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:03:51,886 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:03:51,895 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:03:51,903 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:03:52,812 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:03:52,812 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:04:01,827 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:01,830 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:04:01,830 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:04:01,835 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:04:02,428 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:04:02,428 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:04:02,814 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:04:02,814 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:04:10,794 DEBUG   SenderThread:1320262 [sender.py:send():302] send: stats
+2022-08-24 10:04:11,828 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,828 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,829 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,829 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,830 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,830 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,831 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,831 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,832 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,832 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,833 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,833 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,835 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,836 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,836 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,836 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,837 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,837 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,838 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,838 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,839 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,839 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,840 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,840 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,841 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,841 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,842 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,842 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,885 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,885 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,886 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,886 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,886 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,887 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,887 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,887 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,887 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,887 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,888 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,888 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,888 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,888 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,888 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,888 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,889 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,889 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,889 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,889 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,889 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,889 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,889 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,889 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,890 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,890 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,890 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,890 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,890 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,890 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,890 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,890 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:11,900 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:04:11,909 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:04:11,914 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:04:12,816 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:04:12,816 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:04:17,865 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:04:17,865 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:04:21,788 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:21,792 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:04:21,792 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:04:21,797 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:04:21,818 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:04:22,819 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:04:31,750 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,770 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,770 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,770 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,770 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,770 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,771 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,771 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,771 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,771 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,771 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,771 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,772 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,772 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,772 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,772 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,772 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,772 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,772 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,773 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,773 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,773 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,773 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,773 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,773 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,773 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,773 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,773 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,774 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,774 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,774 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,774 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,774 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,813 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,813 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,814 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,814 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,815 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,815 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,815 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,815 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,815 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,815 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,815 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,816 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,816 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,816 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,816 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,816 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,816 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,816 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,816 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,816 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,817 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,817 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,817 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,817 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,817 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,817 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,817 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:31,825 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:04:31,834 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:04:31,839 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:04:32,839 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:04:32,840 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:04:33,413 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:04:33,413 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:04:41,132 DEBUG   SenderThread:1320262 [sender.py:send():302] send: stats
+2022-08-24 10:04:41,793 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:41,797 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:04:41,797 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:04:41,802 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:04:41,841 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:04:42,842 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:04:48,864 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:04:48,864 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:04:51,627 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,628 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,629 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,629 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,630 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,630 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,631 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,631 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,632 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,632 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,633 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,633 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,635 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,635 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,636 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,637 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,637 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,637 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,638 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,638 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,639 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,639 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,640 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,640 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,641 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,641 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,642 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,643 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,645 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,645 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,646 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,647 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,647 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,648 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,648 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,649 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,649 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,650 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,651 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,651 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,652 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,653 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,654 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,654 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,656 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,656 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,657 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,657 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,701 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,701 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,701 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,701 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,702 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,702 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,702 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,702 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,702 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,702 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,702 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,702 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:04:51,712 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:04:51,720 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:04:51,728 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:04:51,844 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:04:52,844 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:05:01,667 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 10:05:01,671 DEBUG   SenderThread:1320262 [sender.py:send():302] send: history
+2022-08-24 10:05:01,671 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:05:01,678 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:05:01,846 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:05:02,846 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:05:04,340 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 10:05:04,340 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 10:05:10,792 DEBUG   SenderThread:1320262 [sender.py:send():302] send: exit
+2022-08-24 10:05:10,792 INFO    SenderThread:1320262 [sender.py:send_exit():438] handling exit code: 255
+2022-08-24 10:05:10,792 INFO    SenderThread:1320262 [sender.py:send_exit():440] handling runtime: 300
+2022-08-24 10:05:10,793 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:10,796 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:05:10,796 INFO    SenderThread:1320262 [sender.py:send_exit():446] send defer
+2022-08-24 10:05:10,796 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:10,797 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 10:05:10,797 INFO    HandlerThread:1320262 [handler.py:handle_request_defer():164] handle defer: 0
+2022-08-24 10:05:10,797 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: defer
+2022-08-24 10:05:10,797 INFO    SenderThread:1320262 [sender.py:send_request_defer():455] handle sender defer: 0
+2022-08-24 10:05:10,797 INFO    SenderThread:1320262 [sender.py:transition_state():459] send defer: 1
+2022-08-24 10:05:10,797 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 10:05:10,797 INFO    HandlerThread:1320262 [handler.py:handle_request_defer():164] handle defer: 1
+2022-08-24 10:05:10,848 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:05:10,874 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: defer
+2022-08-24 10:05:10,874 INFO    SenderThread:1320262 [sender.py:send_request_defer():455] handle sender defer: 1
+2022-08-24 10:05:10,874 INFO    SenderThread:1320262 [sender.py:transition_state():459] send defer: 2
+2022-08-24 10:05:10,874 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 10:05:10,874 INFO    HandlerThread:1320262 [handler.py:handle_request_defer():164] handle defer: 2
+2022-08-24 10:05:10,874 DEBUG   SenderThread:1320262 [sender.py:send():302] send: stats
+2022-08-24 10:05:10,875 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: defer
+2022-08-24 10:05:10,875 INFO    SenderThread:1320262 [sender.py:send_request_defer():455] handle sender defer: 2
+2022-08-24 10:05:10,875 INFO    SenderThread:1320262 [sender.py:transition_state():459] send defer: 3
+2022-08-24 10:05:10,875 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 10:05:10,875 INFO    HandlerThread:1320262 [handler.py:handle_request_defer():164] handle defer: 3
+2022-08-24 10:05:10,875 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: defer
+2022-08-24 10:05:10,875 INFO    SenderThread:1320262 [sender.py:send_request_defer():455] handle sender defer: 3
+2022-08-24 10:05:10,875 INFO    SenderThread:1320262 [sender.py:transition_state():459] send defer: 4
+2022-08-24 10:05:10,875 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 10:05:10,875 INFO    HandlerThread:1320262 [handler.py:handle_request_defer():164] handle defer: 4
+2022-08-24 10:05:10,882 DEBUG   SenderThread:1320262 [sender.py:send():302] send: summary
+2022-08-24 10:05:10,891 INFO    SenderThread:1320262 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 10:05:10,891 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: defer
+2022-08-24 10:05:10,892 INFO    SenderThread:1320262 [sender.py:send_request_defer():455] handle sender defer: 4
+2022-08-24 10:05:10,892 INFO    SenderThread:1320262 [sender.py:transition_state():459] send defer: 5
+2022-08-24 10:05:10,892 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 10:05:10,892 INFO    HandlerThread:1320262 [handler.py:handle_request_defer():164] handle defer: 5
+2022-08-24 10:05:10,892 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: defer
+2022-08-24 10:05:10,892 INFO    SenderThread:1320262 [sender.py:send_request_defer():455] handle sender defer: 5
+2022-08-24 10:05:10,892 INFO    SenderThread:1320262 [sender.py:transition_state():459] send defer: 6
+2022-08-24 10:05:10,893 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 10:05:10,893 INFO    HandlerThread:1320262 [handler.py:handle_request_defer():164] handle defer: 6
+2022-08-24 10:05:10,893 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: defer
+2022-08-24 10:05:10,893 INFO    SenderThread:1320262 [sender.py:send_request_defer():455] handle sender defer: 6
+2022-08-24 10:05:10,897 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:11,849 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:05:11,849 INFO    Thread-12 :1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:05:13,416 INFO    SenderThread:1320262 [sender.py:transition_state():459] send defer: 7
+2022-08-24 10:05:13,416 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:13,417 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 10:05:13,417 INFO    HandlerThread:1320262 [handler.py:handle_request_defer():164] handle defer: 7
+2022-08-24 10:05:13,417 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: defer
+2022-08-24 10:05:13,417 INFO    SenderThread:1320262 [sender.py:send_request_defer():455] handle sender defer: 7
+2022-08-24 10:05:13,417 INFO    SenderThread:1320262 [dir_watcher.py:finish():362] shutting down directory watcher
+2022-08-24 10:05:13,518 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:13,849 INFO    SenderThread:1320262 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:05:13,850 INFO    SenderThread:1320262 [dir_watcher.py:finish():392] scan: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files
+2022-08-24 10:05:13,850 INFO    SenderThread:1320262 [dir_watcher.py:finish():406] scan save: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json wandb-summary.json
+2022-08-24 10:05:13,850 INFO    SenderThread:1320262 [dir_watcher.py:finish():406] scan save: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-metadata.json wandb-metadata.json
+2022-08-24 10:05:13,850 INFO    SenderThread:1320262 [dir_watcher.py:finish():406] scan save: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/config.yaml config.yaml
+2022-08-24 10:05:13,850 INFO    SenderThread:1320262 [dir_watcher.py:finish():406] scan save: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/requirements.txt requirements.txt
+2022-08-24 10:05:13,850 INFO    SenderThread:1320262 [dir_watcher.py:finish():406] scan save: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log output.log
+2022-08-24 10:05:13,850 INFO    SenderThread:1320262 [sender.py:transition_state():459] send defer: 8
+2022-08-24 10:05:13,850 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:13,857 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 10:05:13,857 INFO    HandlerThread:1320262 [handler.py:handle_request_defer():164] handle defer: 8
+2022-08-24 10:05:13,857 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: defer
+2022-08-24 10:05:13,857 INFO    SenderThread:1320262 [sender.py:send_request_defer():455] handle sender defer: 8
+2022-08-24 10:05:13,857 INFO    SenderThread:1320262 [file_pusher.py:finish():171] shutting down file pusher
+2022-08-24 10:05:13,957 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:13,958 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:14,058 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:14,059 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:14,159 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:14,159 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:14,260 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:14,260 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:14,361 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:14,361 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:14,462 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:14,462 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:14,564 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:14,566 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:14,667 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:14,667 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:14,768 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:14,768 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:14,869 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:14,869 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:14,970 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:14,970 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:15,071 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:15,071 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:15,172 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:15,172 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:15,268 INFO    Thread-18 :1320262 [upload_job.py:push():138] Uploaded file /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/config.yaml
+2022-08-24 10:05:15,273 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:15,273 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:15,324 INFO    Thread-19 :1320262 [upload_job.py:push():138] Uploaded file /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/requirements.txt
+2022-08-24 10:05:15,374 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:15,374 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:15,475 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:15,475 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:15,476 INFO    Thread-20 :1320262 [upload_job.py:push():138] Uploaded file /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/output.log
+2022-08-24 10:05:15,576 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:15,576 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:15,676 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:15,677 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:15,778 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:15,778 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:15,795 INFO    Thread-17 :1320262 [upload_job.py:push():138] Uploaded file /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/files/wandb-summary.json
+2022-08-24 10:05:15,879 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:15,879 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:15,979 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:15,980 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:15,996 INFO    Thread-11 (_thread_body):1320262 [sender.py:transition_state():459] send defer: 9
+2022-08-24 10:05:15,996 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 10:05:15,996 INFO    HandlerThread:1320262 [handler.py:handle_request_defer():164] handle defer: 9
+2022-08-24 10:05:15,996 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: defer
+2022-08-24 10:05:15,996 INFO    SenderThread:1320262 [sender.py:send_request_defer():455] handle sender defer: 9
+2022-08-24 10:05:16,080 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:17,582 INFO    SenderThread:1320262 [sender.py:transition_state():459] send defer: 10
+2022-08-24 10:05:17,582 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:17,583 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 10:05:17,583 INFO    HandlerThread:1320262 [handler.py:handle_request_defer():164] handle defer: 10
+2022-08-24 10:05:17,583 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: defer
+2022-08-24 10:05:17,583 INFO    SenderThread:1320262 [sender.py:send_request_defer():455] handle sender defer: 10
+2022-08-24 10:05:17,583 INFO    SenderThread:1320262 [sender.py:transition_state():459] send defer: 11
+2022-08-24 10:05:17,584 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 10:05:17,584 DEBUG   SenderThread:1320262 [sender.py:send():302] send: final
+2022-08-24 10:05:17,584 INFO    HandlerThread:1320262 [handler.py:handle_request_defer():164] handle defer: 11
+2022-08-24 10:05:17,584 DEBUG   SenderThread:1320262 [sender.py:send():302] send: footer
+2022-08-24 10:05:17,584 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: defer
+2022-08-24 10:05:17,584 INFO    SenderThread:1320262 [sender.py:send_request_defer():455] handle sender defer: 11
+2022-08-24 10:05:17,684 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 10:05:17,684 DEBUG   SenderThread:1320262 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 10:05:17,684 INFO    SenderThread:1320262 [file_pusher.py:join():176] waiting for file pusher
+2022-08-24 10:05:18,716 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: sampled_history
+2022-08-24 10:05:18,717 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: get_summary
+2022-08-24 10:05:18,721 INFO    MainThread:1320262 [wandb_run.py:_footer_history_summary_info():3305] rendering history
+2022-08-24 10:05:18,722 INFO    MainThread:1320262 [wandb_run.py:_footer_history_summary_info():3337] rendering summary
+2022-08-24 10:05:18,723 INFO    MainThread:1320262 [wandb_run.py:_footer_sync_info():3261] logging synced files
+2022-08-24 10:05:18,723 DEBUG   HandlerThread:1320262 [handler.py:handle_request():141] handle_request: shutdown
+2022-08-24 10:05:18,723 INFO    HandlerThread:1320262 [handler.py:finish():810] shutting down handler
+2022-08-24 10:05:19,584 INFO    WriterThread:1320262 [datastore.py:close():279] close: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_100008-2g0u03rd/run-2g0u03rd.wandb
+2022-08-24 10:05:19,616 INFO    SenderThread:1320262 [sender.py:finish():1312] shutting down sender
+2022-08-24 10:05:19,616 INFO    SenderThread:1320262 [file_pusher.py:finish():171] shutting down file pusher
+2022-08-24 10:05:19,616 INFO    SenderThread:1320262 [file_pusher.py:join():176] waiting for file pusher
+2022-08-24 10:05:19,725 INFO    MainThread:1320262 [internal.py:handle_exit():80] Internal process exited

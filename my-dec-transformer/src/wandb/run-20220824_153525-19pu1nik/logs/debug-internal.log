@@ -1,0 +1,179 @@
+2022-08-24 15:35:25,692 INFO    StreamThr :1364974 [internal.py:wandb_internal():90] W&B internal server running at pid: 1364974, started at: 2022-08-24 15:35:25.691891
+2022-08-24 15:35:25,695 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: status
+2022-08-24 15:35:25,695 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: status
+2022-08-24 15:35:25,696 INFO    WriterThread:1364974 [datastore.py:open_for_write():75] open: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/run-19pu1nik.wandb
+2022-08-24 15:35:25,696 DEBUG   SenderThread:1364974 [sender.py:send():302] send: header
+2022-08-24 15:35:25,696 DEBUG   SenderThread:1364974 [sender.py:send():302] send: run
+2022-08-24 15:35:26,564 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: check_version
+2022-08-24 15:35:26,565 INFO    SenderThread:1364974 [dir_watcher.py:__init__():216] watching files in: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/files
+2022-08-24 15:35:26,565 INFO    SenderThread:1364974 [sender.py:_start_run_threads():913] run started: 19pu1nik with start time 1661335525.68961
+2022-08-24 15:35:26,565 DEBUG   SenderThread:1364974 [sender.py:send():302] send: summary
+2022-08-24 15:35:26,565 INFO    SenderThread:1364974 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 15:35:26,565 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: check_version
+2022-08-24 15:35:27,051 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: run_start
+2022-08-24 15:35:27,056 DEBUG   HandlerThread:1364974 [meta.py:__init__():35] meta init
+2022-08-24 15:35:27,056 DEBUG   HandlerThread:1364974 [meta.py:__init__():50] meta init done
+2022-08-24 15:35:27,056 DEBUG   HandlerThread:1364974 [meta.py:probe():216] probe
+2022-08-24 15:35:27,062 DEBUG   HandlerThread:1364974 [meta.py:_setup_git():206] setup git
+2022-08-24 15:35:27,066 DEBUG   HandlerThread:1364974 [meta.py:_setup_git():213] setup git done
+2022-08-24 15:35:27,066 DEBUG   HandlerThread:1364974 [meta.py:_save_pip():54] save pip
+2022-08-24 15:35:27,066 DEBUG   HandlerThread:1364974 [meta.py:_save_pip():68] save pip done
+2022-08-24 15:35:27,066 DEBUG   HandlerThread:1364974 [meta.py:probe():254] probe done
+2022-08-24 15:35:27,068 DEBUG   SenderThread:1364974 [sender.py:send():302] send: files
+2022-08-24 15:35:27,068 INFO    SenderThread:1364974 [sender.py:_save_file():1156] saving file wandb-metadata.json with policy now
+2022-08-24 15:35:27,071 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 15:35:27,072 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 15:35:27,099 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:27,501 DEBUG   SenderThread:1364974 [sender.py:send():302] send: telemetry
+2022-08-24 15:35:27,503 DEBUG   SenderThread:1364974 [sender.py:send():302] send: telemetry
+2022-08-24 15:35:27,503 DEBUG   SenderThread:1364974 [sender.py:send():302] send: exit
+2022-08-24 15:35:27,503 INFO    SenderThread:1364974 [sender.py:send_exit():438] handling exit code: 1
+2022-08-24 15:35:27,503 INFO    SenderThread:1364974 [sender.py:send_exit():440] handling runtime: 0
+2022-08-24 15:35:27,503 INFO    SenderThread:1364974 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 15:35:27,503 INFO    SenderThread:1364974 [sender.py:send_exit():446] send defer
+2022-08-24 15:35:27,504 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:27,504 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 15:35:27,504 INFO    HandlerThread:1364974 [handler.py:handle_request_defer():164] handle defer: 0
+2022-08-24 15:35:27,504 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: defer
+2022-08-24 15:35:27,504 INFO    SenderThread:1364974 [sender.py:send_request_defer():455] handle sender defer: 0
+2022-08-24 15:35:27,504 INFO    SenderThread:1364974 [sender.py:transition_state():459] send defer: 1
+2022-08-24 15:35:27,504 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 15:35:27,505 INFO    HandlerThread:1364974 [handler.py:handle_request_defer():164] handle defer: 1
+2022-08-24 15:35:27,536 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: defer
+2022-08-24 15:35:27,536 INFO    SenderThread:1364974 [sender.py:send_request_defer():455] handle sender defer: 1
+2022-08-24 15:35:27,536 INFO    SenderThread:1364974 [sender.py:transition_state():459] send defer: 2
+2022-08-24 15:35:27,537 DEBUG   SenderThread:1364974 [sender.py:send():302] send: stats
+2022-08-24 15:35:27,537 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 15:35:27,537 INFO    HandlerThread:1364974 [handler.py:handle_request_defer():164] handle defer: 2
+2022-08-24 15:35:27,537 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: defer
+2022-08-24 15:35:27,537 INFO    SenderThread:1364974 [sender.py:send_request_defer():455] handle sender defer: 2
+2022-08-24 15:35:27,537 INFO    SenderThread:1364974 [sender.py:transition_state():459] send defer: 3
+2022-08-24 15:35:27,537 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 15:35:27,537 INFO    HandlerThread:1364974 [handler.py:handle_request_defer():164] handle defer: 3
+2022-08-24 15:35:27,538 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: defer
+2022-08-24 15:35:27,538 INFO    SenderThread:1364974 [sender.py:send_request_defer():455] handle sender defer: 3
+2022-08-24 15:35:27,538 INFO    SenderThread:1364974 [sender.py:transition_state():459] send defer: 4
+2022-08-24 15:35:27,538 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 15:35:27,538 INFO    HandlerThread:1364974 [handler.py:handle_request_defer():164] handle defer: 4
+2022-08-24 15:35:27,538 DEBUG   SenderThread:1364974 [sender.py:send():302] send: summary
+2022-08-24 15:35:27,539 INFO    SenderThread:1364974 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 15:35:27,539 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: defer
+2022-08-24 15:35:27,539 INFO    SenderThread:1364974 [sender.py:send_request_defer():455] handle sender defer: 4
+2022-08-24 15:35:27,539 INFO    SenderThread:1364974 [sender.py:transition_state():459] send defer: 5
+2022-08-24 15:35:27,539 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 15:35:27,539 INFO    HandlerThread:1364974 [handler.py:handle_request_defer():164] handle defer: 5
+2022-08-24 15:35:27,539 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: defer
+2022-08-24 15:35:27,539 INFO    SenderThread:1364974 [sender.py:send_request_defer():455] handle sender defer: 5
+2022-08-24 15:35:27,567 INFO    Thread-12 :1364974 [dir_watcher.py:_on_file_created():275] file/dir created: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/files/wandb-summary.json
+2022-08-24 15:35:27,567 INFO    Thread-12 :1364974 [dir_watcher.py:_on_file_created():275] file/dir created: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/files/wandb-metadata.json
+2022-08-24 15:35:27,567 INFO    Thread-12 :1364974 [dir_watcher.py:_on_file_created():275] file/dir created: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/files/output.log
+2022-08-24 15:35:27,567 INFO    Thread-12 :1364974 [dir_watcher.py:_on_file_created():275] file/dir created: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/files/requirements.txt
+2022-08-24 15:35:27,605 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:27,926 INFO    SenderThread:1364974 [sender.py:transition_state():459] send defer: 6
+2022-08-24 15:35:27,926 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:27,927 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 15:35:27,927 INFO    HandlerThread:1364974 [handler.py:handle_request_defer():164] handle defer: 6
+2022-08-24 15:35:27,928 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: defer
+2022-08-24 15:35:27,928 INFO    SenderThread:1364974 [sender.py:send_request_defer():455] handle sender defer: 6
+2022-08-24 15:35:28,028 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:28,254 INFO    Thread-16 :1364974 [upload_job.py:push():138] Uploaded file /tmp/tmpm2xqcb__wandb/1n8stsdh-wandb-metadata.json
+2022-08-24 15:35:28,565 INFO    Thread-12 :1364974 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/files/config.yaml
+2022-08-24 15:35:29,566 INFO    Thread-12 :1364974 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/files/output.log
+2022-08-24 15:35:31,508 INFO    SenderThread:1364974 [sender.py:transition_state():459] send defer: 7
+2022-08-24 15:35:31,509 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:31,509 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 15:35:31,509 INFO    HandlerThread:1364974 [handler.py:handle_request_defer():164] handle defer: 7
+2022-08-24 15:35:31,509 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: defer
+2022-08-24 15:35:31,509 INFO    SenderThread:1364974 [sender.py:send_request_defer():455] handle sender defer: 7
+2022-08-24 15:35:31,509 INFO    SenderThread:1364974 [dir_watcher.py:finish():362] shutting down directory watcher
+2022-08-24 15:35:31,567 INFO    SenderThread:1364974 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/files/output.log
+2022-08-24 15:35:31,567 INFO    SenderThread:1364974 [dir_watcher.py:finish():392] scan: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/files
+2022-08-24 15:35:31,567 INFO    SenderThread:1364974 [dir_watcher.py:finish():406] scan save: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/files/wandb-summary.json wandb-summary.json
+2022-08-24 15:35:31,567 INFO    SenderThread:1364974 [dir_watcher.py:finish():406] scan save: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/files/wandb-metadata.json wandb-metadata.json
+2022-08-24 15:35:31,567 INFO    SenderThread:1364974 [dir_watcher.py:finish():406] scan save: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/files/config.yaml config.yaml
+2022-08-24 15:35:31,567 INFO    SenderThread:1364974 [dir_watcher.py:finish():406] scan save: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/files/requirements.txt requirements.txt
+2022-08-24 15:35:31,567 INFO    SenderThread:1364974 [dir_watcher.py:finish():406] scan save: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/files/output.log output.log
+2022-08-24 15:35:31,571 INFO    SenderThread:1364974 [sender.py:transition_state():459] send defer: 8
+2022-08-24 15:35:31,572 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 15:35:31,572 INFO    HandlerThread:1364974 [handler.py:handle_request_defer():164] handle defer: 8
+2022-08-24 15:35:31,572 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: defer
+2022-08-24 15:35:31,572 INFO    SenderThread:1364974 [sender.py:send_request_defer():455] handle sender defer: 8
+2022-08-24 15:35:31,572 INFO    SenderThread:1364974 [file_pusher.py:finish():171] shutting down file pusher
+2022-08-24 15:35:31,610 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:31,610 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:31,711 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:31,711 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:31,812 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:31,812 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:31,913 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:31,913 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:32,013 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:32,014 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:32,115 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:32,115 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:32,215 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:32,216 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:32,316 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:32,316 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:32,417 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:32,417 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:32,518 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:32,518 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:32,619 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:32,619 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:32,720 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:32,720 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:32,821 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:32,821 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:32,864 INFO    Thread-20 :1364974 [upload_job.py:push():138] Uploaded file /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/files/output.log
+2022-08-24 15:35:32,922 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:32,922 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:33,023 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:33,023 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:33,124 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:33,124 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:33,202 INFO    Thread-18 :1364974 [upload_job.py:push():138] Uploaded file /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/files/config.yaml
+2022-08-24 15:35:33,225 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:33,225 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:33,231 INFO    Thread-19 :1364974 [upload_job.py:push():138] Uploaded file /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/files/requirements.txt
+2022-08-24 15:35:33,326 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:33,326 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:33,338 INFO    Thread-17 :1364974 [upload_job.py:push():138] Uploaded file /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/files/wandb-summary.json
+2022-08-24 15:35:33,427 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:33,427 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:33,528 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:33,528 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:33,539 INFO    Thread-11 (_thread_body):1364974 [sender.py:transition_state():459] send defer: 9
+2022-08-24 15:35:33,539 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 15:35:33,539 INFO    HandlerThread:1364974 [handler.py:handle_request_defer():164] handle defer: 9
+2022-08-24 15:35:33,539 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: defer
+2022-08-24 15:35:33,539 INFO    SenderThread:1364974 [sender.py:send_request_defer():455] handle sender defer: 9
+2022-08-24 15:35:33,629 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:33,812 INFO    SenderThread:1364974 [sender.py:transition_state():459] send defer: 10
+2022-08-24 15:35:33,812 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:33,812 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 15:35:33,812 INFO    HandlerThread:1364974 [handler.py:handle_request_defer():164] handle defer: 10
+2022-08-24 15:35:33,812 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: defer
+2022-08-24 15:35:33,812 INFO    SenderThread:1364974 [sender.py:send_request_defer():455] handle sender defer: 10
+2022-08-24 15:35:33,813 INFO    SenderThread:1364974 [sender.py:transition_state():459] send defer: 11
+2022-08-24 15:35:33,813 DEBUG   SenderThread:1364974 [sender.py:send():302] send: final
+2022-08-24 15:35:33,813 DEBUG   SenderThread:1364974 [sender.py:send():302] send: footer
+2022-08-24 15:35:33,813 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 15:35:33,814 INFO    HandlerThread:1364974 [handler.py:handle_request_defer():164] handle defer: 11
+2022-08-24 15:35:33,814 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: defer
+2022-08-24 15:35:33,814 INFO    SenderThread:1364974 [sender.py:send_request_defer():455] handle sender defer: 11
+2022-08-24 15:35:33,913 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 15:35:33,913 DEBUG   SenderThread:1364974 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 15:35:33,914 INFO    SenderThread:1364974 [file_pusher.py:join():176] waiting for file pusher
+2022-08-24 15:35:34,791 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: sampled_history
+2022-08-24 15:35:34,791 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: get_summary
+2022-08-24 15:35:34,792 INFO    MainThread:1364974 [wandb_run.py:_footer_history_summary_info():3305] rendering history
+2022-08-24 15:35:34,792 INFO    MainThread:1364974 [wandb_run.py:_footer_history_summary_info():3337] rendering summary
+2022-08-24 15:35:34,792 INFO    MainThread:1364974 [wandb_run.py:_footer_sync_info():3261] logging synced files
+2022-08-24 15:35:34,792 DEBUG   HandlerThread:1364974 [handler.py:handle_request():141] handle_request: shutdown
+2022-08-24 15:35:34,792 INFO    HandlerThread:1364974 [handler.py:finish():810] shutting down handler
+2022-08-24 15:35:34,814 INFO    WriterThread:1364974 [datastore.py:close():279] close: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_153525-19pu1nik/run-19pu1nik.wandb
+2022-08-24 15:35:35,690 INFO    SenderThread:1364974 [sender.py:finish():1312] shutting down sender
+2022-08-24 15:35:35,690 INFO    SenderThread:1364974 [file_pusher.py:finish():171] shutting down file pusher
+2022-08-24 15:35:35,690 INFO    SenderThread:1364974 [file_pusher.py:join():176] waiting for file pusher
+2022-08-24 15:35:35,795 INFO    MainThread:1364974 [internal.py:handle_exit():80] Internal process exited

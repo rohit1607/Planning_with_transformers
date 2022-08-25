@@ -1,0 +1,353 @@
+============================================================
+start time: 22-08-24-12-09-35
+============================================================
+device set to: cuda
+dataset path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/traj_data_for_model_2.pkl
+model save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+log csv save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_log_22-08-24-12-09-35.csv
+***********CHECK: len(self.trajectories) =5000
+ ---- Visualizing input ----
+CHECK: states.shape = torch.Size([100, 2])
+CHECK: actions.shape = torch.Size([100, 1])
+===== Note: rescaling states to original scale for viz=====
+ ---- -------------- ----
+**** initializing ContGridWorld_v5 environment *****
+====================
+init:  [19.5 20.5]
+start_pos.shape=(2,)
+xlim:  100
+Umax=1.9990378869066041
+Vmax=0.8324810714401253
+Umean=0.41962545542847707
+Vmean=0.2523411151246392
+====================
+act_dim = 1
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/core.py:329: DeprecationWarning: [33mWARN: Initializing wrapper in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/wrappers/step_api_compatibility.py:39: DeprecationWarning: [33mWARN: Initializing environment in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+[34m[1mwandb[39m[22m: logging graph, to disable use `wandb.watch(log_graph=False)`
+===== Note: rescaling states to original scale for viz=====
+CHECK: states.shape = torch.Size([1, 120, 2])
+CHECK: actions.shape = torch.Size([1, 120, 1])
+actions;
+ tensor([[[0.9830],
+         [0.9828],
+         [0.9829],
+         [0.9830],
+         [0.9827],
+         [0.9829],
+         [0.9825],
+         [0.9830],
+         [0.9827],
+         [0.9829],
+         [0.9831],
+         [0.9828],
+         [0.9829],
+         [0.9824],
+         [0.9825],
+         [0.9813],
+         [0.9809],
+         [0.9831],
+         [0.9829],
+         [0.9821],
+         [0.9826],
+         [0.9791],
+         [0.9824],
+         [0.9820],
+         [0.9808],
+         [0.9826],
+         [0.9796],
+         [0.9794],
+         [0.9822],
+         [0.9824],
+         [0.9748],
+         [0.9826],
+         [0.9810],
+         [0.9812],
+         [0.9808],
+         [0.9810],
+         [0.9814],
+         [0.9821],
+         [0.9811],
+         [0.9809],
+         [0.9818],
+         [0.9814],
+         [0.9813],
+         [0.9787],
+         [0.9802],
+         [0.9725],
+         [0.9810],
+         [0.9734],
+         [0.9817],
+         [0.9815],
+         [0.9820],
+         [0.9717],
+         [0.9820],
+         [0.9776],
+         [0.9780],
+         [0.9814],
+         [0.9590],
+         [0.9770],
+         [0.9773],
+         [0.9806],
+         [0.9785],
+         [0.9799],
+         [0.9804],
+         [0.9762],
+         [0.9772],
+         [0.9766],
+         [0.9779],
+         [0.9721],
+         [0.9791],
+         [0.9742],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000]]])
+============================================================
+time elapsed: 0:00:04
+num of updates: 10
+action loss: 6.61521
+eval avg reward: -169.00000
+eval avg ep len: 70.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:174: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed a `seed` instead of using `Env.seed` for resetting the environment random number generator.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:190: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed `return_info` to return information from the environment resetting.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:195: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed `options` to allow the environment initialisation to be passed additional information.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:141: UserWarning: [33mWARN: The obs returned by the `reset()` method was expecting numpy array dtype to be float32, actual type: float64
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:165: UserWarning: [33mWARN: The obs returned by the `reset()` method is not within the observation space.
+  logger.warn(f"{pre} is not within the observation space.")
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:227: DeprecationWarning: [33mWARN: Core environment is written in old step API which returns one bool instead of two. It is recommended to rewrite the environment with new step API. 
+  logger.deprecation(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:141: UserWarning: [33mWARN: The obs returned by the `step()` method was expecting numpy array dtype to be float32, actual type: float64
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:165: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.
+  logger.warn(f"{pre} is not within the observation space.")
+============================================================
+time elapsed: 0:00:05
+num of updates: 20
+action loss: 5.46616
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+time elapsed: 0:00:06
+num of updates: 30
+action loss: 5.44824
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+time elapsed: 0:00:06
+num of updates: 40
+action loss: 5.44707
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+time elapsed: 0:00:07
+num of updates: 50
+action loss: 5.44688
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+time elapsed: 0:00:08
+num of updates: 60
+action loss: 5.44683
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+time elapsed: 0:00:09
+num of updates: 70
+action loss: 5.44681
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+time elapsed: 0:00:09
+num of updates: 80
+action loss: 5.44680
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+time elapsed: 0:00:10
+num of updates: 90
+action loss: 5.44679
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+time elapsed: 0:00:11
+num of updates: 100
+action loss: 5.44678
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+time elapsed: 0:00:11
+num of updates: 110
+action loss: 5.44677
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+time elapsed: 0:00:12
+num of updates: 120
+action loss: 5.44677
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+time elapsed: 0:00:13
+num of updates: 130
+action loss: 5.44676
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+time elapsed: 0:00:14
+num of updates: 140
+action loss: 5.44676
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+time elapsed: 0:00:14
+num of updates: 150
+action loss: 5.44675
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+time elapsed: 0:00:15
+num of updates: 160
+action loss: 5.44675
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+time elapsed: 0:00:16
+num of updates: 170
+action loss: 5.44675
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+time elapsed: 0:00:16
+num of updates: 180
+action loss: 5.44674
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+time elapsed: 0:00:17
+num of updates: 190
+action loss: 5.44674
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+time elapsed: 0:00:18
+num of updates: 200
+action loss: 5.44673
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+finished training!
+============================================================
+started training at: 22-08-24-12-09-35
+finished training at: 22-08-24-12-09-53
+total training time: 0:00:18
+max d4rl score: -1.00000
+saved max d4rl score model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35_best.pt
+saved last updated model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-09-35.pt
+============================================================
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/model_min_dt.py:63: TracerWarning: Converting a tensor to a Python float might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  weights = torch.matmul(q, k.transpose(2,3)) / math.sqrt(D)
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py:285: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  return tensor.shape == torch.Size([0]) or (~torch.isfinite(tensor)).all().item()
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py:285: TracerWarning: Converting a tensor to a Python number might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  return tensor.shape == torch.Size([0]) or (~torch.isfinite(tensor)).all().item()
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py:288: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if not torch.isfinite(tensor).all():
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py:203: TracerWarning: Converting a tensor to a Python number might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  tmin = flat.min().item()
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py:204: TracerWarning: Converting a tensor to a Python number might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  tmax = flat.max().item()
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py:239: TracerWarning: Converting a tensor to a Python list might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  {name: wandb.Histogram(np_histogram=(tensor.tolist(), bins.tolist()))},

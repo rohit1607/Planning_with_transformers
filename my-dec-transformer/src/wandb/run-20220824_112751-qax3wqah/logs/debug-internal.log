@@ -1,0 +1,271 @@
+2022-08-24 11:27:51,028 INFO    StreamThr :1330681 [internal.py:wandb_internal():90] W&B internal server running at pid: 1330681, started at: 2022-08-24 11:27:51.028619
+2022-08-24 11:27:51,029 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: status
+2022-08-24 11:27:51,030 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: status
+2022-08-24 11:27:51,034 INFO    WriterThread:1330681 [datastore.py:open_for_write():75] open: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/run-qax3wqah.wandb
+2022-08-24 11:27:51,034 DEBUG   SenderThread:1330681 [sender.py:send():302] send: header
+2022-08-24 11:27:51,035 DEBUG   SenderThread:1330681 [sender.py:send():302] send: run
+2022-08-24 11:27:52,076 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: check_version
+2022-08-24 11:27:52,079 INFO    SenderThread:1330681 [dir_watcher.py:__init__():216] watching files in: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files
+2022-08-24 11:27:52,079 INFO    SenderThread:1330681 [sender.py:_start_run_threads():913] run started: qax3wqah with start time 1661320671.026249
+2022-08-24 11:27:52,079 DEBUG   SenderThread:1330681 [sender.py:send():302] send: summary
+2022-08-24 11:27:52,080 INFO    SenderThread:1330681 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 11:27:52,080 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: check_version
+2022-08-24 11:27:52,238 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: run_start
+2022-08-24 11:27:52,243 DEBUG   HandlerThread:1330681 [meta.py:__init__():35] meta init
+2022-08-24 11:27:52,243 DEBUG   HandlerThread:1330681 [meta.py:__init__():50] meta init done
+2022-08-24 11:27:52,243 DEBUG   HandlerThread:1330681 [meta.py:probe():216] probe
+2022-08-24 11:27:52,249 DEBUG   HandlerThread:1330681 [meta.py:_setup_git():206] setup git
+2022-08-24 11:27:52,253 DEBUG   HandlerThread:1330681 [meta.py:_setup_git():213] setup git done
+2022-08-24 11:27:52,253 DEBUG   HandlerThread:1330681 [meta.py:_save_pip():54] save pip
+2022-08-24 11:27:52,253 DEBUG   HandlerThread:1330681 [meta.py:_save_pip():68] save pip done
+2022-08-24 11:27:52,253 DEBUG   HandlerThread:1330681 [meta.py:probe():254] probe done
+2022-08-24 11:27:52,255 DEBUG   SenderThread:1330681 [sender.py:send():302] send: files
+2022-08-24 11:27:52,255 INFO    SenderThread:1330681 [sender.py:_save_file():1156] saving file wandb-metadata.json with policy now
+2022-08-24 11:27:52,258 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 11:27:52,258 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 11:27:52,818 DEBUG   SenderThread:1330681 [sender.py:send():302] send: telemetry
+2022-08-24 11:27:53,082 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_created():275] file/dir created: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/requirements.txt
+2022-08-24 11:27:53,082 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_created():275] file/dir created: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/wandb-summary.json
+2022-08-24 11:27:53,082 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_created():275] file/dir created: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/output.log
+2022-08-24 11:27:53,082 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_created():275] file/dir created: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/wandb-metadata.json
+2022-08-24 11:27:53,940 INFO    Thread-16 :1330681 [upload_job.py:push():138] Uploaded file /tmp/tmp3dbi9u_rwandb/213u16oe-wandb-metadata.json
+2022-08-24 11:27:54,528 DEBUG   SenderThread:1330681 [sender.py:send():302] send: telemetry
+2022-08-24 11:27:55,082 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/output.log
+2022-08-24 11:27:56,082 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/output.log
+2022-08-24 11:27:59,034 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:27:59,035 DEBUG   SenderThread:1330681 [sender.py:send():302] send: history
+2022-08-24 11:27:59,036 DEBUG   SenderThread:1330681 [sender.py:send():302] send: summary
+2022-08-24 11:27:59,037 INFO    SenderThread:1330681 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 11:27:59,083 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/wandb-summary.json
+2022-08-24 11:28:01,084 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/output.log
+2022-08-24 11:28:02,084 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/output.log
+2022-08-24 11:28:03,701 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:03,701 DEBUG   SenderThread:1330681 [sender.py:send():302] send: history
+2022-08-24 11:28:03,702 DEBUG   SenderThread:1330681 [sender.py:send():302] send: summary
+2022-08-24 11:28:03,702 INFO    SenderThread:1330681 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 11:28:04,085 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/wandb-summary.json
+2022-08-24 11:28:05,085 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/output.log
+2022-08-24 11:28:07,741 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:07,742 DEBUG   SenderThread:1330681 [sender.py:send():302] send: history
+2022-08-24 11:28:07,742 DEBUG   SenderThread:1330681 [sender.py:send():302] send: summary
+2022-08-24 11:28:07,742 INFO    SenderThread:1330681 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 11:28:07,906 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: stop_status
+2022-08-24 11:28:07,907 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: stop_status
+2022-08-24 11:28:08,086 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/wandb-summary.json
+2022-08-24 11:28:11,086 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/output.log
+2022-08-24 11:28:11,711 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:11,712 DEBUG   SenderThread:1330681 [sender.py:send():302] send: history
+2022-08-24 11:28:11,712 DEBUG   SenderThread:1330681 [sender.py:send():302] send: summary
+2022-08-24 11:28:11,713 INFO    SenderThread:1330681 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 11:28:12,087 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/wandb-summary.json
+2022-08-24 11:28:13,087 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/output.log
+2022-08-24 11:28:15,772 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,773 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,773 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,774 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,774 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,775 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,776 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,776 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,777 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,777 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,778 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,778 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,780 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,781 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,781 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,782 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,783 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,783 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,784 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,784 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,785 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,785 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,786 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,787 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,787 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,788 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,788 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,789 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,791 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,791 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,792 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,792 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,793 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,793 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,794 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,794 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,795 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,796 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,796 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,797 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,797 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,798 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,799 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,799 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,801 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,801 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,802 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,802 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,803 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,804 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,804 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,805 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,805 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,806 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,806 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,807 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,807 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,808 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,809 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,814 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: partial_history
+2022-08-24 11:28:15,824 DEBUG   SenderThread:1330681 [sender.py:send():302] send: history
+2022-08-24 11:28:15,831 DEBUG   SenderThread:1330681 [sender.py:send():302] send: summary
+2022-08-24 11:28:15,838 INFO    SenderThread:1330681 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 11:28:16,061 DEBUG   SenderThread:1330681 [sender.py:send():302] send: exit
+2022-08-24 11:28:16,061 INFO    SenderThread:1330681 [sender.py:send_exit():438] handling exit code: 1
+2022-08-24 11:28:16,061 INFO    SenderThread:1330681 [sender.py:send_exit():440] handling runtime: 23
+2022-08-24 11:28:16,067 INFO    SenderThread:1330681 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 11:28:16,067 INFO    SenderThread:1330681 [sender.py:send_exit():446] send defer
+2022-08-24 11:28:16,068 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:16,068 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 11:28:16,068 INFO    HandlerThread:1330681 [handler.py:handle_request_defer():164] handle defer: 0
+2022-08-24 11:28:16,068 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:16,068 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: defer
+2022-08-24 11:28:16,068 INFO    SenderThread:1330681 [sender.py:send_request_defer():455] handle sender defer: 0
+2022-08-24 11:28:16,068 INFO    SenderThread:1330681 [sender.py:transition_state():459] send defer: 1
+2022-08-24 11:28:16,069 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 11:28:16,069 INFO    HandlerThread:1330681 [handler.py:handle_request_defer():164] handle defer: 1
+2022-08-24 11:28:16,088 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/wandb-summary.json
+2022-08-24 11:28:16,157 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: defer
+2022-08-24 11:28:16,157 INFO    SenderThread:1330681 [sender.py:send_request_defer():455] handle sender defer: 1
+2022-08-24 11:28:16,157 INFO    SenderThread:1330681 [sender.py:transition_state():459] send defer: 2
+2022-08-24 11:28:16,157 DEBUG   SenderThread:1330681 [sender.py:send():302] send: stats
+2022-08-24 11:28:16,158 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 11:28:16,158 INFO    HandlerThread:1330681 [handler.py:handle_request_defer():164] handle defer: 2
+2022-08-24 11:28:16,158 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: defer
+2022-08-24 11:28:16,158 INFO    SenderThread:1330681 [sender.py:send_request_defer():455] handle sender defer: 2
+2022-08-24 11:28:16,158 INFO    SenderThread:1330681 [sender.py:transition_state():459] send defer: 3
+2022-08-24 11:28:16,158 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 11:28:16,158 INFO    HandlerThread:1330681 [handler.py:handle_request_defer():164] handle defer: 3
+2022-08-24 11:28:16,158 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: defer
+2022-08-24 11:28:16,158 INFO    SenderThread:1330681 [sender.py:send_request_defer():455] handle sender defer: 3
+2022-08-24 11:28:16,158 INFO    SenderThread:1330681 [sender.py:transition_state():459] send defer: 4
+2022-08-24 11:28:16,158 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 11:28:16,158 INFO    HandlerThread:1330681 [handler.py:handle_request_defer():164] handle defer: 4
+2022-08-24 11:28:16,165 DEBUG   SenderThread:1330681 [sender.py:send():302] send: summary
+2022-08-24 11:28:16,170 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:16,170 INFO    SenderThread:1330681 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-08-24 11:28:16,171 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: defer
+2022-08-24 11:28:16,171 INFO    SenderThread:1330681 [sender.py:send_request_defer():455] handle sender defer: 4
+2022-08-24 11:28:16,171 INFO    SenderThread:1330681 [sender.py:transition_state():459] send defer: 5
+2022-08-24 11:28:16,171 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:16,171 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 11:28:16,171 INFO    HandlerThread:1330681 [handler.py:handle_request_defer():164] handle defer: 5
+2022-08-24 11:28:16,171 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: defer
+2022-08-24 11:28:16,172 INFO    SenderThread:1330681 [sender.py:send_request_defer():455] handle sender defer: 5
+2022-08-24 11:28:16,272 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:16,706 INFO    SenderThread:1330681 [sender.py:transition_state():459] send defer: 6
+2022-08-24 11:28:16,706 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:16,706 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 11:28:16,706 INFO    HandlerThread:1330681 [handler.py:handle_request_defer():164] handle defer: 6
+2022-08-24 11:28:16,707 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: defer
+2022-08-24 11:28:16,707 INFO    SenderThread:1330681 [sender.py:send_request_defer():455] handle sender defer: 6
+2022-08-24 11:28:16,807 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:17,088 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/wandb-summary.json
+2022-08-24 11:28:17,088 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/config.yaml
+2022-08-24 11:28:17,088 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/output.log
+2022-08-24 11:28:17,389 INFO    SenderThread:1330681 [sender.py:transition_state():459] send defer: 7
+2022-08-24 11:28:17,389 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:17,390 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 11:28:17,390 INFO    HandlerThread:1330681 [handler.py:handle_request_defer():164] handle defer: 7
+2022-08-24 11:28:17,390 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: defer
+2022-08-24 11:28:17,390 INFO    SenderThread:1330681 [sender.py:send_request_defer():455] handle sender defer: 7
+2022-08-24 11:28:17,390 INFO    SenderThread:1330681 [dir_watcher.py:finish():362] shutting down directory watcher
+2022-08-24 11:28:17,491 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:18,088 INFO    Thread-12 :1330681 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/output.log
+2022-08-24 11:28:18,089 INFO    SenderThread:1330681 [dir_watcher.py:finish():392] scan: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files
+2022-08-24 11:28:18,089 INFO    SenderThread:1330681 [dir_watcher.py:finish():406] scan save: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/wandb-summary.json wandb-summary.json
+2022-08-24 11:28:18,089 INFO    SenderThread:1330681 [dir_watcher.py:finish():406] scan save: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/wandb-metadata.json wandb-metadata.json
+2022-08-24 11:28:18,089 INFO    SenderThread:1330681 [dir_watcher.py:finish():406] scan save: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/config.yaml config.yaml
+2022-08-24 11:28:18,089 INFO    SenderThread:1330681 [dir_watcher.py:finish():406] scan save: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/requirements.txt requirements.txt
+2022-08-24 11:28:18,089 INFO    SenderThread:1330681 [dir_watcher.py:finish():406] scan save: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/output.log output.log
+2022-08-24 11:28:18,089 INFO    SenderThread:1330681 [sender.py:transition_state():459] send defer: 8
+2022-08-24 11:28:18,089 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:18,092 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 11:28:18,092 INFO    HandlerThread:1330681 [handler.py:handle_request_defer():164] handle defer: 8
+2022-08-24 11:28:18,092 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: defer
+2022-08-24 11:28:18,092 INFO    SenderThread:1330681 [sender.py:send_request_defer():455] handle sender defer: 8
+2022-08-24 11:28:18,092 INFO    SenderThread:1330681 [file_pusher.py:finish():171] shutting down file pusher
+2022-08-24 11:28:18,192 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:18,192 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:18,293 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:18,293 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:18,394 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:18,394 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:18,495 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:18,495 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:18,596 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:18,596 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:18,697 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:18,697 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:18,799 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:18,799 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:18,900 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:18,900 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:19,001 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:19,001 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:19,102 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:19,102 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:19,203 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:19,203 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:19,304 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:19,304 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:19,405 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:19,405 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:19,506 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:19,506 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:19,542 INFO    Thread-18 :1330681 [upload_job.py:push():138] Uploaded file /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/config.yaml
+2022-08-24 11:28:19,607 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:19,607 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:19,665 INFO    Thread-20 :1330681 [upload_job.py:push():138] Uploaded file /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/output.log
+2022-08-24 11:28:19,670 INFO    Thread-19 :1330681 [upload_job.py:push():138] Uploaded file /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/requirements.txt
+2022-08-24 11:28:19,677 INFO    Thread-17 :1330681 [upload_job.py:push():138] Uploaded file /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/files/wandb-summary.json
+2022-08-24 11:28:19,708 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:19,708 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:19,809 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:19,809 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:19,878 INFO    Thread-11 (_thread_body):1330681 [sender.py:transition_state():459] send defer: 9
+2022-08-24 11:28:19,878 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 11:28:19,878 INFO    HandlerThread:1330681 [handler.py:handle_request_defer():164] handle defer: 9
+2022-08-24 11:28:19,878 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: defer
+2022-08-24 11:28:19,878 INFO    SenderThread:1330681 [sender.py:send_request_defer():455] handle sender defer: 9
+2022-08-24 11:28:19,910 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:20,956 INFO    SenderThread:1330681 [sender.py:transition_state():459] send defer: 10
+2022-08-24 11:28:20,956 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:20,956 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 11:28:20,956 INFO    HandlerThread:1330681 [handler.py:handle_request_defer():164] handle defer: 10
+2022-08-24 11:28:20,956 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: defer
+2022-08-24 11:28:20,956 INFO    SenderThread:1330681 [sender.py:send_request_defer():455] handle sender defer: 10
+2022-08-24 11:28:20,957 INFO    SenderThread:1330681 [sender.py:transition_state():459] send defer: 11
+2022-08-24 11:28:20,957 DEBUG   SenderThread:1330681 [sender.py:send():302] send: final
+2022-08-24 11:28:20,957 DEBUG   SenderThread:1330681 [sender.py:send():302] send: footer
+2022-08-24 11:28:20,957 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: defer
+2022-08-24 11:28:20,957 INFO    HandlerThread:1330681 [handler.py:handle_request_defer():164] handle defer: 11
+2022-08-24 11:28:20,957 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: defer
+2022-08-24 11:28:20,957 INFO    SenderThread:1330681 [sender.py:send_request_defer():455] handle sender defer: 11
+2022-08-24 11:28:21,057 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: poll_exit
+2022-08-24 11:28:21,057 DEBUG   SenderThread:1330681 [sender.py:send_request():316] send_request: poll_exit
+2022-08-24 11:28:21,057 INFO    SenderThread:1330681 [file_pusher.py:join():176] waiting for file pusher
+2022-08-24 11:28:22,361 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: sampled_history
+2022-08-24 11:28:22,362 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: get_summary
+2022-08-24 11:28:22,369 INFO    MainThread:1330681 [wandb_run.py:_footer_history_summary_info():3305] rendering history
+2022-08-24 11:28:22,372 INFO    MainThread:1330681 [wandb_run.py:_footer_history_summary_info():3337] rendering summary
+2022-08-24 11:28:22,372 INFO    MainThread:1330681 [wandb_run.py:_footer_sync_info():3261] logging synced files
+2022-08-24 11:28:22,373 DEBUG   HandlerThread:1330681 [handler.py:handle_request():141] handle_request: shutdown
+2022-08-24 11:28:22,373 INFO    HandlerThread:1330681 [handler.py:finish():810] shutting down handler
+2022-08-24 11:28:22,958 INFO    WriterThread:1330681 [datastore.py:close():279] close: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_112751-qax3wqah/run-qax3wqah.wandb
+2022-08-24 11:28:23,260 INFO    SenderThread:1330681 [sender.py:finish():1312] shutting down sender
+2022-08-24 11:28:23,260 INFO    SenderThread:1330681 [file_pusher.py:finish():171] shutting down file pusher
+2022-08-24 11:28:23,261 INFO    SenderThread:1330681 [file_pusher.py:join():176] waiting for file pusher
+2022-08-24 11:28:23,375 INFO    MainThread:1330681 [internal.py:handle_exit():80] Internal process exited

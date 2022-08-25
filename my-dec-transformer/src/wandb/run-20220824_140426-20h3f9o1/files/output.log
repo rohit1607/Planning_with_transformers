@@ -1,0 +1,59 @@
+============================================================
+start time: 08-24-14-04
+============================================================
+device set to: cuda
+dataset path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/traj_data_for_model_2.pkl
+model save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-24-14-04.pt
+log csv save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_log_08-24-14-04.csv
+***********CHECK: len(self.trajectories) =5000
+ ---- Visualizing input ----
+CHECK: states.shape = torch.Size([100, 2])
+CHECK: actions.shape = torch.Size([100, 1])
+===== Note: rescaling states to original scale for viz=====
+ ---- -------------- ----
+**** initializing ContGridWorld_v5 environment *****
+====================
+init:  [19.5 20.5]
+start_pos.shape=(2,)
+xlim:  100
+Umax=1.9990378869066041
+Vmax=0.8324810714401253
+Umean=0.41962545542847707
+Vmean=0.2523411151246392
+====================
+act_dim = 1
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/core.py:329: DeprecationWarning: [33mWARN: Initializing wrapper in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/wrappers/step_api_compatibility.py:39: DeprecationWarning: [33mWARN: Initializing environment in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+[34m[1mwandb[39m[22m: logging graph, to disable use `wandb.watch(log_graph=False)`
+Traceback (most recent call last):
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/train_model.py", line 364, in <module>
+    train('cfg', args, cfg_name, params2_name)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/train_model.py", line 213, in train
+    wandb.log({"loss": action_loss, "epochs":{i_train_iter}})
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 289, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 255, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1591, in log
+    self._log(data=data, step=step, commit=commit)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1375, in _log
+    self._partial_history_callback(data, step, commit)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1259, in _partial_history_callback
+    self._backend.interface.publish_partial_history(
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 548, in publish_partial_history
+    item.value_json = json_dumps_safer_history(v)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/util.py", line 827, in json_dumps_safer_history
+    return json.dumps(obj, cls=WandBHistoryJSONEncoder, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/util.py", line 794, in default
+    return json.JSONEncoder.default(self, obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type set is not JSON serializable

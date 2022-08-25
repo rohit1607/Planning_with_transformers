@@ -1,0 +1,190 @@
+============================================================
+start time: 22-08-24-11-36-44
+============================================================
+device set to: cuda
+dataset path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/traj_data_for_model_2.pkl
+model save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-11-36-44.pt
+log csv save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_log_22-08-24-11-36-44.csv
+***********CHECK: len(self.trajectories) =5000
+ ---- Visualizing input ----
+CHECK: states.shape = torch.Size([100, 2])
+CHECK: actions.shape = torch.Size([100, 1])
+===== Note: rescaling states to original scale for viz=====
+ ---- -------------- ----
+**** initializing ContGridWorld_v5 environment *****
+====================
+init:  [19.5 20.5]
+start_pos.shape=(2,)
+xlim:  100
+Umax=1.9990378869066041
+Vmax=0.8324810714401253
+Umean=0.41962545542847707
+Vmean=0.2523411151246392
+====================
+act_dim = 1
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/core.py:329: DeprecationWarning: [33mWARN: Initializing wrapper in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/wrappers/step_api_compatibility.py:39: DeprecationWarning: [33mWARN: Initializing environment in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+===== Note: rescaling states to original scale for viz=====
+CHECK: states.shape = torch.Size([1, 120, 2])
+CHECK: actions.shape = torch.Size([1, 120, 1])
+actions;
+ tensor([[[0.9461],
+         [0.9463],
+         [0.9462],
+         [0.9454],
+         [0.9454],
+         [0.9456],
+         [0.9448],
+         [0.9442],
+         [0.9446],
+         [0.9451],
+         [0.9444],
+         [0.9460],
+         [0.9410],
+         [0.9458],
+         [0.9455],
+         [0.9446],
+         [0.9464],
+         [0.9439],
+         [0.9403],
+         [0.9436],
+         [0.9396],
+         [0.9357],
+         [0.9426],
+         [0.9414],
+         [0.9449],
+         [0.9354],
+         [0.9353],
+         [0.9383],
+         [0.9441],
+         [0.9428],
+         [0.9452],
+         [0.9384],
+         [0.9296],
+         [0.9182],
+         [0.9092],
+         [0.9399],
+         [0.9148],
+         [0.9374],
+         [0.9427],
+         [0.9312],
+         [0.9338],
+         [0.9290],
+         [0.8958],
+         [0.9326],
+         [0.9199],
+         [0.9365],
+         [0.9267],
+         [0.9310],
+         [0.9431],
+         [0.8984],
+         [0.9097],
+         [0.7602],
+         [0.7290],
+         [0.9280],
+         [0.9294],
+         [0.9221],
+         [0.9130],
+         [0.9341],
+         [0.8023],
+         [0.9280],
+         [0.9281],
+         [0.7623],
+         [0.8519],
+         [0.9299],
+         [0.8178],
+         [0.9275],
+         [0.9126],
+         [0.8799],
+         [0.8611],
+         [0.8963],
+         [0.9239],
+         [0.9122],
+         [0.9128],
+         [0.9182],
+         [0.8427],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000]]])
+============================================================
+time elapsed: 0:00:03
+num of updates: 10
+action loss: 7.24773
+eval avg reward: -174.00000
+eval avg ep len: 75.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-11-36-44.pt
+============================================================
+finished training!
+============================================================
+started training at: 22-08-24-11-36-44
+finished training at: 22-08-24-11-36-47
+total training time: 0:00:03
+max d4rl score: -1.00000
+saved max d4rl score model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-11-36-44_best.pt
+saved last updated model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-11-36-44.pt
+============================================================
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:174: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed a `seed` instead of using `Env.seed` for resetting the environment random number generator.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:190: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed `return_info` to return information from the environment resetting.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:195: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed `options` to allow the environment initialisation to be passed additional information.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:141: UserWarning: [33mWARN: The obs returned by the `reset()` method was expecting numpy array dtype to be float32, actual type: float64
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:165: UserWarning: [33mWARN: The obs returned by the `reset()` method is not within the observation space.
+  logger.warn(f"{pre} is not within the observation space.")
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:227: DeprecationWarning: [33mWARN: Core environment is written in old step API which returns one bool instead of two. It is recommended to rewrite the environment with new step API. 
+  logger.deprecation(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:141: UserWarning: [33mWARN: The obs returned by the `step()` method was expecting numpy array dtype to be float32, actual type: float64
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:165: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.
+  logger.warn(f"{pre} is not within the observation space.")
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/model_min_dt.py:52: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  N, D = self.n_heads, C // self.n_heads # N = num heads, D = attention dim
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/model_min_dt.py:62: TracerWarning: Converting a tensor to a Python float might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  weights = q @ k.transpose(2,3) / math.sqrt(D)

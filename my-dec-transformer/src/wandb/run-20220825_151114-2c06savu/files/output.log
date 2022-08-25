@@ -1,0 +1,37 @@
+============================================================
+start time: 08-25-15-11
+============================================================
+device set to: cuda
+dataset path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/traj_data_for_model_2.pkl
+model save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-25-15-11.pt
+log csv save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_log_08-25-15-11.csv
+***********CHECK: len(self.trajectories) =5000
+ ---- Visualizing input ----
+CHECK: states.shape = torch.Size([100, 2])
+CHECK: actions.shape = torch.Size([100, 1])
+===== Note: rescaling states to original scale for viz=====
+ ---- -------------- ----
+**** initializing ContGridWorld_v5 environment *****
+====================
+init:  [19.5 20.5]
+start_pos.shape=(2,)
+xlim:  100
+Umax=1.9990378869066041
+Vmax=0.8324810714401253
+Umean=0.41962545542847707
+Vmean=0.2523411151246392
+====================
+act_dim = 1
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/core.py:329: DeprecationWarning: [33mWARN: Initializing wrapper in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/wrappers/step_api_compatibility.py:39: DeprecationWarning: [33mWARN: Initializing environment in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+[34m[1mwandb[39m[22m: logging graph, to disable use `wandb.watch(log_graph=False)`
+Traceback (most recent call last):
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/train_model.py", line 368, in <module>
+    train('cfg', args, cfg_name, params2_name)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/train_model.py", line 255, in train
+    p_log.log_params(device=device)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/utils/utils.py", line 61, in log_params
+    self.wb_log_dict[n_param[0]].append(param.detach().numpy().reshape(-1,1))
+TypeError: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.

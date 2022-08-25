@@ -1,0 +1,62 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.13.2
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.10.4
+    start_time: 1661420538.604645
+    t:
+      1:
+      - 1
+      - 55
+      2:
+      - 1
+      - 55
+      3:
+      - 1
+      - 13
+      - 16
+      - 23
+      4: 3.10.4
+      5: 0.13.2
+      8:
+      - 5
+grid_params:
+  desc: null
+  value:
+    F: 1
+    action_dim: 1
+    action_range:
+    - 0
+    - 6.28318
+    del_t: 1.0
+    space_scale: 100
+    state_dim: 2
+    target_radius: 2
+    vel_field: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/raw_data/nT_120
+    vmax_by_F: 2.0
+train_params:
+  desc: null
+  value:
+    batch_size: 64
+    context_len: 100
+    dataset_name: DG3_dummy
+    dataset_path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/traj_data_for_model_2.pkl
+    device: cuda
+    dropout_p: 0.1
+    embed_dim: 2
+    log_dir: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log
+    lr: 0.01
+    max_eval_ep_len: 120
+    max_train_iters: 40
+    n_blocks: 1
+    n_heads: 1
+    num_eval_ep: 2
+    num_updates_per_iter: 100
+    rtg_scale: 1
+    warmup_steps: 10000
+    wt_decay: 0

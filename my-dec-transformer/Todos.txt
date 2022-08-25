@@ -1,0 +1,12 @@
+1.
+    Date: Aug 21, '22
+
+    Status:
+    Action loss stagnating at 9.4
+    evaluated avg reward: -171
+
+    TODO:
+    1. Plot computed actions with states to verify correctness of data - Data seems to correct
+    2. Verify rtg
+    3. Verify contgridV5 env. Possibly the reason why cirriculum learning is also not working
+    4. Finsish any left over 'todo' in code 

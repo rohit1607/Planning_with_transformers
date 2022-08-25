@@ -1,0 +1,197 @@
+2022-08-24 15:41:31,894 INFO    MainThread:1366452 [wandb_setup.py:_flush():76] Configure stats pid to 1366452
+2022-08-24 15:41:31,894 INFO    MainThread:1366452 [wandb_setup.py:_flush():76] Loading settings from /home/rohit/.config/wandb/settings
+2022-08-24 15:41:31,894 INFO    MainThread:1366452 [wandb_setup.py:_flush():76] Loading settings from /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/settings
+2022-08-24 15:41:31,894 INFO    MainThread:1366452 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'_require_service': 'True'}
+2022-08-24 15:41:31,895 INFO    MainThread:1366452 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'my-dec-transformer/src/test_weight_viz.py', 'program': '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/test_weight_viz.py'}
+2022-08-24 15:41:31,895 INFO    MainThread:1366452 [wandb_init.py:_log_setup():461] Logging user logs to /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_154131-1p9yy4kw/logs/debug.log
+2022-08-24 15:41:31,895 INFO    MainThread:1366452 [wandb_init.py:_log_setup():462] Logging internal logs to /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220824_154131-1p9yy4kw/logs/debug-internal.log
+2022-08-24 15:41:31,895 INFO    MainThread:1366452 [wandb_init.py:init():495] calling init triggers
+2022-08-24 15:41:31,895 INFO    MainThread:1366452 [wandb_init.py:init():498] wandb.init called with sweep_config: {}
+config: {'lr': 0.01, 'n_epochs': 100}
+2022-08-24 15:41:31,895 INFO    MainThread:1366452 [wandb_init.py:init():548] starting backend
+2022-08-24 15:41:31,895 INFO    MainThread:1366452 [wandb_init.py:init():552] setting up manager
+2022-08-24 15:41:31,897 INFO    MainThread:1366452 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2022-08-24 15:41:31,898 INFO    MainThread:1366452 [wandb_init.py:init():558] backend started and connected
+2022-08-24 15:41:31,900 INFO    MainThread:1366452 [wandb_init.py:init():636] updated telemetry
+2022-08-24 15:41:31,901 INFO    MainThread:1366452 [wandb_init.py:init():667] communicating run to backend with 30 second timeout
+2022-08-24 15:41:32,786 INFO    MainThread:1366452 [wandb_run.py:_on_init():1982] communicating current version
+2022-08-24 15:41:32,974 INFO    MainThread:1366452 [wandb_run.py:_on_init():1986] got version response 
+2022-08-24 15:41:32,975 INFO    MainThread:1366452 [wandb_init.py:init():700] starting run threads in backend
+2022-08-24 15:41:33,002 INFO    MainThread:1366452 [wandb_run.py:_console_start():1962] atexit reg
+2022-08-24 15:41:33,003 INFO    MainThread:1366452 [wandb_run.py:_redirect():1820] redirect: SettingsConsole.WRAP_RAW
+2022-08-24 15:41:33,003 INFO    MainThread:1366452 [wandb_run.py:_redirect():1885] Wrapping output streams.
+2022-08-24 15:41:33,003 INFO    MainThread:1366452 [wandb_run.py:_redirect():1907] Redirects installed.
+2022-08-24 15:41:33,003 INFO    MainThread:1366452 [wandb_init.py:init():732] run started, returning control to user process
+2022-08-24 15:41:33,023 INFO    MainThread:1366452 [wandb_watch.py:watch():47] Watching
+2022-08-24 15:41:36,108 INFO    MainThread:1366452 [wandb_run.py:_finish():1728] finishing run rohit-iisc/param_viz_test/1p9yy4kw
+2022-08-24 15:41:36,108 INFO    MainThread:1366452 [wandb_run.py:_atexit_cleanup():1931] got exitcode: 0
+2022-08-24 15:41:36,108 INFO    MainThread:1366452 [wandb_run.py:_restore():1914] restore
+2022-08-24 15:41:36,109 INFO    MainThread:1366452 [wandb_run.py:_restore():1920] restore done
+2022-08-24 15:41:36,111 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 932
+  total_bytes: 932
+}
+
+2022-08-24 15:41:36,560 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 932
+  total_bytes: 932
+}
+
+2022-08-24 15:41:37,591 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 932
+  total_bytes: 932
+}
+
+2022-08-24 15:41:37,802 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 932
+  total_bytes: 932
+}
+
+2022-08-24 15:41:37,903 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 932
+  total_bytes: 9376
+}
+
+2022-08-24 15:41:38,004 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 932
+  total_bytes: 9376
+}
+
+2022-08-24 15:41:38,106 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 932
+  total_bytes: 9376
+}
+
+2022-08-24 15:41:38,207 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 932
+  total_bytes: 9376
+}
+
+2022-08-24 15:41:38,309 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 932
+  total_bytes: 9376
+}
+
+2022-08-24 15:41:38,410 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 7398
+  total_bytes: 9376
+}
+
+2022-08-24 15:41:38,511 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 7853
+  total_bytes: 9376
+}
+
+2022-08-24 15:41:38,613 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 9376
+  total_bytes: 9376
+}
+
+2022-08-24 15:41:38,714 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 9376
+  total_bytes: 9376
+}
+
+2022-08-24 15:41:38,816 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 9376
+  total_bytes: 9376
+}
+
+2022-08-24 15:41:38,917 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 9376
+  total_bytes: 9376
+}
+
+2022-08-24 15:41:39,019 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 9376
+  total_bytes: 9376
+}
+
+2022-08-24 15:41:39,120 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 9376
+  total_bytes: 9376
+}
+
+2022-08-24 15:41:39,221 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 9376
+  total_bytes: 9376
+}
+
+2022-08-24 15:41:39,644 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 9376
+  total_bytes: 9376
+}
+
+2022-08-24 15:41:40,597 INFO    MainThread:1366452 [wandb_run.py:_on_finish():2221] got exit ret: done: true
+exit_result {
+}
+file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 9376
+  total_bytes: 9376
+}
+local_info {
+}
+
+2022-08-24 15:41:41,703 INFO    MainThread:1366452 [wandb_run.py:_footer_history_summary_info():3305] rendering history
+2022-08-24 15:41:41,703 INFO    MainThread:1366452 [wandb_run.py:_footer_history_summary_info():3337] rendering summary
+2022-08-24 15:41:41,704 INFO    MainThread:1366452 [wandb_run.py:_footer_sync_info():3261] logging synced files

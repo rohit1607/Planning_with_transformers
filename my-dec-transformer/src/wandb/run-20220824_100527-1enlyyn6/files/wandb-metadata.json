@@ -1,0 +1,24 @@
+{
+    "os": "Linux-5.15.0-46-generic-x86_64-with-glibc2.35",
+    "python": "3.10.4",
+    "heartbeatAt": "2022-08-24T04:35:28.949621",
+    "startedAt": "2022-08-24T04:35:27.622159",
+    "docker": null,
+    "gpu": "NVIDIA GeForce GTX 1050 Ti",
+    "gpu_count": 2,
+    "cpu_count": 12,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/train_model.py",
+    "codePath": "my-dec-transformer/src/train_model.py",
+    "git": {
+        "remote": null,
+        "commit": null
+    },
+    "email": "rohitchowdhury@iisc.ac.in",
+    "root": "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer",
+    "host": "rohi",
+    "username": "rohit",
+    "executable": "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/bin/python3"
+}

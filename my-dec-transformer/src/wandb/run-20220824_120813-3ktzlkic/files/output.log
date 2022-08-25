@@ -1,0 +1,190 @@
+============================================================
+start time: 22-08-24-12-08-14
+============================================================
+device set to: cuda
+dataset path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/traj_data_for_model_2.pkl
+model save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-08-14.pt
+log csv save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_log_22-08-24-12-08-14.csv
+***********CHECK: len(self.trajectories) =5000
+ ---- Visualizing input ----
+CHECK: states.shape = torch.Size([100, 2])
+CHECK: actions.shape = torch.Size([100, 1])
+===== Note: rescaling states to original scale for viz=====
+ ---- -------------- ----
+**** initializing ContGridWorld_v5 environment *****
+====================
+init:  [19.5 20.5]
+start_pos.shape=(2,)
+xlim:  100
+Umax=1.9990378869066041
+Vmax=0.8324810714401253
+Umean=0.41962545542847707
+Vmean=0.2523411151246392
+====================
+act_dim = 1
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/core.py:329: DeprecationWarning: [33mWARN: Initializing wrapper in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/wrappers/step_api_compatibility.py:39: DeprecationWarning: [33mWARN: Initializing environment in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+[34m[1mwandb[39m[22m: logging graph, to disable use `wandb.watch(log_graph=False)`
+===== Note: rescaling states to original scale for viz=====
+CHECK: states.shape = torch.Size([1, 120, 2])
+CHECK: actions.shape = torch.Size([1, 120, 1])
+actions;
+ tensor([[[ 0.9790],
+         [ 0.9780],
+         [ 0.9786],
+         [ 0.9786],
+         [ 0.9785],
+         [ 0.9790],
+         [ 0.9788],
+         [ 0.9788],
+         [ 0.9790],
+         [ 0.9788],
+         [ 0.9783],
+         [ 0.9791],
+         [ 0.9790],
+         [ 0.9785],
+         [ 0.9785],
+         [ 0.9785],
+         [ 0.9787],
+         [ 0.9788],
+         [ 0.9790],
+         [ 0.9789],
+         [ 0.9787],
+         [ 0.9786],
+         [ 0.9789],
+         [ 0.9787],
+         [ 0.9776],
+         [ 0.9782],
+         [ 0.9774],
+         [ 0.9758],
+         [ 0.9769],
+         [ 0.9782],
+         [ 0.9691],
+         [ 0.9783],
+         [ 0.9786],
+         [ 0.9719],
+         [ 0.9781],
+         [-0.6422],
+         [ 0.9776],
+         [ 0.9505],
+         [ 0.9776],
+         [ 0.9632],
+         [ 0.9771],
+         [ 0.9766],
+         [ 0.9554],
+         [ 0.9776],
+         [ 0.9716],
+         [ 0.9781],
+         [ 0.6165],
+         [ 0.9770],
+         [ 0.9785],
+         [ 0.9770],
+         [ 0.9774],
+         [ 0.9774],
+         [ 0.9775],
+         [ 0.9766],
+         [ 0.9765],
+         [-0.3856],
+         [ 0.9770],
+         [ 0.9730],
+         [ 0.9744],
+         [ 0.9704],
+         [ 0.9602],
+         [ 0.9742],
+         [ 0.9552],
+         [ 0.9770],
+         [ 0.9554],
+         [ 0.9763],
+         [ 0.9748],
+         [ 0.9762],
+         [ 0.9448],
+         [ 0.8831],
+         [ 0.7566],
+         [ 0.9699],
+         [ 0.8497],
+         [ 0.9755],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000]]])
+============================================================
+time elapsed: 0:00:04
+num of updates: 10
+action loss: 5.91679
+eval avg reward: -173.00000
+eval avg ep len: 74.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_22-08-24-12-08-14.pt
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:174: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed a `seed` instead of using `Env.seed` for resetting the environment random number generator.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:190: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed `return_info` to return information from the environment resetting.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:195: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed `options` to allow the environment initialisation to be passed additional information.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:141: UserWarning: [33mWARN: The obs returned by the `reset()` method was expecting numpy array dtype to be float32, actual type: float64
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:165: UserWarning: [33mWARN: The obs returned by the `reset()` method is not within the observation space.
+  logger.warn(f"{pre} is not within the observation space.")
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:227: DeprecationWarning: [33mWARN: Core environment is written in old step API which returns one bool instead of two. It is recommended to rewrite the environment with new step API. 
+  logger.deprecation(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:141: UserWarning: [33mWARN: The obs returned by the `step()` method was expecting numpy array dtype to be float32, actual type: float64
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:165: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.
+  logger.warn(f"{pre} is not within the observation space.")
+[34m[1mwandb[39m[22m: logging graph, to disable use `wandb.watch(log_graph=False)`
+Traceback (most recent call last):
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/train_model.py", line 361, in <module>
+    train('cfg', args, cfg_name, params2_name)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/train_model.py", line 211, in train
+    wandb.watch(model, log_freq=1, log="all", log_graph=True)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/sdk/wandb_watch.py", line 100, in watch
+    graph = wandb.run._torch.hook_torch(model, criterion, graph_idx=global_idx)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py", line 303, in hook_torch
+    graph.hook_torch_modules(model, criterion, graph_idx=graph_idx)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py", line 358, in hook_torch_modules
+    raise ValueError(
+ValueError: You can only call `wandb.watch` once per model.  Pass a new instance of the model if you need to call wandb.watch again in your code.
