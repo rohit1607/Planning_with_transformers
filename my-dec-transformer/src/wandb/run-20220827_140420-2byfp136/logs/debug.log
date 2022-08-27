@@ -1,0 +1,26 @@
+2022-08-27 14:04:20,343 INFO    MainThread:107398 [wandb_setup.py:_flush():76] Configure stats pid to 107398
+2022-08-27 14:04:20,343 INFO    MainThread:107398 [wandb_setup.py:_flush():76] Loading settings from /home/rohit/.config/wandb/settings
+2022-08-27 14:04:20,343 INFO    MainThread:107398 [wandb_setup.py:_flush():76] Loading settings from /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/settings
+2022-08-27 14:04:20,343 INFO    MainThread:107398 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'_require_service': 'True'}
+2022-08-27 14:04:20,343 INFO    MainThread:107398 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'my-dec-transformer/src/train_model.py', 'program': '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/train_model.py'}
+2022-08-27 14:04:20,343 INFO    MainThread:107398 [wandb_init.py:_log_setup():461] Logging user logs to /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220827_140420-2byfp136/logs/debug.log
+2022-08-27 14:04:20,343 INFO    MainThread:107398 [wandb_init.py:_log_setup():462] Logging internal logs to /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/wandb/run-20220827_140420-2byfp136/logs/debug-internal.log
+2022-08-27 14:04:20,343 INFO    MainThread:107398 [wandb_init.py:init():495] calling init triggers
+2022-08-27 14:04:20,344 INFO    MainThread:107398 [wandb_init.py:init():498] wandb.init called with sweep_config: {}
+config: {'grid_params': {'state_dim': 2, 'action_dim': 1, 'action_range': [0, 6.28318], 'F': 1, 'vel_field': '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/raw_data/nT_120', 'del_t': 1.0, 'vmax_by_F': 2.0, 'space_scale': 100, 'target_radius': 3}, 'train_params': {'rtg_scale': 1, 'dataset_name': 'DG3_dummy', 'dataset_path': '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/traj_data_for_model_3.pkl', 'log_dir': '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log', 'max_eval_ep_len': 120, 'num_eval_ep': 2, 'batch_size': 64, 'lr': 0.0001, 'wt_decay': 0, 'warmup_steps': 10000, 'max_train_iters': 100, 'num_updates_per_iter': 100, 'context_len': 70, 'n_blocks': 1, 'embed_dim': 2, 'n_heads': 1, 'dropout_p': 0.1, 'device': 'cuda'}}
+2022-08-27 14:04:20,344 INFO    MainThread:107398 [wandb_init.py:init():548] starting backend
+2022-08-27 14:04:20,344 INFO    MainThread:107398 [wandb_init.py:init():552] setting up manager
+2022-08-27 14:04:20,346 INFO    MainThread:107398 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2022-08-27 14:04:20,349 INFO    MainThread:107398 [wandb_init.py:init():558] backend started and connected
+2022-08-27 14:04:20,351 INFO    MainThread:107398 [wandb_init.py:init():636] updated telemetry
+2022-08-27 14:04:20,358 INFO    MainThread:107398 [wandb_init.py:init():667] communicating run to backend with 30 second timeout
+2022-08-27 14:04:21,124 INFO    MainThread:107398 [wandb_run.py:_on_init():1982] communicating current version
+2022-08-27 14:04:21,245 INFO    MainThread:107398 [wandb_run.py:_on_init():1986] got version response 
+2022-08-27 14:04:21,245 INFO    MainThread:107398 [wandb_init.py:init():700] starting run threads in backend
+2022-08-27 14:04:21,276 INFO    MainThread:107398 [wandb_run.py:_console_start():1962] atexit reg
+2022-08-27 14:04:21,276 INFO    MainThread:107398 [wandb_run.py:_redirect():1820] redirect: SettingsConsole.WRAP_RAW
+2022-08-27 14:04:21,276 INFO    MainThread:107398 [wandb_run.py:_redirect():1885] Wrapping output streams.
+2022-08-27 14:04:21,276 INFO    MainThread:107398 [wandb_run.py:_redirect():1907] Redirects installed.
+2022-08-27 14:04:21,276 INFO    MainThread:107398 [wandb_init.py:init():732] run started, returning control to user process
+2022-08-27 14:04:23,315 INFO    MainThread:107398 [wandb_watch.py:watch():47] Watching
+2022-08-27 14:05:13,154 WARNING MsgRouterThr:107398 [router.py:message_loop():76] message_loop has been closed

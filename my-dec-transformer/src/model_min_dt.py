@@ -124,7 +124,7 @@ class DecisionTransformer(nn.Module):
 
         # continuous actions
         self.embed_action = torch.nn.Linear(act_dim, h_dim)
-        use_action_tanh = True # True for continuous actions
+        use_action_tanh = False # True for continuous actions
 
         ### prediction heads
         self.predict_rtg = torch.nn.Linear(h_dim, 1)

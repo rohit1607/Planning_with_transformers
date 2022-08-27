@@ -1,0 +1,1489 @@
+============================================================
+start time: 08-27-15-22
+============================================================
+device set to: cuda
+dataset path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/traj_data_for_model_3.pkl
+model save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+log csv save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_log_08-27-15-22.csv
+***********CHECK: len(self.trajectories) =3150
+ ---- Visualizing input ----
+CHECK: states.shape = torch.Size([70, 2])
+CHECK: actions.shape = torch.Size([70, 1])
+===== Note: rescaling states to original scale for viz=====
+ ---- -------------- ----
+**** initializing ContGridWorld_v5 environment *****
+====================
+init:  [19.5 20.5]
+start_pos.shape=(2,)
+xlim:  100
+Umax=1.9990378869066041
+Vmax=0.8324810714401253
+Umean=0.41962545542847707
+Vmean=0.2523411151246392
+====================
+act_dim = 1
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/core.py:329: DeprecationWarning: [33mWARN: Initializing wrapper in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/wrappers/step_api_compatibility.py:39: DeprecationWarning: [33mWARN: Initializing environment in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+[34m[1mwandb[39m[22m: logging graph, to disable use `wandb.watch(log_graph=False)`
+===== Note: rescaling states to original scale for viz=====
+CHECK: states.shape = torch.Size([1, 120, 2])
+CHECK: actions.shape = torch.Size([1, 120, 1])
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:174: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed a `seed` instead of using `Env.seed` for resetting the environment random number generator.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:190: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed `return_info` to return information from the environment resetting.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:195: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed `options` to allow the environment initialisation to be passed additional information.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:141: UserWarning: [33mWARN: The obs returned by the `reset()` method was expecting numpy array dtype to be float32, actual type: float64
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:165: UserWarning: [33mWARN: The obs returned by the `reset()` method is not within the observation space.
+  logger.warn(f"{pre} is not within the observation space.")
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:227: DeprecationWarning: [33mWARN: Core environment is written in old step API which returns one bool instead of two. It is recommended to rewrite the environment with new step API. 
+  logger.deprecation(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:141: UserWarning: [33mWARN: The obs returned by the `step()` method was expecting numpy array dtype to be float32, actual type: float64
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:165: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.
+  logger.warn(f"{pre} is not within the observation space.")
+actions;
+ tensor([[[-0.6226],
+         [-0.6226],
+         [-0.3856],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.3856],
+         [-0.6226],
+         [-0.6226],
+         [-0.3856],
+         [-0.3856],
+         [-0.6226],
+         [-0.3856],
+         [-0.6226],
+         [-0.6226],
+         [-0.3856],
+         [-0.3856],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.3856],
+         [-0.3856],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.3856],
+         [-0.6226],
+         [-0.3856],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.3856],
+         [-0.3856],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.3856],
+         [-0.6226],
+         [-0.6226],
+         [-0.3856],
+         [-0.6226],
+         [-0.6226],
+         [-0.3856],
+         [-0.6226],
+         [-0.3856],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.3856],
+         [-0.6226],
+         [-0.6226],
+         [-0.3856],
+         [-0.6226],
+         [-0.3856],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.3856],
+         [-0.3856],
+         [-0.3856],
+         [-0.6226],
+         [-0.6226],
+         [-0.3856],
+         [-0.3856],
+         [-0.6226],
+         [-0.3856],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.3856],
+         [-0.3856],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.3856],
+         [-0.3856],
+         [-0.3856],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.3856],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.3856],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.6226],
+         [-0.3856],
+         [-0.6226],
+         [-0.6226]]])
+============================================================
+time elapsed: 0:00:08
+num of updates: 100
+action loss: 5.55455
+eval avg reward: -120.00000
+eval avg ep len: 120.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:00:10
+num of updates: 200
+action loss: 5.48241
+eval avg reward: -120.00000
+eval avg ep len: 120.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:00:13
+num of updates: 300
+action loss: 5.43605
+eval avg reward: -120.00000
+eval avg ep len: 120.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:00:15
+num of updates: 400
+action loss: 5.36810
+eval avg reward: -120.00000
+eval avg ep len: 120.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:00:18
+num of updates: 500
+action loss: 5.30557
+eval avg reward: -120.00000
+eval avg ep len: 120.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:00:21
+num of updates: 600
+action loss: 5.27607
+eval avg reward: -120.00000
+eval avg ep len: 120.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:00:23
+num of updates: 700
+action loss: 5.21149
+eval avg reward: -120.00000
+eval avg ep len: 120.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:00:26
+num of updates: 800
+action loss: 5.13549
+eval avg reward: -120.00000
+eval avg ep len: 120.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:00:28
+num of updates: 900
+action loss: 5.12950
+eval avg reward: -120.00000
+eval avg ep len: 120.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:00:31
+num of updates: 1000
+action loss: 4.93281
+eval avg reward: -120.00000
+eval avg ep len: 120.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:00:33
+num of updates: 1100
+action loss: 4.76441
+eval avg reward: -120.00000
+eval avg ep len: 120.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:00:36
+num of updates: 1200
+action loss: 4.60062
+eval avg reward: -120.00000
+eval avg ep len: 120.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:00:38
+num of updates: 1300
+action loss: 4.44964
+eval avg reward: -120.00000
+eval avg ep len: 120.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:00:41
+num of updates: 1400
+action loss: 4.28635
+eval avg reward: -120.00000
+eval avg ep len: 120.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:00:44
+num of updates: 1500
+action loss: 4.15505
+eval avg reward: -120.00000
+eval avg ep len: 120.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:00:46
+num of updates: 1600
+action loss: 4.00444
+eval avg reward: -219.00000
+eval avg ep len: 120.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:00:49
+num of updates: 1700
+action loss: 3.86699
+eval avg reward: -213.00000
+eval avg ep len: 114.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:00:51
+num of updates: 1800
+action loss: 3.72543
+eval avg reward: -203.00000
+eval avg ep len: 104.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:00:54
+num of updates: 1900
+action loss: 3.59165
+eval avg reward: -196.00000
+eval avg ep len: 97.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:00:57
+num of updates: 2000
+action loss: 3.43863
+eval avg reward: -191.00000
+eval avg ep len: 92.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+===== Note: rescaling states to original scale for viz=====
+CHECK: states.shape = torch.Size([1, 120, 2])
+CHECK: actions.shape = torch.Size([1, 120, 1])
+actions;
+ tensor([[[0.1737],
+         [0.1737],
+         [0.1773],
+         [0.1737],
+         [0.1737],
+         [0.1737],
+         [0.1773],
+         [0.1737],
+         [0.1737],
+         [0.1773],
+         [0.1773],
+         [0.1737],
+         [0.1773],
+         [0.1737],
+         [0.1737],
+         [0.1773],
+         [0.1773],
+         [0.1737],
+         [0.1737],
+         [0.1737],
+         [0.1737],
+         [0.1737],
+         [0.1737],
+         [0.1773],
+         [0.1773],
+         [0.1737],
+         [0.1737],
+         [0.1737],
+         [0.1737],
+         [0.1737],
+         [0.1773],
+         [0.1737],
+         [0.1773],
+         [0.1737],
+         [0.1773],
+         [0.1773],
+         [0.1737],
+         [0.1773],
+         [0.1773],
+         [0.1773],
+         [0.1773],
+         [0.1773],
+         [0.1737],
+         [0.1773],
+         [0.1737],
+         [0.1773],
+         [0.1773],
+         [0.1773],
+         [0.1737],
+         [0.1773],
+         [0.1773],
+         [0.1773],
+         [0.1773],
+         [0.1737],
+         [0.1773],
+         [0.1737],
+         [0.1773],
+         [0.1773],
+         [0.1737],
+         [0.1773],
+         [0.1773],
+         [0.1737],
+         [0.1737],
+         [0.1737],
+         [0.1773],
+         [0.1773],
+         [0.1737],
+         [0.1773],
+         [0.1737],
+         [0.1773],
+         [0.1773],
+         [0.1737],
+         [0.1773],
+         [0.1773],
+         [0.1773],
+         [0.1773],
+         [0.1773],
+         [0.1737],
+         [0.1773],
+         [0.1773],
+         [0.1737],
+         [0.1773],
+         [0.1737],
+         [0.1773],
+         [0.1773],
+         [0.1773],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000]]])
+============================================================
+time elapsed: 0:00:59
+num of updates: 2100
+action loss: 3.32573
+eval avg reward: -185.00000
+eval avg ep len: 86.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:02
+num of updates: 2200
+action loss: 3.18426
+eval avg reward: -181.00000
+eval avg ep len: 82.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:05
+num of updates: 2300
+action loss: 3.05814
+eval avg reward: -177.00000
+eval avg ep len: 78.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:07
+num of updates: 2400
+action loss: 2.92737
+eval avg reward: -174.00000
+eval avg ep len: 75.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:10
+num of updates: 2500
+action loss: 2.80167
+eval avg reward: -171.00000
+eval avg ep len: 72.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:12
+num of updates: 2600
+action loss: 2.68064
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:14
+num of updates: 2700
+action loss: 2.56945
+eval avg reward: -169.00000
+eval avg ep len: 70.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:17
+num of updates: 2800
+action loss: 2.45206
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:19
+num of updates: 2900
+action loss: 2.33727
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:22
+num of updates: 3000
+action loss: 2.23809
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:24
+num of updates: 3100
+action loss: 2.13353
+eval avg reward: -172.00000
+eval avg ep len: 73.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:27
+num of updates: 3200
+action loss: 2.03548
+eval avg reward: -175.00000
+eval avg ep len: 76.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:29
+num of updates: 3300
+action loss: 1.92834
+eval avg reward: -180.00000
+eval avg ep len: 81.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:32
+num of updates: 3400
+action loss: 1.85033
+eval avg reward: -177.00000
+eval avg ep len: 78.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:34
+num of updates: 3500
+action loss: 1.77432
+eval avg reward: -171.00000
+eval avg ep len: 72.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:37
+num of updates: 3600
+action loss: 1.68073
+eval avg reward: -167.00000
+eval avg ep len: 68.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:39
+num of updates: 3700
+action loss: 1.61411
+eval avg reward: -163.00000
+eval avg ep len: 64.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:41
+num of updates: 3800
+action loss: 1.54965
+eval avg reward: -160.00000
+eval avg ep len: 61.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:44
+num of updates: 3900
+action loss: 1.47851
+eval avg reward: -159.00000
+eval avg ep len: 60.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:46
+num of updates: 4000
+action loss: 1.43260
+eval avg reward: -158.00000
+eval avg ep len: 59.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+===== Note: rescaling states to original scale for viz=====
+CHECK: states.shape = torch.Size([1, 120, 2])
+CHECK: actions.shape = torch.Size([1, 120, 1])
+actions;
+ tensor([[[1.3225],
+         [1.3225],
+         [1.3229],
+         [1.3225],
+         [1.3225],
+         [1.3225],
+         [1.3229],
+         [1.3225],
+         [1.3225],
+         [1.3229],
+         [1.3229],
+         [1.3225],
+         [1.3229],
+         [1.3225],
+         [1.3225],
+         [1.3229],
+         [1.3229],
+         [1.3225],
+         [1.3225],
+         [1.3225],
+         [1.3225],
+         [1.3225],
+         [1.3225],
+         [1.3229],
+         [1.3229],
+         [1.3225],
+         [1.3225],
+         [1.3225],
+         [1.3225],
+         [1.3225],
+         [1.3229],
+         [1.3225],
+         [1.3229],
+         [1.3229],
+         [1.3229],
+         [1.3229],
+         [1.3225],
+         [1.3229],
+         [1.3229],
+         [1.3229],
+         [1.3229],
+         [1.3229],
+         [1.3229],
+         [1.3229],
+         [1.3225],
+         [1.3229],
+         [1.3229],
+         [1.3229],
+         [1.3225],
+         [1.3229],
+         [1.3229],
+         [1.3229],
+         [1.3229],
+         [1.3225],
+         [1.3229],
+         [1.3225],
+         [1.3229],
+         [1.3229],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000]]])
+============================================================
+time elapsed: 0:01:49
+num of updates: 4100
+action loss: 1.38294
+eval avg reward: -157.00000
+eval avg ep len: 58.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:52
+num of updates: 4200
+action loss: 1.34434
+eval avg reward: -158.00000
+eval avg ep len: 59.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:54
+num of updates: 4300
+action loss: 1.29842
+eval avg reward: -158.00000
+eval avg ep len: 59.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:57
+num of updates: 4400
+action loss: 1.26773
+eval avg reward: -159.00000
+eval avg ep len: 60.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:01:59
+num of updates: 4500
+action loss: 1.23592
+eval avg reward: -161.00000
+eval avg ep len: 62.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:01
+num of updates: 4600
+action loss: 1.22652
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:04
+num of updates: 4700
+action loss: 1.04916
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:06
+num of updates: 4800
+action loss: 0.91194
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:09
+num of updates: 4900
+action loss: 0.90150
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:11
+num of updates: 5000
+action loss: 0.88702
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:14
+num of updates: 5100
+action loss: 0.87649
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:16
+num of updates: 5200
+action loss: 0.86935
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:19
+num of updates: 5300
+action loss: 0.86380
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:21
+num of updates: 5400
+action loss: 0.85285
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:23
+num of updates: 5500
+action loss: 0.84209
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:26
+num of updates: 5600
+action loss: 0.84029
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:28
+num of updates: 5700
+action loss: 0.83401
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:30
+num of updates: 5800
+action loss: 0.82681
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:33
+num of updates: 5900
+action loss: 0.81065
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:35
+num of updates: 6000
+action loss: 0.81953
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+===== Note: rescaling states to original scale for viz=====
+CHECK: states.shape = torch.Size([1, 120, 2])
+CHECK: actions.shape = torch.Size([1, 120, 1])
+actions;
+ tensor([[[1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [1.6867],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000]]])
+============================================================
+time elapsed: 0:02:38
+num of updates: 6100
+action loss: 0.81345
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:41
+num of updates: 6200
+action loss: 0.80094
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:43
+num of updates: 6300
+action loss: 0.80566
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:46
+num of updates: 6400
+action loss: 0.79208
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:48
+num of updates: 6500
+action loss: 0.78608
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:50
+num of updates: 6600
+action loss: 0.77521
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:53
+num of updates: 6700
+action loss: 0.79061
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:55
+num of updates: 6800
+action loss: 0.76703
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:02:58
+num of updates: 6900
+action loss: 0.70733
+eval avg reward: -169.00000
+eval avg ep len: 70.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:00
+num of updates: 7000
+action loss: 0.62583
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:03
+num of updates: 7100
+action loss: 0.62152
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:05
+num of updates: 7200
+action loss: 0.61807
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:08
+num of updates: 7300
+action loss: 0.62286
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:10
+num of updates: 7400
+action loss: 0.62227
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:13
+num of updates: 7500
+action loss: 0.61982
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:15
+num of updates: 7600
+action loss: 0.62338
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:17
+num of updates: 7700
+action loss: 0.61817
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:20
+num of updates: 7800
+action loss: 0.61716
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:22
+num of updates: 7900
+action loss: 0.62125
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:25
+num of updates: 8000
+action loss: 0.62260
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+===== Note: rescaling states to original scale for viz=====
+CHECK: states.shape = torch.Size([1, 120, 2])
+CHECK: actions.shape = torch.Size([1, 120, 1])
+actions;
+ tensor([[[1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [1.7106],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000]]])
+============================================================
+time elapsed: 0:03:28
+num of updates: 8100
+action loss: 0.61756
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:31
+num of updates: 8200
+action loss: 0.61496
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:33
+num of updates: 8300
+action loss: 0.62973
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:36
+num of updates: 8400
+action loss: 0.61675
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:38
+num of updates: 8500
+action loss: 0.61803
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:41
+num of updates: 8600
+action loss: 0.62063
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:43
+num of updates: 8700
+action loss: 0.61982
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:46
+num of updates: 8800
+action loss: 0.61117
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:48
+num of updates: 8900
+action loss: 0.62733
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:51
+num of updates: 9000
+action loss: 0.61950
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:53
+num of updates: 9100
+action loss: 0.61575
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:56
+num of updates: 9200
+action loss: 0.61772
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:03:58
+num of updates: 9300
+action loss: 0.61844
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:04:01
+num of updates: 9400
+action loss: 0.62024
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:04:03
+num of updates: 9500
+action loss: 0.61877
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:04:05
+num of updates: 9600
+action loss: 0.61465
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:04:08
+num of updates: 9700
+action loss: 0.61950
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:04:10
+num of updates: 9800
+action loss: 0.61742
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:04:13
+num of updates: 9900
+action loss: 0.61829
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+time elapsed: 0:04:15
+num of updates: 10000
+action loss: 0.61893
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+finished training!
+============================================================
+started training at: 08-27-15-22
+finished training at: 22-08-27-15-27-12
+total training time: 0:04:15
+max d4rl score: -1.00000
+saved max d4rl score model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22_best.pt
+saved last updated model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-22.pt
+============================================================
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/model_min_dt.py:63: TracerWarning: Converting a tensor to a Python float might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  weights = torch.matmul(q, k.transpose(2,3)) / math.sqrt(D)
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py:285: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  return tensor.shape == torch.Size([0]) or (~torch.isfinite(tensor)).all().item()
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py:285: TracerWarning: Converting a tensor to a Python number might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  return tensor.shape == torch.Size([0]) or (~torch.isfinite(tensor)).all().item()
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py:288: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if not torch.isfinite(tensor).all():
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py:203: TracerWarning: Converting a tensor to a Python number might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  tmin = flat.min().item()
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py:204: TracerWarning: Converting a tensor to a Python number might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  tmax = flat.max().item()
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py:239: TracerWarning: Converting a tensor to a Python list might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  {name: wandb.Histogram(np_histogram=(tensor.tolist(), bins.tolist()))},

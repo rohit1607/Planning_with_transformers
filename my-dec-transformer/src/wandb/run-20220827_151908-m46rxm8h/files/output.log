@@ -1,0 +1,346 @@
+============================================================
+start time: 08-27-15-19
+============================================================
+device set to: cuda
+dataset path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/traj_data_for_model_3.pkl
+model save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+log csv save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_log_08-27-15-19.csv
+***********CHECK: len(self.trajectories) =3150
+ ---- Visualizing input ----
+CHECK: states.shape = torch.Size([70, 2])
+CHECK: actions.shape = torch.Size([70, 1])
+===== Note: rescaling states to original scale for viz=====
+ ---- -------------- ----
+**** initializing ContGridWorld_v5 environment *****
+====================
+init:  [19.5 20.5]
+start_pos.shape=(2,)
+xlim:  100
+Umax=1.9990378869066041
+Vmax=0.8324810714401253
+Umean=0.41962545542847707
+Vmean=0.2523411151246392
+====================
+act_dim = 1
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/core.py:329: DeprecationWarning: [33mWARN: Initializing wrapper in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/wrappers/step_api_compatibility.py:39: DeprecationWarning: [33mWARN: Initializing environment in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+[34m[1mwandb[39m[22m: logging graph, to disable use `wandb.watch(log_graph=False)`
+===== Note: rescaling states to original scale for viz=====
+CHECK: states.shape = torch.Size([1, 120, 2])
+CHECK: actions.shape = torch.Size([1, 120, 1])
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:174: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed a `seed` instead of using `Env.seed` for resetting the environment random number generator.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:190: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed `return_info` to return information from the environment resetting.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:195: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed `options` to allow the environment initialisation to be passed additional information.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:141: UserWarning: [33mWARN: The obs returned by the `reset()` method was expecting numpy array dtype to be float32, actual type: float64
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:165: UserWarning: [33mWARN: The obs returned by the `reset()` method is not within the observation space.
+  logger.warn(f"{pre} is not within the observation space.")
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:227: DeprecationWarning: [33mWARN: Core environment is written in old step API which returns one bool instead of two. It is recommended to rewrite the environment with new step API. 
+  logger.deprecation(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:141: UserWarning: [33mWARN: The obs returned by the `step()` method was expecting numpy array dtype to be float32, actual type: float64
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:165: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.
+  logger.warn(f"{pre} is not within the observation space.")
+actions;
+ tensor([[[0.2144],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.6071],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.6071],
+         [0.2144],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.2144],
+         [0.6071],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.6071],
+         [0.6071],
+         [0.2144],
+         [0.6071],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.2144],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.2144],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.2144],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.2144],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.6071],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000]]])
+============================================================
+time elapsed: 0:00:07
+num of updates: 100
+action loss: 2.54692
+eval avg reward: -181.00000
+eval avg ep len: 82.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+============================================================
+time elapsed: 0:00:10
+num of updates: 200
+action loss: 2.43945
+eval avg reward: -178.00000
+eval avg ep len: 79.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+============================================================
+time elapsed: 0:00:12
+num of updates: 300
+action loss: 2.34395
+eval avg reward: -176.00000
+eval avg ep len: 77.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+============================================================
+time elapsed: 0:00:15
+num of updates: 400
+action loss: 2.24610
+eval avg reward: -173.00000
+eval avg ep len: 74.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+============================================================
+time elapsed: 0:00:17
+num of updates: 500
+action loss: 2.14669
+eval avg reward: -171.00000
+eval avg ep len: 72.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+============================================================
+time elapsed: 0:00:20
+num of updates: 600
+action loss: 2.05772
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+============================================================
+time elapsed: 0:00:22
+num of updates: 700
+action loss: 1.97980
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+============================================================
+time elapsed: 0:00:25
+num of updates: 800
+action loss: 1.91033
+eval avg reward: -167.00000
+eval avg ep len: 68.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+============================================================
+time elapsed: 0:00:28
+num of updates: 900
+action loss: 1.81943
+eval avg reward: -167.00000
+eval avg ep len: 68.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+============================================================
+time elapsed: 0:00:30
+num of updates: 1000
+action loss: 1.76388
+eval avg reward: -167.00000
+eval avg ep len: 68.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+============================================================
+time elapsed: 0:00:33
+num of updates: 1100
+action loss: 1.69179
+eval avg reward: -167.00000
+eval avg ep len: 68.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+============================================================
+time elapsed: 0:00:35
+num of updates: 1200
+action loss: 1.63208
+eval avg reward: -167.00000
+eval avg ep len: 68.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+============================================================
+time elapsed: 0:00:38
+num of updates: 1300
+action loss: 1.56216
+eval avg reward: -168.00000
+eval avg ep len: 69.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+============================================================
+time elapsed: 0:00:40
+num of updates: 1400
+action loss: 1.50436
+eval avg reward: -169.00000
+eval avg ep len: 70.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+============================================================
+time elapsed: 0:00:43
+num of updates: 1500
+action loss: 1.45676
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+============================================================
+time elapsed: 0:00:45
+num of updates: 1600
+action loss: 1.41196
+eval avg reward: -171.00000
+eval avg ep len: 72.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+============================================================
+time elapsed: 0:00:48
+num of updates: 1700
+action loss: 1.36444
+eval avg reward: -172.00000
+eval avg ep len: 73.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+============================================================
+time elapsed: 0:00:50
+num of updates: 1800
+action loss: 1.31420
+eval avg reward: -174.00000
+eval avg ep len: 75.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+============================================================
+time elapsed: 0:00:53
+num of updates: 1900
+action loss: 1.26820
+eval avg reward: -176.00000
+eval avg ep len: 77.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+============================================================
+time elapsed: 0:00:55
+num of updates: 2000
+action loss: 1.23040
+eval avg reward: -178.00000
+eval avg ep len: 79.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-15-19.pt
+Traceback (most recent call last):
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/train_model.py", line 367, in <module>
+    train('cfg', args, cfg_name, params2_name)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/train_model.py", line 263, in train
+    visualize_output(op_traj_dict_list, i_train_iter, stats=traj_stats, env=env, log_wandb=True)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/src_utils.py", line 228, in visualize_output
+    wandb.log({"pred_traj_fig": wandb.Image(fname)})
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/sdk/data_types/image.py", line 143, in __init__
+    self._initialize_from_path(data_or_path)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/sdk/data_types/image.py", line 237, in _initialize_from_path
+    self._set_file(path, is_tmp=False)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/sdk/data_types/base_types/media.py", line 65, in _set_file
+    with open(self._path, "rb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/last_exp_figs/pred_traj_epoch_20.png'
+===== Note: rescaling states to original scale for viz=====
+CHECK: states.shape = torch.Size([1, 120, 2])
+CHECK: actions.shape = torch.Size([1, 120, 1])

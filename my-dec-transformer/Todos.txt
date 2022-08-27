@@ -1,12 +1,30 @@
 1.
     Date: Aug 21, '22
 
-    Status:
+    Status: 
     Action loss stagnating at 9.4
     evaluated avg reward: -171
 
     TODO:
     1. Plot computed actions with states to verify correctness of data - Data seems to correct
-    2. Verify rtg
+    2. Verify rtg - Done
     3. Verify contgridV5 env. Possibly the reason why cirriculum learning is also not working
     4. Finsish any left over 'todo' in code 
+
+    ---- Problem solved -------
+    Solved on 26 aug. Tanh at the last layer restricted op to [-1,1]. 
+    network is overfitting now with done trajectories
+    Check run: my-dt-DG3_dummy__08-26-14-31
+
+
+    
+2. 
+    TODO:
+    1. make proper plots at evaluation and log to wandb 
+            - Done. Needs modification for plotting all trajs
+    2. Save most recent trajecttory plots to tmp/last_exp_figs/
+            - Done
+    3. Process data on separate realizations, not just on mean field
+            -
+    4. Train with train, test, validataion  split
+

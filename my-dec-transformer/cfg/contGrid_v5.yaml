@@ -7,7 +7,7 @@ grid_params:
   del_t: 1.
   vmax_by_F: 2.
   space_scale: 100
-  target_radius: 2
+  target_radius: 3
 
 train_params:
 

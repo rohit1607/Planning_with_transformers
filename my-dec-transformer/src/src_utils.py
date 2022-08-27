@@ -3,7 +3,7 @@ import numpy as np
 import random
 from torch.utils.data import Dataset
 import pickle
-
+import wandb
 
 def discount_cumsum(x, gamma):
     disc_cumsum = np.zeros_like(x)
@@ -196,7 +196,7 @@ def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
 
 
 import matplotlib.pyplot as plt
-def visualize_output(op_traj_dict_list, i, stats=None):
+def visualize_output(op_traj_dict_list, iter_i, stats=None, env=None, log_wandb=False):
 
     traj = op_traj_dict_list[0]
     states = traj['states']
@@ -207,33 +207,73 @@ def visualize_output(op_traj_dict_list, i, stats=None):
         mean, std = stats
         states = (states*std) + mean
         print("===== Note: rescaling states to original scale for viz=====")
-    plt.scatter(states[0,:,0], states[0,:,1])
-    fname = "op_states_epoch_" + str(i)
+ 
+    fig = plt.figure()
+    plt.cla()
+    ax = plt.gca()
+    ax.set_aspect('equal', adjustable='box')
+    plt.title(f"Policy execution after {iter_i} epochs")
 
-    print(f"CHECK: states.shape = {states.shape}")
-    print(f"CHECK: actions.shape = {actions.shape}")
-    _,nstates,_ = states.shape
+    path = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/last_exp_figs/"
+    fname = path + "pred_traj_epoch_" + str(iter_i) + ".png"
+
+    # print(f"CHECK: states.shape = {states.shape}")
+    # print(f"CHECK: actions.shape = {actions.shape}")
+
+    # Plot sstates
+    plt.scatter(states[0,:,0], states[0,:,1])
+    # Plot policy at visites states
+    _, nstates,_ = states.shape
     for i in range(nstates):
         plt.arrow(states[0,i,0], states[0,i,1], np.cos(actions[0,i,0]), np.sin(actions[0,i,0]))
-    plt.savefig(fname, dpi=500)
+    
+    # plot target area and set limits
+    if env != None:
+        plt.xlim([0,env.xlim])
+        plt.ylim([0, env.ylim])
+        print("****VERIFY: env.target_pos: ", env.target_pos)
+        target_circle = plt.Circle(env.target_pos, env.target_rad, color='r', alpha=0.3)
+        ax.add_patch(target_circle)
 
-    return 
+    plt.savefig(fname, dpi=300)
+
+    if log_wandb:
+        wandb.log({"pred_traj_fig": wandb.Image(fname)})
 
 
-def visualize_input(traj_dataset, stats=None):
+    return fig
+
+def visualize_input(traj_dataset, stats=None, env=None, log_wandb=False):
     timesteps, states, actions, returns_to_go, traj_mask = traj_dataset[0]
     print(" ---- Visualizing input ---- ")
-    print(f"CHECK: states.shape = {states.shape}")
-    print(f"CHECK: actions.shape = {actions.shape}")
-    print()
+    # print(f"CHECK: states.shape = {states.shape}")
+    # print(f"CHECK: actions.shape = {actions.shape}")
+    # print()
     if stats != None:
         mean, std = stats
         states = (states*std) + mean
         print("===== Note: rescaling states to original scale for viz=====")
     print(" ---- -------------- ---- ")
+    fig = plt.figure()
+    plt.cla()
+    ax = plt.gca()
+    ax.set_aspect('equal', adjustable='box')
+    plt.title(f"Input trajectory")
 
     plt.scatter(states[:,0], states[:,1], label='input_traj')
     plt.legend()
-    fname = "ip_states"
-    plt.savefig(fname, dpi=500)
+    path = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/last_exp_figs/"
+    fname = path + "input_traj"  + ".png"
+
+    if env != None:
+        plt.xlim([0,env.xlim])
+        plt.ylim([0, env.ylim])
+        print("****VERIFY: env.target_pos: ", env.target_pos)
+        target_circle = plt.Circle(env.target_pos, env.target_rad, color='r', alpha=0.3)
+        ax.add_patch(target_circle)
+
+    plt.savefig(fname, dpi=300)
+
+    if log_wandb:
+        wandb.log({"input_traj_fig": wandb.Image(fname)})
     plt.cla()

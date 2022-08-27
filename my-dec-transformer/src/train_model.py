@@ -153,7 +153,6 @@ def train(mode, args, cfg_name, params2_name):
     traj_dataset = cgw_trajec_dataset(dataset_path, context_len, rtg_scale)
     # visualise input
     traj_stats = (traj_dataset.state_mean,traj_dataset.state_std)
-    visualize_input(traj_dataset, stats=traj_stats)
 
     traj_data_loader = DataLoader(
                             traj_dataset,
@@ -175,6 +174,8 @@ def train(mode, args, cfg_name, params2_name):
     state_dim = env.observation_space.shape[0]
     act_dim = env.action_space.shape[0]
     print(f"act_dim = {act_dim}")
+
+    visualize_input(traj_dataset, stats=traj_stats, env=env, log_wandb=True)
 
 
     model = DecisionTransformer(
@@ -260,9 +261,9 @@ def train(mode, args, cfg_name, params2_name):
                                 num_eval_ep, max_eval_ep_len, state_mean, state_std)
         # visualize output
         if i_train_iter%20 == 0:                        
-            visualize_output(op_traj_dict_list, i_train_iter, stats=traj_stats)
+            visualize_output(op_traj_dict_list, i_train_iter, stats=traj_stats, env=env, log_wandb=True)
             print(f"actions; \n {op_traj_dict_list[0]['actions']}")
-       
+
         eval_avg_reward = results['eval/avg_reward']
         eval_avg_ep_len = results['eval/avg_ep_len']
         # eval_d4rl_score = get_d4rl_normalized_score(results['eval/avg_reward'], env_name) * 100
@@ -325,7 +326,6 @@ def train(mode, args, cfg_name, params2_name):
         
     wandb.save("model.onnx")
     wandb.finish()
-    # p_log.visualize_wb(savefig= "../tmp/params3.png")
 
 
 if __name__ == "__main__":

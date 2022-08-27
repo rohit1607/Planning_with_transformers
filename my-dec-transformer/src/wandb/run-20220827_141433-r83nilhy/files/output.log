@@ -1,0 +1,198 @@
+============================================================
+start time: 08-27-14-14
+============================================================
+device set to: cuda
+dataset path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/traj_data_for_model_3.pkl
+model save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_model_08-27-14-14.pt
+log csv save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_dummy_log_08-27-14-14.csv
+***********CHECK: len(self.trajectories) =3150
+ ---- Visualizing input ----
+CHECK: states.shape = torch.Size([70, 2])
+CHECK: actions.shape = torch.Size([70, 1])
+===== Note: rescaling states to original scale for viz=====
+ ---- -------------- ----
+**** initializing ContGridWorld_v5 environment *****
+====================
+init:  [19.5 20.5]
+start_pos.shape=(2,)
+xlim:  100
+Umax=1.9990378869066041
+Vmax=0.8324810714401253
+Umean=0.41962545542847707
+Vmean=0.2523411151246392
+====================
+act_dim = 1
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/core.py:329: DeprecationWarning: [33mWARN: Initializing wrapper in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/wrappers/step_api_compatibility.py:39: DeprecationWarning: [33mWARN: Initializing environment in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+[34m[1mwandb[39m[22m: logging graph, to disable use `wandb.watch(log_graph=False)`
+===== Note: rescaling states to original scale for viz=====
+CHECK: states.shape = torch.Size([1, 120, 2])
+CHECK: actions.shape = torch.Size([1, 120, 1])
+actions;
+ tensor([[[-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [ 0.7175],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [ 0.7175],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [-1.1360],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360],
+         [ 0.7175],
+         [-1.1360]]])
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:174: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed a `seed` instead of using `Env.seed` for resetting the environment random number generator.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:190: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed `return_info` to return information from the environment resetting.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:195: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed `options` to allow the environment initialisation to be passed additional information.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:141: UserWarning: [33mWARN: The obs returned by the `reset()` method was expecting numpy array dtype to be float32, actual type: float64
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:165: UserWarning: [33mWARN: The obs returned by the `reset()` method is not within the observation space.
+  logger.warn(f"{pre} is not within the observation space.")
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:227: DeprecationWarning: [33mWARN: Core environment is written in old step API which returns one bool instead of two. It is recommended to rewrite the environment with new step API. 
+  logger.deprecation(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:141: UserWarning: [33mWARN: The obs returned by the `step()` method was expecting numpy array dtype to be float32, actual type: float64
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:165: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.
+  logger.warn(f"{pre} is not within the observation space.")
+[34m[1mwandb[39m[22m: [32m[41mERROR[39m[49m plotly is required to log interactive plots, install with: `pip install plotly` or convert the plot to an image with `wandb.Image(plt)`
+Traceback (most recent call last):
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/train_model.py", line 368, in <module>
+    train('cfg', args, cfg_name, params2_name)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/train_model.py", line 265, in train
+    wandb.log({"pred_traj_fig": pred_traj_fig})
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 289, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 255, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1591, in log
+    self._log(data=data, step=step, commit=commit)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1375, in _log
+    self._partial_history_callback(data, step, commit)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1259, in _partial_history_callback
+    self._backend.interface.publish_partial_history(
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 541, in publish_partial_history
+    data = history_dict_to_json(run, data, step=user_step, ignore_copy_err=True)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/sdk/data_types/utils.py", line 54, in history_dict_to_json
+    payload[key] = val_to_json(
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/sdk/data_types/utils.py", line 82, in val_to_json
+    val = Plotly.make_plot_media(val)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/sdk/data_types/plotly.py", line 48, in make_plot_media
+    val = util.matplotlib_to_plotly(val)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/util.py", line 560, in matplotlib_to_plotly
+    tools = get_module(
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/util.py", line 309, in get_module
+    raise wandb.Error(required)
+wandb.errors.Error: plotly is required to log interactive plots, install with: `pip install plotly` or convert the plot to an image with `wandb.Image(plt)`
