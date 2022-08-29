@@ -260,9 +260,9 @@ def train(mode, args, cfg_name, params2_name):
         results, op_traj_dict_list = evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
                                 num_eval_ep, max_eval_ep_len, state_mean, state_std)
         # visualize output
-        if i_train_iter%20 == 0:                        
+        if i_train_iter%5 == 0:                        
             visualize_output(op_traj_dict_list, i_train_iter, stats=traj_stats, env=env, log_wandb=True)
-            print(f"actions; \n {op_traj_dict_list[0]['actions']}")
+            # print(f"actions; \n {op_traj_dict_list[0]['actions']}")
 
         eval_avg_reward = results['eval/avg_reward']
         eval_avg_ep_len = results['eval/avg_ep_len']

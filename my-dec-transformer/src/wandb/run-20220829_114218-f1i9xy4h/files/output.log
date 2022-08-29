@@ -1,0 +1,262 @@
+============================================================
+start time: 08-29-11-42
+============================================================
+device set to: cuda
+dataset path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/traj_data_for_model_4.pkl
+model save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-42.pt
+log csv save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_log_08-29-11-42.csv
+***********CHECK: len(self.trajectories) =5000
+**** initializing ContGridWorld_v5 environment *****
+====================
+init:  [19.5 20.5]
+start_pos.shape=(2,)
+xlim:  100
+Umax=1.9990378869066041
+Vmax=0.8324810714401253
+Umean=0.41962545542847707
+Vmean=0.2523411151246392
+====================
+act_dim = 1
+ ---- Visualizing input ----
+===== Note: rescaling states to original scale for viz=====
+ ---- -------------- ----
+****VERIFY: env.target_pos:  [40. 81.]
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/core.py:329: DeprecationWarning: [33mWARN: Initializing wrapper in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/wrappers/step_api_compatibility.py:39: DeprecationWarning: [33mWARN: Initializing environment in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+[34m[1mwandb[39m[22m: logging graph, to disable use `wandb.watch(log_graph=False)`
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******* Verify: visualize_op: states.shape= torch.Size([1, 120, 3])
+===== Note: rescaling states to original scale for viz=====
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:174: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed a `seed` instead of using `Env.seed` for resetting the environment random number generator.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:190: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed `return_info` to return information from the environment resetting.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:195: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed `options` to allow the environment initialisation to be passed additional information.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:141: UserWarning: [33mWARN: The obs returned by the `reset()` method was expecting numpy array dtype to be float32, actual type: float64
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:165: UserWarning: [33mWARN: The obs returned by the `reset()` method is not within the observation space.
+  logger.warn(f"{pre} is not within the observation space.")
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:227: DeprecationWarning: [33mWARN: Core environment is written in old step API which returns one bool instead of two. It is recommended to rewrite the environment with new step API. 
+  logger.deprecation(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:141: UserWarning: [33mWARN: The obs returned by the `step()` method was expecting numpy array dtype to be float32, actual type: float64
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:165: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.
+  logger.warn(f"{pre} is not within the observation space.")
+****VERIFY: env.target_pos:  [40. 81.]
+actions;
+ tensor([[[-0.0418],
+         [-0.0062],
+         [ 0.3703],
+         [ 0.2362],
+         [ 0.0552],
+         [ 0.6174],
+         [-0.0194],
+         [ 0.2342],
+         [ 0.5378],
+         [ 0.7213],
+         [ 0.0084],
+         [ 0.7472],
+         [ 0.2415],
+         [ 0.2081],
+         [ 0.2899],
+         [ 0.7988],
+         [ 0.1352],
+         [ 0.4847],
+         [ 0.3951],
+         [ 0.1461],
+         [ 0.1186],
+         [ 0.8949],
+         [ 0.0685],
+         [ 0.7117],
+         [ 0.5050],
+         [ 0.3748],
+         [ 0.7740],
+         [ 0.6601],
+         [ 0.6581],
+         [ 0.1839],
+         [ 0.3402],
+         [ 0.7881],
+         [ 0.5667],
+         [ 0.6458],
+         [ 0.2929],
+         [ 0.5029],
+         [ 0.4122],
+         [ 0.8910],
+         [ 0.2203],
+         [ 0.4746],
+         [ 0.8142],
+         [ 0.8492],
+         [ 0.7230],
+         [ 0.6946],
+         [ 0.2886],
+         [ 0.7744],
+         [ 0.3483],
+         [ 0.8897],
+         [ 0.5787],
+         [ 0.7991],
+         [ 0.8163],
+         [ 0.8998],
+         [ 0.4311],
+         [ 0.7956],
+         [ 0.8017],
+         [ 0.8372],
+         [ 0.5648],
+         [ 0.5776],
+         [ 0.9150],
+         [ 0.7095],
+         [ 0.5117],
+         [ 0.7148],
+         [ 0.7419],
+         [ 0.8261],
+         [ 0.8356],
+         [ 0.8451],
+         [ 0.7657],
+         [ 0.7505],
+         [ 0.6808],
+         [ 0.6651],
+         [ 0.8565],
+         [ 0.7370],
+         [ 0.9146],
+         [ 0.6293],
+         [ 0.8277],
+         [ 0.7870],
+         [ 0.8203],
+         [ 0.7053],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000]]])
+============================================================
+time elapsed: 0:00:08
+num of updates: 100
+action loss: 1.88822
+eval avg reward: -177.00000
+eval avg ep len: 78.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-42.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:10
+num of updates: 200
+action loss: 1.68858
+eval avg reward: -177.00000
+eval avg ep len: 78.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-42.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:12
+num of updates: 300
+action loss: 1.49531
+eval avg reward: -180.00000
+eval avg ep len: 81.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-42.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:15
+num of updates: 400
+action loss: 1.30084
+eval avg reward: -184.00000
+eval avg ep len: 85.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-42.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:17
+num of updates: 500
+action loss: 1.10986
+eval avg reward: -179.00000
+eval avg ep len: 80.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-42.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:20
+num of updates: 600
+action loss: 0.92090
+eval avg reward: -171.00000
+eval avg ep len: 72.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-42.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:22
+num of updates: 700
+action loss: 0.75153
+eval avg reward: -164.00000
+eval avg ep len: 65.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-42.pt
+Traceback (most recent call last):
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/train_model.py", line 368, in <module>
+    train('cfg', args, cfg_name, params2_name)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/train_model.py", line 250, in train
+    action_loss.backward()
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/torch/_tensor.py", line 396, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/torch/autograd/__init__.py", line 173, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

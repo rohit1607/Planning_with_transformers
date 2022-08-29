@@ -31,6 +31,7 @@ class ContGridWorld_v5(gym.Env):
         self.target_pos = target_pos
         self.target_rad = target_rad
         self.F = F
+        self.rzn = 0
 
         # self.action_space = gym.spaces.Discrete(self.n_actions)
         self.action_space = gym.spaces.Box(low=self.action_range[0], 
@@ -41,13 +42,14 @@ class ContGridWorld_v5(gym.Env):
         
         return
 
-    def setup(self, cfg, params2):
+    def setup(self, cfg, params2, rzn=0):
         """
         To be called expicitly to retreive params
         cfg: dict laoded from a yaml file
         start_pos: list of lists(starting positions); e.g start_pos=[[5.0,2.0]] 
         """
-  
+
+        self.rzn = rzn
         self.cfg = cfg
         self.params2 = params2
         self.params = self.cfg["grid_params"]
@@ -72,19 +74,30 @@ class ContGridWorld_v5(gym.Env):
         self.F = self.params["F"]
         self.state = self.reset()
 
-        self.target_state = np.array(self.target_pos, dtype=np.float32).reshape(2,).copy()
+        # self.target_state = np.array(self.target_pos, dtype=np.float32).reshape(2,).copy()
 
 
         # Load vel field
-        self.U = np.load(join(self.vel_fname,"u.npy"))
-        self.V = np.load(join(self.vel_fname,"v.npy"))
+        self.U = np.load(join(self.vel_fname,"all_u_mat.npy"))
+        self.V = np.load(join(self.vel_fname,"all_v_mat.npy"))
+        self.Ui = np.load(join(self.vel_fname,"all_ui_mat.npy"))
+        self.Vi = np.load(join(self.vel_fname,"all_vi_mat.npy"))
+        self.Yi = np.load(join(self.vel_fname,"all_Yi.npy"))
         self.vel_shape = self.U.shape # (t,i,j)
+        
         self.dxy = float(self.xlim)/self.U.shape[1]
         self.nT = self.U.shape[0]
+        self.n_rzns = self.Yi.shape[1]
+        self.n_modes = self.Yi.shape[2]
+
 
         # replace nans with 0s and scale velocity as per vmax_by_F factor
         self.U[np.isnan(self.U)] = 0
         self.V[np.isnan(self.V)] = 0
+        self.Ui[np.isnan(self.Ui)] = 0
+        self.Vi[np.isnan(self.Vi)] = 0
+        self.Yi[np.isnan(self.Yi)] = 0
+
         self.scale_velocity()
 
         self.Umax, self.Vmax = np.max(self.U), np.max(self.V)
@@ -100,6 +113,11 @@ class ContGridWorld_v5(gym.Env):
         print("="*20)
 
 
+    def set_rzn(self, rzn):
+        assert(int(rzn) < self.n_rzns), print("Error: Invalid rzn_id")
+        self.rzn = int(rzn)
+
+
     def scale_velocity(self):
         self.speed = np.sqrt(self.U**2 + self.V**2)
         self.max_speed = np.max(self.speed)
@@ -107,37 +125,47 @@ class ContGridWorld_v5(gym.Env):
         self.scale_factor= self.F * self.vmax_by_F / self.max_speed
         self.U *= self.scale_factor
         self.V *= self.scale_factor
+        self.Ui *= self.scale_factor
+        self.Vi *= self.scale_factor
 
 
-    def get_velocity(self, state, vel):
+    def get_velocity(self, state):
         """
         extract velocity from vel matrices u and v [:,i,j]; i down; j right
         vel: (U,V)
         """
-        U, V = vel        
-        x, y = state
+       
+        t, x, y = state
+
         j = int(x // self.dxy)
         i = int((self.ylim - y) // self.dxy)
+        t = int(t)
 
-        return U[0,i,j], V[0,i,j] #TODO: assuming static velocity so putting arbitrary t index
+        # vx = vel_field_data[0][t, i, j] + np.matmul(vel_field_data[2][t, :, i, j],vel_field_data[4][t, rzn,:])
+        # vy = vel_field_data[1][t, i, j] + np.matmul(vel_field_data[3][t, :, i, j], vel_field_data[4][t, rzn,:])
+
+        u = self.U[t,i,j] + np.matmul(self.Ui[t,:,i,j],self.Yi[t,self.rzn,:])
+        v = self.V[t,i,j] + np.matmul(self.Vi[t,:,i,j],self.Yi[t,self.rzn,:])
+        return u, v
 
 
     def transition(self, action, add_noise=False):
         # action *= (2*np.pi/self.n_actions)
-        vel = (self.U, self.V)
-        u,v = self.get_velocity(self.state, vel)
-        self.state[0] += (self.F*math.cos(action) + u)*self.del_t
-        self.state[1] += (self.F*math.sin(action) + v)*self.del_t
+     
+        u,v = self.get_velocity(self.state)
+        self.state[0] += 1
+        self.state[1] += (self.F*math.cos(action) + u)*self.del_t
+        self.state[2] += (self.F*math.sin(action) + v)*self.del_t
         # add noise
         # self.state += 0.05*np.random.randint(-3,4)
 
 
-    def is_outbound(self, check_state = [float('inf'), float('inf')]):
+    def is_outbound(self, check_state = [float('inf'),float('inf'),float('inf')]):
         status = False
         # if no argument, check status for self.state
-        if check_state[0] == float('inf') and check_state[1] == float('inf'):
+        if check_state[0] == float('inf') and check_state[1] == float('inf') and check_state[2] == float('inf'):
             check_state = self.state
-        lims = [self.xlim, self.ylim]
+        lims = [self.nT, self.xlim, self.ylim]
         for i in range(self.state_dim):
             if check_state[i] >= lims[i] or check_state[i]<0:
                 status = True
@@ -147,7 +175,7 @@ class ContGridWorld_v5(gym.Env):
 
     def has_reached_target(self):
         status = False
-        if np.linalg.norm(self.state - self.target_state) <= self.target_rad:
+        if np.linalg.norm(self.state[1:] - self.target_pos) <= self.target_rad:
             status = True
         return status
 
@@ -167,21 +195,22 @@ class ContGridWorld_v5(gym.Env):
             self.done = True
             self.state =  old_s
         info = {"is_outbound": is_outbound, "has_reached_target":has_reached_target} # what do i put here
-        return self.state, self.reward, self.done, info
+        return np.array(self.state), self.reward, self.done, info
 
 
-    def reset(self, reset_state=[float('inf'), float('inf')]):
+    def reset(self, reset_state=[float('inf'),float('inf'),float('inf')]):
         # self.state = [x,y]
         # print("in_reset:", self.start_pos)
         reset_state = np.array(reset_state, dtype=np.float32)
-        if reset_state[0] == float('inf') and reset_state[1] == float('inf'):
-            idx = np.random.randint(0, len(self.start_pos))
-            reset_state = self.start_pos.copy()
-        self.state = reset_state
+        if reset_state[0] == float('inf') and reset_state[1] == float('inf') and reset_state[2] == float('inf'):
+            # idx = np.random.randint(0, len(self.start_pos))
+            x0, y0 = self.start_pos.copy()
+            reset_state = [0, x0, y0]
+        self.state = np.array(reset_state)
         self.done = False
         self.reward = 0
         # self.target_state = reset_state
-        return self.state
+        return np.array(self.state)
 
 
     def render(self):

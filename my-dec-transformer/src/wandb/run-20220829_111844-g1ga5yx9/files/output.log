@@ -1,0 +1,1883 @@
+============================================================
+start time: 08-29-11-18
+============================================================
+device set to: cuda
+dataset path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/traj_data_for_model_4.pkl
+model save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+log csv save path: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_log_08-29-11-18.csv
+***********CHECK: len(self.trajectories) =5000
+**** initializing ContGridWorld_v5 environment *****
+====================
+init:  [19.5 20.5]
+start_pos.shape=(2,)
+xlim:  100
+Umax=1.9990378869066041
+Vmax=0.8324810714401253
+Umean=0.41962545542847707
+Vmean=0.2523411151246392
+====================
+act_dim = 1
+ ---- Visualizing input ----
+===== Note: rescaling states to original scale for viz=====
+ ---- -------------- ----
+****VERIFY: env.target_pos:  [40. 81.]
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/core.py:329: DeprecationWarning: [33mWARN: Initializing wrapper in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/wrappers/step_api_compatibility.py:39: DeprecationWarning: [33mWARN: Initializing environment in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.
+  deprecation(
+[34m[1mwandb[39m[22m: logging graph, to disable use `wandb.watch(log_graph=False)`
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+===== Note: rescaling states to original scale for viz=====
+****VERIFY: env.target_pos:  [40. 81.]
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:174: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed a `seed` instead of using `Env.seed` for resetting the environment random number generator.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:190: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed `return_info` to return information from the environment resetting.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:195: UserWarning: [33mWARN: Future gym versions will require that `Env.reset` can be passed `options` to allow the environment initialisation to be passed additional information.
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:141: UserWarning: [33mWARN: The obs returned by the `reset()` method was expecting numpy array dtype to be float32, actual type: float64
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:165: UserWarning: [33mWARN: The obs returned by the `reset()` method is not within the observation space.
+  logger.warn(f"{pre} is not within the observation space.")
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:227: DeprecationWarning: [33mWARN: Core environment is written in old step API which returns one bool instead of two. It is recommended to rewrite the environment with new step API. 
+  logger.deprecation(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:141: UserWarning: [33mWARN: The obs returned by the `step()` method was expecting numpy array dtype to be float32, actual type: float64
+  logger.warn(
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:165: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.
+  logger.warn(f"{pre} is not within the observation space.")
+actions;
+ tensor([[[-0.0676],
+         [-1.2053],
+         [-0.8733],
+         [ 0.4066],
+         [-1.2145],
+         [-0.9994],
+         [-1.2396],
+         [-0.9327],
+         [-1.2171],
+         [-1.0192],
+         [-1.2612],
+         [-1.0695],
+         [-1.2935],
+         [-0.5848],
+         [-1.2305],
+         [ 0.0794],
+         [-0.8744],
+         [-0.9453],
+         [-0.9603],
+         [-0.9802],
+         [-1.3044],
+         [-0.9426],
+         [-1.0768],
+         [-0.8968],
+         [-1.0496],
+         [-1.2436],
+         [-1.1512],
+         [-1.1471],
+         [-0.7764],
+         [-1.0472],
+         [-1.0727],
+         [-0.8753],
+         [-1.1364],
+         [-0.9914],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000],
+         [ 0.0000]]])
+============================================================
+time elapsed: 0:00:08
+num of updates: 100
+action loss: 5.25539
+eval avg reward: -133.00000
+eval avg ep len: 34.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:10
+num of updates: 200
+action loss: 4.64142
+eval avg reward: -138.00000
+eval avg ep len: 39.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:13
+num of updates: 300
+action loss: 4.07003
+eval avg reward: -148.00000
+eval avg ep len: 49.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:15
+num of updates: 400
+action loss: 3.53684
+eval avg reward: -177.00000
+eval avg ep len: 78.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:18
+num of updates: 500
+action loss: 3.03306
+eval avg reward: -219.00000
+eval avg ep len: 120.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:20
+num of updates: 600
+action loss: 2.53855
+eval avg reward: -202.00000
+eval avg ep len: 103.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:23
+num of updates: 700
+action loss: 2.04382
+eval avg reward: -183.00000
+eval avg ep len: 84.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:25
+num of updates: 800
+action loss: 1.57715
+eval avg reward: -170.00000
+eval avg ep len: 71.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:28
+num of updates: 900
+action loss: 1.17648
+eval avg reward: -179.00000
+eval avg ep len: 80.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:30
+num of updates: 1000
+action loss: 0.85958
+eval avg reward: -167.00000
+eval avg ep len: 68.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:33
+num of updates: 1100
+action loss: 0.62595
+eval avg reward: -157.00000
+eval avg ep len: 58.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:35
+num of updates: 1200
+action loss: 0.45932
+eval avg reward: -154.00000
+eval avg ep len: 55.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:37
+num of updates: 1300
+action loss: 0.34422
+eval avg reward: -155.00000
+eval avg ep len: 56.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:40
+num of updates: 1400
+action loss: 0.27152
+eval avg reward: -158.00000
+eval avg ep len: 59.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:42
+num of updates: 1500
+action loss: 0.22790
+eval avg reward: -161.00000
+eval avg ep len: 62.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:44
+num of updates: 1600
+action loss: 0.19825
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:47
+num of updates: 1700
+action loss: 0.17658
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:49
+num of updates: 1800
+action loss: 0.15866
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:52
+num of updates: 1900
+action loss: 0.14732
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:54
+num of updates: 2000
+action loss: 0.13818
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+===== Note: rescaling states to original scale for viz=====
+****VERIFY: env.target_pos:  [40. 81.]
+actions;
+ tensor([[[1.3817],
+         [1.5349],
+         [1.2877],
+         [1.7022],
+         [1.4728],
+         [1.1875],
+         [1.4260],
+         [1.4295],
+         [1.3709],
+         [1.2469],
+         [1.3497],
+         [1.2890],
+         [1.1941],
+         [1.3960],
+         [1.3644],
+         [1.3725],
+         [1.3358],
+         [1.4452],
+         [1.2764],
+         [1.2726],
+         [1.2310],
+         [1.3746],
+         [1.3663],
+         [1.9073],
+         [1.4278],
+         [1.3140],
+         [1.3351],
+         [1.8646],
+         [2.0253],
+         [2.0858],
+         [1.9932],
+         [2.0864],
+         [1.6070],
+         [1.9167],
+         [2.0031],
+         [1.8118],
+         [2.0485],
+         [2.0809],
+         [2.0830],
+         [1.9758],
+         [2.1207],
+         [2.0993],
+         [2.0828],
+         [2.1059],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000]]])
+============================================================
+time elapsed: 0:00:56
+num of updates: 2100
+action loss: 0.13303
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:00:59
+num of updates: 2200
+action loss: 0.12687
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:01
+num of updates: 2300
+action loss: 0.12116
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:04
+num of updates: 2400
+action loss: 0.11657
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:06
+num of updates: 2500
+action loss: 0.11143
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:09
+num of updates: 2600
+action loss: 0.10651
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:11
+num of updates: 2700
+action loss: 0.10115
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:13
+num of updates: 2800
+action loss: 0.09691
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:16
+num of updates: 2900
+action loss: 0.09190
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:18
+num of updates: 3000
+action loss: 0.08783
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:20
+num of updates: 3100
+action loss: 0.08347
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:23
+num of updates: 3200
+action loss: 0.07947
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:25
+num of updates: 3300
+action loss: 0.07577
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:27
+num of updates: 3400
+action loss: 0.07251
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:30
+num of updates: 3500
+action loss: 0.06921
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:32
+num of updates: 3600
+action loss: 0.06631
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:35
+num of updates: 3700
+action loss: 0.06370
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:37
+num of updates: 3800
+action loss: 0.06145
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:39
+num of updates: 3900
+action loss: 0.05884
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:42
+num of updates: 4000
+action loss: 0.05704
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+===== Note: rescaling states to original scale for viz=====
+****VERIFY: env.target_pos:  [40. 81.]
+actions;
+ tensor([[[1.5395],
+         [1.6540],
+         [1.4152],
+         [1.4808],
+         [1.6203],
+         [1.3262],
+         [1.6113],
+         [1.5276],
+         [1.4797],
+         [1.2768],
+         [1.4049],
+         [1.2512],
+         [1.1463],
+         [1.3364],
+         [1.2993],
+         [1.2067],
+         [1.2684],
+         [1.4235],
+         [1.1117],
+         [1.0822],
+         [1.0479],
+         [1.1241],
+         [1.2076],
+         [1.4474],
+         [1.2358],
+         [1.1630],
+         [1.3565],
+         [1.4696],
+         [1.5579],
+         [1.5986],
+         [1.7474],
+         [1.7917],
+         [1.8811],
+         [1.9779],
+         [2.0843],
+         [2.0866],
+         [2.1377],
+         [2.1997],
+         [2.4081],
+         [2.3812],
+         [2.5425],
+         [2.4555],
+         [2.4283],
+         [2.5840],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000]]])
+============================================================
+time elapsed: 0:01:44
+num of updates: 4100
+action loss: 0.05525
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:47
+num of updates: 4200
+action loss: 0.05364
+eval avg reward: 58.00000
+eval avg ep len: 43.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:50
+num of updates: 4300
+action loss: 0.05199
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:52
+num of updates: 4400
+action loss: 0.05052
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:54
+num of updates: 4500
+action loss: 0.04919
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:57
+num of updates: 4600
+action loss: 0.04808
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:01:59
+num of updates: 4700
+action loss: 0.04694
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:02
+num of updates: 4800
+action loss: 0.04564
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:04
+num of updates: 4900
+action loss: 0.04461
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:06
+num of updates: 5000
+action loss: 0.04371
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:09
+num of updates: 5100
+action loss: 0.04288
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:11
+num of updates: 5200
+action loss: 0.04204
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:14
+num of updates: 5300
+action loss: 0.04118
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:16
+num of updates: 5400
+action loss: 0.04038
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:18
+num of updates: 5500
+action loss: 0.03973
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:21
+num of updates: 5600
+action loss: 0.03887
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:23
+num of updates: 5700
+action loss: 0.03814
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:25
+num of updates: 5800
+action loss: 0.03715
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:28
+num of updates: 5900
+action loss: 0.03676
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:30
+num of updates: 6000
+action loss: 0.03615
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+===== Note: rescaling states to original scale for viz=====
+****VERIFY: env.target_pos:  [40. 81.]
+actions;
+ tensor([[[1.6070],
+         [1.7065],
+         [1.5838],
+         [1.5470],
+         [1.6488],
+         [1.4626],
+         [1.6519],
+         [1.5528],
+         [1.4670],
+         [1.3347],
+         [1.3642],
+         [1.2615],
+         [1.1880],
+         [1.2760],
+         [1.2816],
+         [1.1586],
+         [1.2200],
+         [1.3779],
+         [1.1042],
+         [1.0479],
+         [0.9875],
+         [1.0218],
+         [1.0905],
+         [1.4056],
+         [1.1559],
+         [1.1009],
+         [1.3566],
+         [1.4043],
+         [1.5437],
+         [1.3962],
+         [1.6965],
+         [1.7496],
+         [1.9153],
+         [1.9788],
+         [2.0374],
+         [2.0799],
+         [2.1340],
+         [2.1897],
+         [2.2943],
+         [2.4477],
+         [2.4821],
+         [2.5596],
+         [2.6522],
+         [2.8132],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000]]])
+============================================================
+time elapsed: 0:02:33
+num of updates: 6100
+action loss: 0.03526
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:35
+num of updates: 6200
+action loss: 0.03481
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:38
+num of updates: 6300
+action loss: 0.03405
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:40
+num of updates: 6400
+action loss: 0.03360
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:42
+num of updates: 6500
+action loss: 0.03302
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:45
+num of updates: 6600
+action loss: 0.03234
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:47
+num of updates: 6700
+action loss: 0.03188
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:50
+num of updates: 6800
+action loss: 0.03133
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:52
+num of updates: 6900
+action loss: 0.03085
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:54
+num of updates: 7000
+action loss: 0.03025
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:57
+num of updates: 7100
+action loss: 0.02956
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:02:59
+num of updates: 7200
+action loss: 0.02923
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:02
+num of updates: 7300
+action loss: 0.02839
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:04
+num of updates: 7400
+action loss: 0.02842
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:06
+num of updates: 7500
+action loss: 0.02773
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:09
+num of updates: 7600
+action loss: 0.02744
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:11
+num of updates: 7700
+action loss: 0.02695
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:14
+num of updates: 7800
+action loss: 0.02651
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:16
+num of updates: 7900
+action loss: 0.02617
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:18
+num of updates: 8000
+action loss: 0.02567
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+===== Note: rescaling states to original scale for viz=====
+****VERIFY: env.target_pos:  [40. 81.]
+actions;
+ tensor([[[1.6033],
+         [1.7605],
+         [1.5507],
+         [1.6299],
+         [1.6768],
+         [1.4742],
+         [1.6224],
+         [1.4746],
+         [1.3772],
+         [1.3217],
+         [1.3015],
+         [1.2574],
+         [1.2052],
+         [1.2365],
+         [1.2584],
+         [1.2042],
+         [1.2089],
+         [1.3198],
+         [1.1656],
+         [1.1178],
+         [1.0507],
+         [1.0473],
+         [1.1428],
+         [1.2064],
+         [1.2169],
+         [1.2110],
+         [1.4301],
+         [1.3828],
+         [1.4616],
+         [1.3533],
+         [1.6936],
+         [1.7428],
+         [1.9443],
+         [1.9939],
+         [2.0466],
+         [2.0992],
+         [2.1497],
+         [2.2064],
+         [2.2731],
+         [2.4461],
+         [2.4934],
+         [2.5632],
+         [2.7181],
+         [2.9580],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000],
+         [0.0000]]])
+============================================================
+time elapsed: 0:03:21
+num of updates: 8100
+action loss: 0.02544
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:24
+num of updates: 8200
+action loss: 0.02503
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:26
+num of updates: 8300
+action loss: 0.02464
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:28
+num of updates: 8400
+action loss: 0.02419
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:31
+num of updates: 8500
+action loss: 0.02398
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:33
+num of updates: 8600
+action loss: 0.02361
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:36
+num of updates: 8700
+action loss: 0.02329
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:38
+num of updates: 8800
+action loss: 0.02293
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:41
+num of updates: 8900
+action loss: 0.02257
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:43
+num of updates: 9000
+action loss: 0.02224
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:45
+num of updates: 9100
+action loss: 0.02198
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:48
+num of updates: 9200
+action loss: 0.02178
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:50
+num of updates: 9300
+action loss: 0.02137
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:53
+num of updates: 9400
+action loss: 0.02106
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:55
+num of updates: 9500
+action loss: 0.02085
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:03:57
+num of updates: 9600
+action loss: 0.02061
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:04:00
+num of updates: 9700
+action loss: 0.02039
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:04:02
+num of updates: 9800
+action loss: 0.01994
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:04:04
+num of updates: 9900
+action loss: 0.01990
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+******** Verify: state_dim= 3
+******** Verify: act_dim= 1
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+******** Verify: type(running_state)= <class 'numpy.ndarray'>
+============================================================
+time elapsed: 0:04:07
+num of updates: 10000
+action loss: 0.01945
+eval avg reward: 57.00000
+eval avg ep len: 44.00000
+max score: -1.00000
+saving current model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+============================================================
+finished training!
+============================================================
+started training at: 08-29-11-18
+finished training at: 22-08-29-11-22-51
+total training time: 0:04:07
+max d4rl score: -1.00000
+saved max d4rl score model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18_best.pt
+saved last updated model at: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_08-29-11-18.pt
+============================================================
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/model_min_dt.py:63: TracerWarning: Converting a tensor to a Python float might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  weights = torch.matmul(q, k.transpose(2,3)) / math.sqrt(D)
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py:285: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  return tensor.shape == torch.Size([0]) or (~torch.isfinite(tensor)).all().item()
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py:285: TracerWarning: Converting a tensor to a Python number might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  return tensor.shape == torch.Size([0]) or (~torch.isfinite(tensor)).all().item()
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py:288: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if not torch.isfinite(tensor).all():
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py:203: TracerWarning: Converting a tensor to a Python number might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  tmin = flat.min().item()
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py:204: TracerWarning: Converting a tensor to a Python number might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  tmax = flat.max().item()
+/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/lib/python3.10/site-packages/wandb/wandb_torch.py:239: TracerWarning: Converting a tensor to a Python list might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  {name: wandb.Histogram(np_histogram=(tensor.tolist(), bins.tolist()))},

@@ -98,7 +98,7 @@ class cgw_trajec_dataset(Dataset):
 
 
 def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
-                    num_eval_ep=10, max_test_ep_len=1000,
+                    num_eval_ep=10, max_test_ep_len=120,
                     state_mean=None, state_std=None, render=False):
 
     eval_batch_size = 1  # required for forward pass
@@ -109,6 +109,9 @@ def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
 
     state_dim = env.observation_space.shape[0]
     act_dim = env.action_space.shape[0]
+
+    print(f"******** Verify: state_dim= {state_dim} ")
+    print(f"******** Verify: act_dim= {act_dim} ")
 
     if state_mean is None:
         state_mean = torch.zeros((state_dim,)).to(device)
@@ -127,9 +130,18 @@ def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
 
     model.eval()
 
+    """
+    The use of "with torch. no_grad()" is like a loop where every tensor 
+    inside the loop will have requires_grad set to False. It means any tensor 
+    with gradient currently attached with the current computational graph is now detached 
+    from the current graph.
+    """
+    print(f"****** Verify: num_eval_ep = {num_eval_ep}")
     with torch.no_grad():
         op_traj_dict_list = []
         for _ in range(num_eval_ep):
+            rzn = np.random.randint(env.n_rzns, size=1)[0]
+            env.set_rzn(rzn)
 
             op_traj_dict = {}
             # zeros place holders
@@ -144,7 +156,7 @@ def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
             running_state = np.array(env.reset())
             running_reward = 0
             running_rtg = rtg_target / rtg_scale
-
+            print(f"******** Verify: type(running_state)= {type(running_state)} ")
             for t in range(max_test_ep_len):
 
                 total_timesteps += 1
@@ -186,8 +198,9 @@ def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
             op_traj_dict['actions'] = actions.cpu()
             op_traj_dict['rtg'] = rewards_to_go.cpu()
 
-        op_traj_dict_list.append(op_traj_dict)
-        
+            op_traj_dict_list.append(op_traj_dict)
+    
+    print(f"****** Verify; len(op_traj_dict_list) = {len(op_traj_dict_list)}")
 
     results['eval/avg_reward'] = total_reward / num_eval_ep
     results['eval/avg_ep_len'] = total_timesteps / num_eval_ep
@@ -196,40 +209,53 @@ def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
 
 
 import matplotlib.pyplot as plt
-def visualize_output(op_traj_dict_list, iter_i, stats=None, env=None, log_wandb=False):
-
-    traj = op_traj_dict_list[0]
-    states = traj['states']
-    actions = traj['actions']
-    rtg = traj['rtg']
-
-    if stats!=None:
-        mean, std = stats
-        states = (states*std) + mean
-        print("===== Note: rescaling states to original scale for viz=====")
+def visualize_output(op_traj_dict_list, iter_i, 
+                        stats=None, 
+                        env=None, 
+                        log_wandb=True, 
+                        plot_policy=False,
+                        traj_idx=None,      #None=all, list of rzn_ids []
+                        show_scatter=False
+                        ):
  
+    path = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/last_exp_figs/"
+    fname = path + "pred_traj_epoch_" + str(iter_i) + ".png" 
     fig = plt.figure()
     plt.cla()
     ax = plt.gca()
     ax.set_aspect('equal', adjustable='box')
     plt.title(f"Policy execution after {iter_i} epochs")
 
-    path = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/last_exp_figs/"
-    fname = path + "pred_traj_epoch_" + str(iter_i) + ".png"
+    if traj_idx==None:
+        traj_idx = [k for k in range(len(op_traj_dict_list))]
 
-    # print(f"CHECK: states.shape = {states.shape}")
-    # print(f"CHECK: actions.shape = {actions.shape}")
+    print(f" ***** Verify: traj_idx = {traj_idx}")
+    for idx,traj in enumerate(op_traj_dict_list):
+        if idx in traj_idx:
+            states = traj['states']
+            actions = traj['actions']
+            rtg = traj['rtg']
+            print(f"******* Verify: visualize_op: states.shape= {states.shape}")
+            if stats!=None:
+                mean, std = stats
+                states = (states*std) + mean
+                print("===== Note: rescaling states to original scale for viz=====")
+        
+            # Plot sstates
+            plt.plot(states[0,:,1], states[0,:,2])
+            if show_scatter:
+                plt.scatter(states[0,:,1], states[0,:,2],s=0.5)
 
-    # Plot sstates
-    plt.scatter(states[0,:,0], states[0,:,1])
-    # Plot policy at visites states
-    _, nstates,_ = states.shape
-    for i in range(nstates):
-        plt.arrow(states[0,i,0], states[0,i,1], np.cos(actions[0,i,0]), np.sin(actions[0,i,0]))
-    
+            # Plot policy at visites states
+            _, nstates,_ = states.shape
+            
+            if plot_policy:
+                for i in range(nstates):
+                    plt.arrow(states[0,i,1], states[0,i,2], np.cos(actions[0,i,0]), np.sin(actions[0,i,0]))
+        
     # plot target area and set limits
     if env != None:
-        plt.xlim([0,env.xlim])
+        plt.xlim([0, env.xlim])
         plt.ylim([0, env.ylim])
         print("****VERIFY: env.target_pos: ", env.target_pos)
         target_circle = plt.Circle(env.target_pos, env.target_rad, color='r', alpha=0.3)
@@ -243,27 +269,38 @@ def visualize_output(op_traj_dict_list, iter_i, stats=None, env=None, log_wandb=
 
     return fig
 
-def visualize_input(traj_dataset, stats=None, env=None, log_wandb=False):
-    timesteps, states, actions, returns_to_go, traj_mask = traj_dataset[0]
+def visualize_input(traj_dataset, 
+                    stats=None, 
+                    env=None, 
+                    log_wandb=True,
+                    traj_idx=None,      #None=all, list of rzn_ids []
+
+                    ):
+ 
     print(" ---- Visualizing input ---- ")
-    # print(f"CHECK: states.shape = {states.shape}")
-    # print(f"CHECK: actions.shape = {actions.shape}")
-    # print()
-    if stats != None:
-        mean, std = stats
-        states = (states*std) + mean
-        print("===== Note: rescaling states to original scale for viz=====")
-    print(" ---- -------------- ---- ")
+    path = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/last_exp_figs/"
+    fname = path + "input_traj"  + ".png"
+
     fig = plt.figure()
     plt.cla()
     ax = plt.gca()
     ax.set_aspect('equal', adjustable='box')
     plt.title(f"Input trajectory")
 
-    plt.scatter(states[:,0], states[:,1], label='input_traj')
-    plt.legend()
-    path = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/last_exp_figs/"
-    fname = path + "input_traj"  + ".png"
+    if traj_idx==None:
+        traj_idx = [k for k in range(len(traj_dataset))]
+    
+    for idx, traj in enumerate(traj_dataset):
+        if idx in traj_idx:
+            timesteps, states, actions, returns_to_go, traj_mask = traj
+            if stats != None:
+                mean, std = stats
+                states = (states*std) + mean
+                print("===== Note: rescaling states to original scale for viz=====")
+            print(" ---- -------------- ---- ")
+
+            plt.plot(states[:,1], states[:,2], label='input_traj')
+
 
     if env != None:
         plt.xlim([0,env.xlim])
