@@ -85,12 +85,12 @@ def train(args, cfg_name, params2_name):
     # training and evaluation device
     device = torch.device(cfg.device)
     
-    attention_plot_till_t = 50
+    at_pl_t = 50
     if args.quick_run:
         print("\n ---------- Modifying cfg params for quick run --------------- \n")
         max_train_iters = 2
         num_updates_per_iter = 10
-        attention_plot_till_t = 4
+        at_pl_t = 4
 
 
     prefix = "my_dt_" + dataset_name
@@ -128,6 +128,7 @@ def train(args, cfg_name, params2_name):
     print(f"len(val_traj_set) = {len(val_traj_set)}")
     train_traj_dataset = cgw_trajec_dataset(train_traj_set, context_len, rtg_scale, state_dim=state_dim)
     train_traj_stats = (train_traj_dataset.state_mean, train_traj_dataset.state_std)
+    print(f"train_stats = {train_traj_stats}")
 
 
     train_traj_data_loader = DataLoader(
@@ -182,7 +183,6 @@ def train(args, cfg_name, params2_name):
 
     #                     )
 
-    max_score = -1.0
     total_updates = 0
     action_loss=None
     i_train_iter=None
@@ -225,11 +225,7 @@ def train(args, cfg_name, params2_name):
             # Get the training_attention_weights for the first batch_size no. of trajectories
             if itr == 0:
                 attention_weights_tr_list = []
-                # attention_weights_tr = model.blocks[0].attention.attention_weights
                 for i_bl in range(n_blocks):
-                    # attention_weights_tr = torch.cat((attention_weights_tr, 
-                    #                                 model.blocks[i_bl].attention.attention_weights), 
-                    #                                 dim=0)
                     attention_weights_tr_list.append(model.blocks[i_bl].attention.attention_weights)
             
             action_loss = F.mse_loss(action_preds, action_target, reduction='mean')
@@ -341,7 +337,6 @@ def train(args, cfg_name, params2_name):
     print("started training at: " + start_time_str)
     print("finished training at: " + end_time_str)
     print("total training time: " + time_elapsed)
-    print("max d4rl score: " + format(max_score, ".5f"))
     print("saved max d4rl score model at: " + save_best_model_path)
     print("saved last updated model at: " + save_model_path)
     print("=" * 60)
@@ -370,7 +365,8 @@ def train(args, cfg_name, params2_name):
     aa_writer = imageio.get_writer(aa_movie_sname, fps=1)
     as_writer = imageio.get_writer(as_movie_sname, fps=1)
 
-    for t in range(1,50,2):
+     
+    for t in range(1,at_pl_t,2):
         aa_fname = viz_op_traj_with_attention(op_traj_dict_list, 
                                     mode='a_a_attention', 
                                     stats=train_traj_stats, 
@@ -406,7 +402,7 @@ def train(args, cfg_name, params2_name):
 
             info_string = f"Val_on_best_model-traj-{i}_BId-{-1}_"
 
-            plot_attention_weights(normalized_weights_tr, set_idx=0, scale_each_row=True, cmap='Reds',
+            plot_attention_weights(normalized_weights, set_idx=0, scale_each_row=True, cmap='Reds',
                                         log_wandb=True,fname=norm_fname, info_string=info_string, wandb_fname='attention map(validation on trained model)')
 """
 
@@ -476,8 +472,12 @@ def sweep_train():
     # training and evaluation device
     device = torch.device(cfg.device)
     
-
-
+    at_pl_t = 50
+    if ARGS_QR:
+        print("\n ---------- Modifying cfg params for quick run --------------- \n")
+        max_train_iters = 2
+        num_updates_per_iter = 10
+        at_pl_t = 4
 
 
     prefix = "my_dt_" + dataset_name
@@ -536,10 +536,10 @@ def sweep_train():
 
     state_dim = env.observation_space.shape[0]
     act_dim = env.action_space.shape[0]
-    print(f"act_dim = {act_dim}")
+    # print(f"act_dim = {act_dim}")
 
-    # visualise input - TODO: debug extra point in the middle
-    visualize_input(train_traj_dataset, stats=train_traj_stats, env=env, log_wandb=True)
+    # # visualise input - TODO: debug extra point in the middle
+    # visualize_input(train_traj_dataset, stats=train_traj_stats, env=env, log_wandb=True)
 
     model = DecisionTransformer(
                 state_dim=state_dim,
@@ -564,7 +564,6 @@ def sweep_train():
 
     #                     )
 
-    max_score = -1.0
     total_updates = 0
     action_loss=None
     i_train_iter=None
@@ -578,7 +577,7 @@ def sweep_train():
         model.train()
         wandb.log({"loss": action_loss })
         
-        for _ in range(num_updates_per_iter):
+        for itr in range(num_updates_per_iter):
             #TODO: Find meaning of try/except here
             try:
                 timesteps, states, actions, returns_to_go, traj_mask = next(train_data_iter)
@@ -586,10 +585,6 @@ def sweep_train():
                 train_data_iter = iter(train_traj_data_loader)
                 timesteps, states, actions, returns_to_go, traj_mask = next(train_data_iter)
 
-            # print(f"CHECK: actions.shape = {actions.shape}")
-            # print(f"CHECK: states.shape = {states.shape}")
-            # print(f"CHECK: timesteps.shape = {timesteps.shape}")
-            # print(f"CHECK: rtg.shape = {returns_to_go.shape}")
 
             timesteps = timesteps.to(device)    # B x T
             states = states.to(device)          # B x T x state_dim
@@ -608,8 +603,11 @@ def sweep_train():
             action_preds = action_preds.view(-1, act_dim)[traj_mask.view(-1,) > 0]
             action_target = action_target.view(-1, act_dim)[traj_mask.view(-1,) > 0]
 
-            # print("***** VERFY SHEPS: ", action_preds.shape, action_target.shape)
-            # torch.Size([n, 1])
+            # Get the training_attention_weights for the first batch_size no. of trajectories
+            if itr == 0:
+                attention_weights_tr_list = []
+                for i_bl in range(n_blocks):
+                    attention_weights_tr_list.append(model.blocks[i_bl].attention.attention_weights)
 
             action_loss = F.mse_loss(action_preds, action_target, reduction='mean')
 
@@ -622,7 +620,6 @@ def sweep_train():
             log_action_losses.append(action_loss.detach().cpu().item())
             # p_log.log_params(device=device)
 
-        attention_weights_tr = model.blocks[-1].attention.attention_weights
 
         # evaluate action accuracy
         # TODO: implement 'get_d4rl_normalized_score'
@@ -636,9 +633,21 @@ def sweep_train():
                                                     comp_val_loss = comp_val_loss)
 
         # visualize output
-        if i_train_iter%4 == 0:                        
+        if i_train_iter%4 == 1:                        
             visualize_output(op_traj_dict_list, i_train_iter, stats=train_traj_stats, env=env, log_wandb=True)
+            fname = '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/attention_heatmaps/'
+            fname += save_model_name[:-3] + '_' + 'trainId_' + '.png'
+            norm_fname = '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/normalized_att_heatmaps/'
+            norm_fname += save_model_name[:-3] + '_' + 'trainId_' + '.png'
+            for b_id, attention_weights_tr in enumerate(attention_weights_tr_list):
+                normalized_weights_tr= F.softmax(attention_weights_tr, dim=-1)
+                # plot_attention_weights(attention_weights_tr, set_idx=0, scale_each_row=True, cmap='Blues',
+                #                         log_wandb=True,fname=fname, info_string='_pre_sfmax_')
+                info_string = f"train_itr-{i_train_iter}_BId-{b_id}_"
+                plot_attention_weights(normalized_weights_tr, set_idx=0, scale_each_row=True, cmap='Reds',
+                                        log_wandb=True,fname=norm_fname, info_string=info_string, wandb_fname='attention map(training)')
             # print(f"actions; \n {op_traj_dict_list[0]['actions']}")
+
 
         eval_avg_reward = results['eval/avg_reward']
         eval_avg_ep_len = results['eval/avg_ep_len']
@@ -666,7 +675,6 @@ def sweep_train():
                 "eval avg ep len: " + format(eval_avg_ep_len, ".5f") + '\n' )
         #         "eval d4rl score: " + format(eval_d4rl_score, ".5f")
         #     )
-
         print(log_str)
 
         # TODO: write logs once code runs
@@ -678,44 +686,30 @@ def sweep_train():
         csv_writer.writerow(log_data)
 
         # save model
-        # TODO: save model after completing evaluation
-        # print("max score: " + format(max_score, ".5f"))
-        # if eval_d4rl_score >= max_d4rl_score:
-        #     print("saving max d4rl score model at: " + save_best_model_path)
-        #     torch.save(model.state_dict(), save_best_model_path)
-        #     max_d4rl_score = eval_d4rl_score
+        # TODO: save model and best metrics after completing evaluation
         if eval_avg_reward > eval_max_reward:
             eval_max_reward = eval_avg_reward
             print("saving current model at: " + save_model_path)
+
+            best_avg_returns = eval_avg_reward
+            best_avg_episode_length = eval_avg_ep_len
+            best_success_ratio = success_ratio
+            best_avg_returns_per_success = eval_avg_returns_per_success
+            best_epoch = i_train_iter
+            # "avg_val_loss"= eval_avg_val_loss
+
             torch.save(model.state_dict(), save_model_path)
             tmp_path = save_model_path[:-1]
             torch.save(model, tmp_path)
 
-    # Plot attention weights of training set
-    normalized_weights_tr= F.softmax(attention_weights_tr, dim=-1)
-    fname = '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/attention_heatmaps/'
-    fname += save_model_name[:-3] + '_' + 'trainId_'
 
-    norm_fname = '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/normalized_att_heatmaps/'
-    norm_fname += save_model_name[:-3] + '_' + 'trainId_' 
-
-    plot_attention_weights(attention_weights_tr, fname)
-    plot_attention_weights(normalized_weights_tr, norm_fname)
-
-    # attention weights of vaildation set
-    for i,op_traj_dict in enumerate(op_traj_dict_list):
-        if i%100 == 0:
-            attention_weights = op_traj_dict['attention_weights']
-            normalized_weights = F.softmax(attention_weights, dim=-1)
-            fname = '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/attention_heatmaps/'
-            fname += save_model_name[:-3] + '_' + 'valId_' + str(i) 
-
-            norm_fname = '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/normalized_att_heatmaps/'
-            norm_fname += save_model_name[:-3] + '_' + 'valId_' + str(i) 
-
-            plot_attention_weights(attention_weights, fname)
-            plot_attention_weights(normalized_weights, norm_fname)
-
+    wandb.run.summary["best_avg_returns"] = best_avg_returns
+    wandb.run.summary["best_avg_episode_length"] = best_avg_episode_length
+    #  wandb.run.summary[avg_val_loss= eval_avg_val_loss,
+    wandb.run.summary["best_success_ratio"] = best_success_ratio
+    wandb.run.summary["best_avg_returns_per_success"] = best_avg_returns_per_success
+    wandb.run.summary["best_epoch"] = best_epoch
+    
 
     print("=" * 60)
     print("finished training!")
@@ -726,7 +720,6 @@ def sweep_train():
     print("started training at: " + start_time_str)
     print("finished training at: " + end_time_str)
     print("total training time: " + time_elapsed)
-    print("max d4rl score: " + format(max_score, ".5f"))
     print("saved max d4rl score model at: " + save_best_model_path)
     print("saved last updated model at: " + save_model_path)
     print("=" * 60)
@@ -738,8 +731,65 @@ def sweep_train():
         
     wandb.save("model.onnx")
     # wandb.finish()
+    # Load best model and visualize attention and trajs
+    model = torch.load(tmp_path)
+    results, op_traj_dict_list = evaluate_on_env(model, device, context_len, 
+                                                env, rtg_target, rtg_scale,
+                                                val_idx, val_traj_set,
+                                                # num_eval_ep,
+                                                max_eval_ep_len, 
+                                                state_mean = train_traj_stats[0], 
+                                                state_std = train_traj_stats[1],
+                                                comp_val_loss = comp_val_loss)
+    movie_name = save_model_name + "_traj_with_attention_" 
+    movie_path = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/attention_traj_videos/"
+    aa_movie_sname = movie_path + movie_name + "aa.mp4" 
+    as_movie_sname = movie_path + movie_name + "as.mp4"
+    aa_writer = imageio.get_writer(aa_movie_sname, fps=1)
+    as_writer = imageio.get_writer(as_movie_sname, fps=1)
+
+     
+    for t in range(1,at_pl_t,2):
+        aa_fname = viz_op_traj_with_attention(op_traj_dict_list, 
+                                    mode='a_a_attention', 
+                                    stats=train_traj_stats, 
+                                    env=env, 
+                                    log_wandb=False,
+                                    at_time=t,
+                                    plot_flow=True,
+                                    )
+        aa_writer.append_data(imageio.imread(aa_fname))
+
+        as_fname = viz_op_traj_with_attention(op_traj_dict_list, 
+                                    mode='a_s_attention', 
+                                    stats=train_traj_stats, 
+                                    env=env, 
+                                    log_wandb=False,
+                                    at_time=t,
+                                    plot_flow=True,
+                                    )
+        as_writer.append_data(imageio.imread(as_fname))
+   
+    aa_writer.close()
+    as_writer.close()
+    wandb.log({"aa_attention_traj": wandb.Video(aa_movie_sname, format='mp4')})
+    wandb.log({"as_attention_traj": wandb.Video(as_movie_sname, format='mp4')})
+
+    for i,op_traj_dict in enumerate(op_traj_dict_list):
+        if i%100 == 0:
+            attention_weights = op_traj_dict['attention_weights']
+            normalized_weights = F.softmax(attention_weights, dim=-1)
+
+            norm_fname = '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/normalized_att_heatmaps/'
+            norm_fname += save_model_name[:-3] + '_' + 'valId_' + str(i) + ".png"
+
+            info_string = f"Val_on_best_model-traj-{i}_BId-{-1}_"
+
+            plot_attention_weights(normalized_weights, set_idx=0, scale_each_row=True, cmap='Reds',
+                                        log_wandb=True,fname=norm_fname, info_string=info_string, wandb_fname='attention map(validation on trained model)')
 
 
+ARGS_QR = False
 if __name__ == "__main__":
 
     print(f"cuda available: {torch.cuda.is_available()}")
@@ -785,8 +835,12 @@ if __name__ == "__main__":
         print("----- beginning single_run ------")
         train(args, cfg_name, params2_name)
 
+
     elif args.mode == 'sweep':
         print("----- beginning sweeeeeeeeeeeeep ------")
+        ARGS_QR = args.quick_run
+        print(f"ARGS_QR={ARGS_QR}")
         sweep_cfg = read_cfg_file(cfg_name=sweeep_cfg_name)
         sweep_id = wandb.sweep(sweep_cfg)
         wandb.agent(sweep_id, function=sweep_train)
+

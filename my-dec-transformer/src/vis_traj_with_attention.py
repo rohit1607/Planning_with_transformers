@@ -1,13 +1,6 @@
 """
 Script to 
-    - load a trained model and 
-    - test it on some arbitrary initial starting point within the traj envelope
-
-Notes:
-    1. Starting in the middle of the envelope doesnt work well for any intial timestep
-    2. Starting at / near the original start location 
-        - works well if starting at the original start time
-        - progressivly gets worse on starting at other time
+    - visualise attention weights on trajectories
 """
 import os
 import sys
