@@ -8,6 +8,8 @@ import math
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 
@@ -16,7 +18,7 @@ class MaskedCausalAttention(nn.Module):
         """
         h_dim: hidden dimensions
         max_T: TODO
-        n_heads: no. of multi-attention heads
+        n_heads: no. of multi-attenion heads
         drop_p: dropout probability
         """
 
@@ -58,14 +60,16 @@ class MaskedCausalAttention(nn.Module):
         k = self.k_net(x).view(B, T, N, D).transpose(1,2)
         v = self.v_net(x).view(B, T, N, D).transpose(1,2)
 
-
-        # weights (B, N, T, T)
-        weights = torch.matmul(q, k.transpose(2,3)) / math.sqrt(D)
+        # print(f"k.size(-1) = {k.size(-1)}")
+        # weights (B, N, T, T)  <-- B,N,T,D  @  B,N,D,T
+        weights = torch.matmul(q, k.transpose(2,3)) / math.sqrt(k.size(-1))
         # causal mask applied to weights
         weights = weights.masked_fill(self.mask[...,:T,:T] == 0, float('-inf'))
+        self.attention_weights = weights
         # normalize weights, all -inf -> 0 after softmax
         normalized_weights = F.softmax(weights, dim=-1)
-
+        # print(f"***** IN MODEL: {type(weights), weights.shape}")
+        # plot_attention_weights(weights)
         # attention (B, N, T, D)
         attention = self.att_drop(normalized_weights @ v)
 
@@ -110,6 +114,7 @@ class DecisionTransformer(nn.Module):
         ### transformer blocks
         input_seq_len = 3 * context_len
         blocks = [Block(h_dim, input_seq_len, n_heads, drop_p) for _ in range(n_blocks)]
+        self.blocks = blocks
         self.transformer = nn.Sequential(*blocks)
 
         ### projection heads (project to embedding)

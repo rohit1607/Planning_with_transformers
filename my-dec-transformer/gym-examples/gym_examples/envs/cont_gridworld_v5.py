@@ -14,7 +14,7 @@ from os.path import join
 # VIEWPORT_H = 400
 # SCALE = 30
 
-#TODO: chang env to v6 since we will try using continuous actions
+
 # Contnuous states. n Discrete Actions; multiple possible starting points; with velocity field
 class ContGridWorld_v5(gym.Env):
     metadata = {"render_modes": ["human", "rgb_array", "single_rgb_array"], "render_fps": 4}
@@ -52,7 +52,7 @@ class ContGridWorld_v5(gym.Env):
         self.rzn = rzn
         self.cfg = cfg
         self.params2 = params2
-        self.params = self.cfg["grid_params"]
+        self.params = cfg
         self.state_dim = int(self.params["state_dim"])
         self.action_dim = int(self.params["action_dim"])
         self.a_min, self.a_max = self.params["action_range"]

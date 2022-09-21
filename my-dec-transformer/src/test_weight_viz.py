@@ -1,3 +1,8 @@
+"""
+To visualize weights and gradients with self written utility
+Was oringinally inside src folder
+"""
+
 from pickletools import optimize
 import torch
 import wandb

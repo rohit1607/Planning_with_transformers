@@ -21,10 +21,51 @@
 2. 
     TODO:
     1. make proper plots at evaluation and log to wandb 
-            - Done. Needs modification for plotting all trajs
+            - Done. 
     2. Save most recent trajecttory plots to tmp/last_exp_figs/
             - Done
     3. Process data on separate realizations, not just on mean field
-            -
+            - Done
     4. Train with train, test, validataion  split
+            - Done
 
+
+
+3.
+    TODO:
+    1. See generalization of transformer on 3k-1k-1k split
+        - Validation loss not increasing. May be training and validation sets have similar samples
+    2. Plot attention matrix - Done
+    3. See what happens if the agent is said to start at a given state (t,x,y)
+        inside the envelope 
+        - Done, Does not do well if starting at other states
+    4. Add DO coeffs as input - Later
+    5. Add learnable coeffs as input - Non trivial. Need to rethink
+
+
+4. 
+    TODO:
+    1. Later validate after 200 updates
+        -Done
+    2. See minimal and actual codes to verify reward conditioning
+        ------ Looks correct. See in more details later
+    3. Plot blue-red atttention matrix
+        - Done. Still need to make interpretations
+    4. Calculate success ratio and success_avg_reward
+        - Done
+    5. Create dataset with curriculum learning
+        ------ Later
+    6. See ESPER paper and see if something similar can be implemented
+    7. Try with dataset containing txyuv trajectory
+        - Done
+    8. Check attention_plot and fix normalized_attn plots
+        - Done
+    9. Colour trajectory plots with attention scores    
+        - Done
+    10. Plot mean veloicity field in the background with attenetion trajs
+        - Done. Plotting rzn 0 for now
+    11. Change sweep code
+
+    12. Push to git, pull to machines, and run codes there too
+
+    13. Check scheduler

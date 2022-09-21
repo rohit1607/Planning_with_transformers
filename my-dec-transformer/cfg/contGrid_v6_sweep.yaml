@@ -1,0 +1,90 @@
+program: train_model.py
+method: grid
+name: my_dt_sweep
+project: my_decision_transformer
+metric: 
+  name: avg_returns
+  goal: maximize
+
+parameters:
+  env_name:
+    value: "gym_examples/contGrid-v6"
+  state_dim: 
+    value: 5
+  action_dim: 
+    value: 1
+  action_range: 
+    value: [0, 6.28318]
+  F: 
+    value: 1
+  vel_field: 
+    value: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/raw_data/nT_120"
+  del_t: 
+    value: 1.
+  vmax_by_F: 
+    value: 2.
+  space_scale: 
+    value: 100
+  target_radius: 
+    value: 2
+
+
+  rtg_scale:
+    value: 1
+  rtg_target:
+    values: [30, 60]
+  dataset_name:
+    value: "DG3"
+  dataset_path: 
+    value: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/traj_data_for_model_6_trad2.pkl"
+  log_dir: 
+    value: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log"
+  params2_name: 
+    value: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/params.yml"
+
+
+  split_tr_tst_val: 
+    value: [0.8, 0.1, 0.1]
+  split_ran_seed: 
+    value: 42
+  comp_val_loss: 
+    value: False
+
+
+  max_eval_ep_len: 
+    value: 120
+  num_eval_ep: 
+    value: 500
+  batch_size:
+    value: 32
+  lr:
+    value: 0.0001
+  wt_decay: 
+    value: 0
+  warmup_steps: 
+    value: 10000
+  max_train_iters: 
+    value: 6
+  num_updates_per_iter: 
+    value: 400
+
+
+  context_len: 
+    value: 60
+  n_blocks: 
+    value: 1
+  embed_dim: 
+    value: 4
+  n_heads: 
+    value: 1
+  dropout_p: 
+    value: 0.1
+
+
+  device: 
+    value: 'cuda'
+
+
+  
+  
+ 

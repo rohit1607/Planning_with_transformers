@@ -1,38 +1,42 @@
-grid_params:
-  state_dim: 3
-  action_dim: 1
-  action_range: [0, 6.28318]
-  F: 1
-  vel_field: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/raw_data/nT_120"
-  del_t: 1.
-  vmax_by_F: 2.
-  space_scale: 100
-  target_radius: 3
+env_name: "gym_examples/contGrid-v5"
+state_dim: 3
+action_dim: 1
+action_range: [0, 6.28318]
+F: 1
+vel_field: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/raw_data/nT_120"
+del_t: 1.
+vmax_by_F: 2.
+space_scale: 100
+target_radius: 2
 
-train_params:
+rtg_target: 60
+rtg_scale: 1
+dataset_name: "DG3"
+dataset_path: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/traj_data_for_model_5_trad2.pkl"
+log_dir: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log"
+params2_name: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/params.yml"
 
-  rtg_scale: 1
-  dataset_name: "DG3"
-  dataset_path: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/traj_data_for_model_4.pkl"
-  log_dir: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log"
-  
-  max_eval_ep_len: 120
-  num_eval_ep: 10
-  batch_size: 64
+split_tr_tst_val: [0.8, 0.1, 0.1]
+split_ran_seed: 42
+comp_val_loss: False
 
-  lr: 0.0001
-  wt_decay: 0
-  warmup_steps: 10000
-  max_train_iters: 100
-  num_updates_per_iter: 100
-  
-  context_len: 70
-  n_blocks: 1
-  embed_dim: 4
-  n_heads: 1
-  dropout_p: 0.1
+max_eval_ep_len: 120
+num_eval_ep: 500
+batch_size: 64
 
-  device: 'cuda'
+lr: 0.0001
+wt_decay: 0
+warmup_steps: 10000
+max_train_iters: 10
+num_updates_per_iter: 4000
+
+context_len: 60
+n_blocks: 1
+embed_dim: 8
+n_heads: 1
+dropout_p: 0.1
+
+device: 'cuda'
 
 
   

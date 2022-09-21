@@ -2,3 +2,4 @@ from gym_examples.envs.grid_world import GridWorldEnv
 from gym_examples.envs.grid_world_copy import GridWorldEnvCopy
 
 from gym_examples.envs.cont_gridworld_v5 import ContGridWorld_v5
+from gym_examples.envs.cont_gridworld_v6 import ContGridWorld_v6
