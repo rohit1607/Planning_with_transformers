@@ -3,7 +3,7 @@ method: grid
 name: my_dt_sweep
 project: my_decision_transformer
 metric: 
-  name: avg_returns
+  name: best_avg_returns
   goal: maximize
 
 parameters:
@@ -32,7 +32,7 @@ parameters:
   rtg_scale:
     value: 1
   rtg_target:
-    values: [60]
+    value: 60
   dataset_name:
     value: "DG3"
   dataset_path: 
@@ -56,11 +56,11 @@ parameters:
   num_eval_ep: 
     value: 500
   batch_size:
-    value: 64
+    value: 128
     # values: [32,64,128,256]
   lr:
-    value: 0.0001
-    # values: [0.0001, 0.00001, 0.000001]
+    # value: 0.0001
+    values: [0.0001, 0.00001]
   wt_decay: 
     value: 0
   warmup_steps: 
@@ -74,11 +74,11 @@ parameters:
   context_len: 
     value: 50
   n_blocks: 
-    value: 1
-    # values: [1,2,3,4]
+    # value: 1
+    values: [1,2,3,4]
   embed_dim: 
-    value: 8
-    # values: [8,12,16]
+    # value: 8
+    values: [8,12,16]
   n_heads: 
     value: 1
   dropout_p: 

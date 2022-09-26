@@ -56,6 +56,8 @@
     5. Create dataset with curriculum learning
         ------ Later
     6. See ESPER paper and see if something similar can be implemented
+        ----- Went through paper. Can try to think of some form other form of clustering and try for txy case (grid v5)
+
     7. Try with dataset containing txyuv trajectory
         - Done
     8. Check attention_plot and fix normalized_attn plots
@@ -65,7 +67,18 @@
     10. Plot mean veloicity field in the background with attenetion trajs
         - Done. Plotting rzn 0 for now
     11. Change sweep code
-
+        - Done
     12. Push to git, pull to machines, and run codes there too
+        ---- Pushed working sweep code (for 1 head) to github
+    13. Add multiple heads functionality
 
-    13. Check scheduler
+    14. Colour val trajs by arrival time and log
+        -- Done for predictions on validation set. 
+        -- Need to do for the oringinal directories
+        ----- CHeck if last state gets included in the data preparation phase
+
+    14. Check scheduler
+
+#### NOTE: flow viuslizations of sweeps on Sep 21 are incorrect. Code has beem corrected. Not present in commit
+
+

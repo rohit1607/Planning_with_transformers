@@ -17,7 +17,7 @@ from model_min_dt import DecisionTransformer
 sys.path.insert(0, '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/')
 from utils.utils import read_cfg_file, log_and_viz_params
 from src_utils import get_data_split, cgw_trajec_dataset, plot_attention_weights, visualize_output, evaluate_on_env
-from src_utils import viz_op_traj_with_attention
+from src_utils import viz_op_traj_with_attention, cgw_trajec_test_dataset, visualize_input
 import pickle
 import pprint
 import seaborn as sns
@@ -99,6 +99,7 @@ def visualize(model_path, cfg_name, params2_name):
     train_traj_dataset = cgw_trajec_dataset(train_traj_set, context_len, rtg_scale)
     train_traj_stats = (train_traj_dataset.state_mean, train_traj_dataset.state_std)
     print(f"train_stats = {train_traj_stats}")
+   
 
     env = gym.make(env_name)
     env.setup(cfg, params2)
@@ -107,6 +108,10 @@ def visualize(model_path, cfg_name, params2_name):
     act_dim = env.action_space.shape[0]
     print(f"act_dim = {act_dim}")
 
+    val_traj_dataset = cgw_trajec_test_dataset(val_traj_set, context_len, rtg_scale, train_traj_stats)
+    visualize_input(val_traj_dataset, stats=train_traj_stats,
+                     env=env, log_wandb=True, info_str='val_set',
+                    wandb_fname="Input_validation_trajs")
 
 
     results, op_traj_dict_list = evaluate_on_env(model, device, context_len, 
@@ -124,8 +129,14 @@ def visualize(model_path, cfg_name, params2_name):
     as_movie_sname = movie_path + movie_name + "as.mp4"
     aa_writer = imageio.get_writer(aa_movie_sname, fps=1)
     as_writer = imageio.get_writer(as_movie_sname, fps=1)
+   
+    visualize_output(op_traj_dict_list, stats=train_traj_stats, env=env, log_wandb=True,
+                                        plot_flow=True,
+                                        color_by_time=True,
+                                        )
 
-    for t in range(1, 50,2):
+
+    for t in range(1, 50,40):
         aa_fname = viz_op_traj_with_attention(op_traj_dict_list, 
                                     mode='a_a_attention', 
                                     stats=train_traj_stats, 

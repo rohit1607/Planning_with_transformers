@@ -11,6 +11,9 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib import cm
+import matplotlib.colors as mcol
+import matplotlib.colors as colors
+
 
 def discount_cumsum(x, gamma):
     disc_cumsum = np.zeros_like(x)
@@ -168,7 +171,7 @@ class cgw_trajec_test_dataset(Dataset):
         states = np.concatenate(states, axis=0)
         self.state_mean, self.state_std = np.mean(states, axis=0), np.std(states, axis=0) + 1e-6
        
-        # normalize states with mean and std from training data
+        # IMPORTANT: normalize states with mean and std from training data
         self.state_mean_tr, self.state_std_tr = train_stats
         for traj in self.trajectories:
             traj['states'] = (traj['states'] - self.state_mean_tr) / self.state_std_tr
@@ -338,6 +341,7 @@ def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
                     if t+1 < env.nT :
                         states[0, t+1] = torch.from_numpy(running_state).to(device)
                         states[0, t+1] = (states[0, t+1] - state_mean) / state_std
+                    # attention weights of last block
                     attention_weights = model.blocks[-1].attention.attention_weights
                     # if done and getting positive reward
                     if running_reward > 0: 
@@ -407,13 +411,34 @@ def compute_val_loss(val_traj_set, op_traj_dict_list, max_test_ep_len):
     
     return val_loss_list
 
-def visualize_output(op_traj_dict_list, iter_i, 
+def plot_vel_field(env,t,r=0, g_strmplot_lw=1, g_strmplot_arrowsize=1):
+    # Make modes the last axis
+    Ui = np.transpose(env.Ui,(0,2,3,1))
+    Vi = np.transpose(env.Vi,(0,2,3,1))
+    vx_grid = env.U[t,:,:] + np.dot(Ui[t,:,:,:],env.Yi[t,r,:])
+    vy_grid = env.V[t,:,:] + np.dot(Vi[t,:,:,:],env.Yi[t,r,:])
+    vx_grid = np.flipud(vx_grid)
+    vy_grid = np.flipud(vy_grid)
+    Xs = np.arange(0,env.xlim) + (env.dxy/2)
+    Ys = np.arange(0,env.ylim) + (env.dxy/2)
+    X,Y = np.meshgrid(Xs, Ys)
+    plt.streamplot(X, Y, vx_grid, vy_grid, color = 'grey', zorder = 0,  linewidth=g_strmplot_lw, arrowsize=g_strmplot_arrowsize, arrowstyle='->')
+    v_mag_grid = (vx_grid**2 + vy_grid**2)**0.5
+    plt.contourf(X, Y, v_mag_grid, cmap = "Blues", alpha = 0.5, zorder = -1e5)
+
+
+
+def visualize_output(op_traj_dict_list, 
+                        iter_i = 0, 
                         stats=None, 
                         env=None, 
                         log_wandb=True, 
                         plot_policy=False,
                         traj_idx=None,      #None=all, list of rzn_ids []
-                        show_scatter=False
+                        show_scatter=False,
+                        at_time=None,
+                        color_by_time=True,
+                        plot_flow=True,
                         ):
  
     path = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/last_exp_figs/"
@@ -431,6 +456,18 @@ def visualize_output(op_traj_dict_list, iter_i,
         traj_idx = [k for k in range(len(op_traj_dict_list))]
 
     # print(f" ***** Verify: traj_idx = {traj_idx}")
+    if color_by_time:
+        t_dones = []
+        for op_traj_dict in op_traj_dict_list:
+            t_dones.append(op_traj_dict['t_done'])
+        vmin = min(t_dones)
+        vmax = max(t_dones)
+        # Make a user-defined colormap.
+        cNorm = colors.Normalize(vmin=vmin, vmax=vmax)
+        cmap = plt.get_cmap('YlOrRd')
+        scalarMap = cm.ScalarMappable(norm=cNorm, cmap=cmap)
+
+
     for idx,traj in enumerate(op_traj_dict_list):
         if idx in traj_idx:
             states = traj['states']
@@ -438,13 +475,24 @@ def visualize_output(op_traj_dict_list, iter_i,
             rtg = traj['rtg']
             t_done =  traj['t_done']
             # print(f"******* Verify: visualize_op: states.shape= {states.shape}")
+            if at_time != None:
+                assert(at_time >= 1), f"Can only plot at_time >= 1 only"
+                # if at_time > t_done, just plot for t_done
+                t_done = min(at_time, t_done)
+            else:
+                at_time = t_done
+
             if stats!=None:
                 mean, std = stats
                 states = (states*std) + mean
         
             # Plot sstates
             # shape: (eval_batch_size, max_test_ep_len, state_dim)
-            plt.plot(states[0,:t_done,1], states[0,:t_done,2])
+            if color_by_time:
+                plt.plot(states[0,:t_done+1,1], states[0,:t_done+1,2], color=scalarMap.to_rgba(t_done))
+            else:
+                plt.plot(states[0,:t_done+1,1], states[0,:t_done+1,2])
+
             if show_scatter:
                 plt.scatter(states[0,:,1], states[0,:,2],s=0.5)
 
@@ -453,7 +501,9 @@ def visualize_output(op_traj_dict_list, iter_i,
             if plot_policy:
                 for i in range(nstates):
                     plt.arrow(states[0,i,1], states[0,i,2], np.cos(actions[0,i,0]), np.sin(actions[0,i,0]))
-        
+    if color_by_time:
+        cbar = plt.colorbar(scalarMap, label="Arrival Time")
+
     # plot target area and set limits
     if env != None:
         plt.xlim([0, env.xlim])
@@ -461,7 +511,8 @@ def visualize_output(op_traj_dict_list, iter_i,
         # print("****VERIFY: env.target_pos: ", env.target_pos)
         target_circle = plt.Circle(env.target_pos, env.target_rad, color='r', alpha=0.3)
         ax.add_patch(target_circle)
-
+        if plot_flow and at_time!=None:
+            plot_vel_field(env,at_time)
     plt.savefig(fname, dpi=300)
 
     if log_wandb:
@@ -469,45 +520,6 @@ def visualize_output(op_traj_dict_list, iter_i,
 
 
     return fig
-
-
-# def plot_flow(env,t,r, g_strmplot_lw=1, g_strmplot_arrowsize=1):
-#     x_list=[]
-#     y_list=[]
-#     vx_list = []
-#     vy_list = []
-#     nt, ni, nj = env.vel_shape
-#     Xs = np.arange(0,env.xlim) + (env.dxy/2)
-#     Ys = np.flip(np.arange(0,env.ylim) + (env.dxy/2))
-
-#     for i in range(ni):
-#         y = Ys[i]
-#         for j in range(nj):
-#             x = Xs[j]
-#             x_list.append(x)
-#             y_list.append(y)
-#             vx, vy = env.get_velocity([t,x,y],rzn=r)
-#             vx_list.append(vx)
-#             vy_list.append(vy)
-
-#     vx_grid = np.reshape(np.array(vx_list), (env.xlim,env.ylim))
-#     vy_grid = np.reshape(np.array(vy_list),  (env.xlim,env.ylim))
-#     plt.streamplot(X, Y, vx_grid, vy_grid, color = 'k', zorder = 0,  linewidth=g_strmplot_lw, arrowsize=g_strmplot_arrowsize, arrowstyle='->')
-#     return x_list, y_list, vx_list, vy_list
-
-def plot_vel_field(env,t,r=0, g_strmplot_lw=1, g_strmplot_arrowsize=1):
-    Ui = np.transpose(env.Ui,(0,2,3,1))
-    Vi = np.transpose(env.Vi,(0,2,3,1))
-    vx_grid = env.U[t,:,:] + np.dot(Ui[t,:,:,:],env.Yi[t,r,:])
-    vy_grid = env.V[t,:,:] + np.dot(Vi[t,:,:,:],env.Yi[t,r,:])
-    vx_grid = np.flipud(vx_grid)
-    vy_grid = np.flipud(vy_grid)
-    Xs = np.arange(0,env.xlim) + (env.dxy/2)
-    Ys = np.arange(0,env.ylim) + (env.dxy/2)
-    X,Y = np.meshgrid(Xs, Ys)
-    plt.streamplot(X, Y, vx_grid, vy_grid, color = 'grey', zorder = 0,  linewidth=g_strmplot_lw, arrowsize=g_strmplot_arrowsize, arrowstyle='->')
-    v_mag_grid = (vx_grid**2 + vy_grid**2)**0.5
-    plt.contourf(X, Y, v_mag_grid, cmap = "Blues", alpha = 0.5, zorder = -1e5)
 
 
 def viz_op_traj_with_attention(op_traj_dict_list, 
@@ -547,7 +559,8 @@ def viz_op_traj_with_attention(op_traj_dict_list,
                 assert(at_time >= 1), f"Can only plot at_time >= 1 only"
                 # if at_time > t_done, just plot for t_done
                 t_done = min(at_time, t_done)
-
+            else:
+                at_time = t_done
 
             at_weights = traj['attention_weights'][0,0,:,:].cpu().detach().numpy()
             a_s_wts_scaled = scale_attention_rows(at_weights[2::3,1::3])
@@ -588,8 +601,8 @@ def viz_op_traj_with_attention(op_traj_dict_list,
         target_circle = plt.Circle(env.target_pos, env.target_rad, color='r', alpha=0.3)
         ax.add_patch(target_circle)
 
-        if plot_flow:
-            plot_vel_field(env,t)
+        if plot_flow and at_time!=None:
+            plot_vel_field(env,at_time)
 
     plt.savefig(fname, dpi=300)
     wandbfname = "pred_trajs_with_" + mode
@@ -605,7 +618,11 @@ def visualize_input(traj_dataset,
                     env=None, 
                     log_wandb=True,
                     traj_idx=None,      #None=all, list of rzn_ids []
-
+                    wandb_fname='input_traj_fig',
+                    info_str='',
+                    at_time=None,
+                    color_by_time=True,
+                    plot_flow=True,
                     ):
  
     print(" ---- Visualizing input ---- ")
@@ -617,7 +634,8 @@ def visualize_input(traj_dataset,
     plt.cla()
     ax = plt.gca()
     ax.set_aspect('equal', adjustable='box')
-    plt.title(f"Input trajectory")
+    title = "Input_traj_" + info_str
+    plt.title(title)
 
     # print(f" **** Verify: len of first traj = {len(traj_dataset[0][1])}")
     # print(f" **** Verify: first traj = {traj_dataset[0][1]}")
@@ -628,17 +646,43 @@ def visualize_input(traj_dataset,
 
     if traj_idx==None:
         traj_idx = [k for k in range(len(traj_dataset))]
-    
+   
+    if color_by_time:
+        t_dones = []
+        for idx, traj in enumerate(traj_dataset):
+            if idx in traj_idx:
+                timesteps, states, actions, returns_to_go, traj_mask = traj
+                t_done = int(np.sum(traj_mask.numpy()))   # no. of points to plot. No need to plot masked data.
+            t_dones.append(t_done)
+        vmin = min(t_dones)
+        vmax = max(t_dones)
+        # Make a user-defined colormap.
+        cNorm = colors.Normalize(vmin=vmin, vmax=vmax)
+        cmap = plt.get_cmap('YlOrRd')
+        scalarMap = cm.ScalarMappable(norm=cNorm, cmap=cmap)
+
     for idx, traj in enumerate(traj_dataset):
         if idx in traj_idx:
             timesteps, states, actions, returns_to_go, traj_mask = traj
-            n_plt = int(np.sum(traj_mask.numpy()))   # no. of points to plot. No need to plot masked data.
+            t_done = int(np.sum(traj_mask.numpy()))   # no. of points to plot. No need to plot masked data.
+           
+            if at_time != None:
+                assert(at_time >= 1), f"Can only plot at_time >= 1 only"
+                # if at_time > t_done, just plot for t_done
+                t_done = min(at_time, t_done)
+            else:
+                at_time = t_done
+           
+           
             if stats != None:
                 mean, std = stats
                 states = (states*std) + mean
                 states = states*(traj_mask.reshape(-1,1))
 
-            plt.plot(states[:n_plt,1], states[:n_plt,2], label='input_traj')
+            if color_by_time:
+                plt.plot(states[:t_done,1], states[:t_done,2], color=scalarMap.to_rgba(t_done) )
+            else:
+                plt.plot(states[:t_done,1], states[:t_done,2], )
             plt.scatter(states[-1,1], states[-1,2], alpha=0.5, zorder=10000, s=5)
             # print(f"bcords: {states[-1,1], states[-1,2]}")
 
@@ -649,10 +693,12 @@ def visualize_input(traj_dataset,
         target_circle = plt.Circle(env.target_pos, env.target_rad, color='r', alpha=0.3)
         ax.add_patch(target_circle)
 
+        if plot_flow and at_time!=None:
+            plot_vel_field(env,at_time)    
     plt.savefig(fname, dpi=300)
 
     if log_wandb:
-        wandb.log({"input_traj_fig": wandb.Image(fname)})
+        wandb.log({wandb_fname: wandb.Image(fname)})
     plt.cla()
 
 

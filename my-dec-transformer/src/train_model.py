@@ -18,7 +18,7 @@ import gym_examples
 from model_min_dt import DecisionTransformer
 sys.path.insert(0, '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/')
 from utils.utils import read_cfg_file, log_and_viz_params
-from src_utils import compute_val_loss, get_data_split, cgw_trajec_dataset, viz_op_traj_with_attention
+from src_utils import compute_val_loss, get_data_split, cgw_trajec_dataset, cgw_trajec_test_dataset, viz_op_traj_with_attention
 from src_utils import evaluate_on_env, visualize_output, visualize_input, plot_attention_weights
 import pickle
 import wandb
@@ -130,6 +130,8 @@ def train(args, cfg_name, params2_name):
     train_traj_stats = (train_traj_dataset.state_mean, train_traj_dataset.state_std)
     print(f"train_stats = {train_traj_stats}")
 
+    val_traj_dataset = cgw_trajec_test_dataset(val_traj_set, context_len, rtg_scale, train_traj_stats)
+    visualize_input(val_traj_dataset, stats=train_traj_stats, env=env, log_wandb=True)
 
     train_traj_data_loader = DataLoader(
                             train_traj_dataset,
@@ -702,7 +704,7 @@ def sweep_train():
             tmp_path = save_model_path[:-1]
             torch.save(model, tmp_path)
 
-
+    wandb.log({"best_avg_returns": best_avg_returns})
     wandb.run.summary["best_avg_returns"] = best_avg_returns
     wandb.run.summary["best_avg_episode_length"] = best_avg_episode_length
     #  wandb.run.summary[avg_val_loss= eval_avg_val_loss,
