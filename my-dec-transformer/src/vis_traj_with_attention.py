@@ -30,13 +30,12 @@ import imageio.v2 as imageio
 wandb.login()
 
 
-def visualize(model_path, cfg_name, params2_name):
+def visualize(model_path, cfg_name):
     model_name = model_path.split('/')[-1]
     start_time = datetime.now().replace(microsecond=0)
     start_time_str = start_time.strftime("%m-%d-%H-%M")
 
     cfg = read_cfg_file(cfg_name=cfg_name)
-    params2 = read_cfg_file(cfg_name=params2_name)
     dataset_name = "DG3"
     wandb_exp_name = "viz_my-dt-" + dataset_name + "__" + model_name
     wandb.init(project="visualize_attention",
@@ -44,6 +43,8 @@ def visualize(model_path, cfg_name, params2_name):
         config=cfg
         )
     cfg=wandb.config
+    params2 = read_cfg_file(cfg_name=join(ROOT,cfg.params2_name))
+
     pprint.pprint(cfg)
 
     rtg_target = cfg.rtg_target
@@ -73,12 +74,11 @@ def visualize(model_path, cfg_name, params2_name):
     dropout_p = cfg.dropout_p         # dropout probability
 
     # load data from this file
-    dataset_path = cfg.dataset_path
+    dataset_path = join(ROOT,cfg.dataset_path)
     dataset_name = cfg.dataset_name
     # saves model and csv in this directory
-    log_dir = cfg.log_dir
-    if not os.path.exists('log_dir'):
-        os.makedirs('log_dir')
+    log_dir = join(ROOT,cfg.log_dir)
+ 
 
     # training and evaluation device
     device = torch.device(cfg.device)
@@ -168,6 +168,5 @@ def visualize(model_path, cfg_name, params2_name):
 
 
 cfg_name = join(ROOT,"cfg/contGrid_v6.yaml")
-params2_name =join(ROOT,"data/DG3/params.yml")
 model_path = join(ROOT,"log/my_dt_DG3_model_09-21-10-51.p")
-visualize(model_path,cfg_name,params2_name)
+visualize(model_path,cfg_name)
