@@ -1,1 +1,4 @@
-from utils.utils import cgw_trajec_dataset
+from root_path import ROOT
+import os
+fname = os.path.join(ROOT,'tmp/attention_heatmaps/')
+print(fname)

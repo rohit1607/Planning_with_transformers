@@ -16,12 +16,12 @@ import torch
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
 import torch.nn.functional as F
-
+from os.path import join
 import gym
 import gym_examples
-
+from root_path import ROOT
 from model_min_dt import DecisionTransformer
-sys.path.insert(0, '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/')
+sys.path.insert(0, ROOT)
 from utils.utils import read_cfg_file, log_and_viz_params
 from src_utils import compute_val_loss, get_data_split, cgw_trajec_dataset, plot_attention_weights, visualize_output
 import tqdm
@@ -174,7 +174,7 @@ def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
 
 
 
-sweeep_cfg_name = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/cfg/contGrid_v5_sweep.yaml" 
+sweeep_cfg_name = join(ROOT,"cfg/contGrid_v5_sweep.yaml" )
 sweeep_cfg = read_cfg_file(cfg_name=sweeep_cfg_name)
 env_name = "gym_examples/contGrid-v5"
 
@@ -222,7 +222,7 @@ dataset_name = cfg['dataset_name']
 
 device = torch.device(cfg['device'] )
 
-model_path = '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_09-08-12-34.p'
+model_path = join(ROOT,'log/my_dt_DG3_model_09-08-12-34.p')
 model_name = model_path.split('/')[-1]
 model = torch.load(model_path)
 model.eval()
@@ -283,10 +283,10 @@ for i,op_traj_dict in enumerate(op_traj_dict_list):
     if i%100 == 0:
         attention_weights = op_traj_dict['attention_weights']
         normalized_weights = F.softmax(attention_weights, dim=-1)
-        fname = '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/attention_heatmaps/'
+        fname = join(ROOT,"tmp/attention_heatmaps/")
         fname += model_name[:-2] + '_' + 'valId_' + str(i) 
 
-        norm_fname = '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/normalized_att_heatmaps/'
+        norm_fname = join(ROOT,"tmp/normalized_att_heatmaps/")
         norm_fname += model_name[:-2] + '_' + 'valId_' + str(i) 
 
         plot_attention_weights(attention_weights, fname)

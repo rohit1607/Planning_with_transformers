@@ -13,6 +13,8 @@ import matplotlib.pyplot as plt
 from matplotlib import cm
 import matplotlib.colors as mcol
 import matplotlib.colors as colors
+from os.path import join
+from root_path import ROOT
 
 
 def discount_cumsum(x, gamma):
@@ -439,9 +441,10 @@ def visualize_output(op_traj_dict_list,
                         at_time=None,
                         color_by_time=True,
                         plot_flow=True,
+
                         ):
  
-    path = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/last_exp_figs/"
+    path = join(ROOT, "tmp/last_exp_figs/")
     fname = path + "pred_traj_epoch_" + str(iter_i) + ".png" 
     fig = plt.figure()
     plt.cla()
@@ -534,7 +537,7 @@ def viz_op_traj_with_attention(op_traj_dict_list,
                         at_time=None,
                         ):
  
-    path = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/last_exp_figs/"
+    path = join(ROOT, "tmp/last_exp_figs/")
     fname = path + mode + "_val_" + ".png" 
     fig = plt.figure()
     plt.cla()
@@ -627,7 +630,7 @@ def visualize_input(traj_dataset,
  
     print(" ---- Visualizing input ---- ")
 
-    path = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/last_exp_figs/"
+    path = join(ROOT, "tmp/last_exp_figs/")
     fname = path + "input_traj"  + ".png"
 
     fig = plt.figure()

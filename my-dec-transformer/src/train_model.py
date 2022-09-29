@@ -6,6 +6,7 @@ import sys
 import random
 import csv
 from datetime import datetime
+from os.path import join
 
 import numpy as np
 import torch
@@ -15,8 +16,9 @@ from torch.utils.data import DataLoader
 import gym
 import gym_examples
 
+from root_path import ROOT
 from model_min_dt import DecisionTransformer
-sys.path.insert(0, '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/')
+sys.path.insert(0, ROOT)
 from utils.utils import read_cfg_file, log_and_viz_params
 from src_utils import compute_val_loss, get_data_split, cgw_trajec_dataset, cgw_trajec_test_dataset, viz_op_traj_with_attention
 from src_utils import evaluate_on_env, visualize_output, visualize_input, plot_attention_weights
@@ -30,14 +32,13 @@ wandb.login()
 
 
 
-def train(args, cfg_name, params2_name):
+def train(args, cfg_name ):
 
 
     start_time = datetime.now().replace(microsecond=0)
     start_time_str = start_time.strftime("%m-%d-%H-%M")
 
     cfg = read_cfg_file(cfg_name=cfg_name)
-    params2 = read_cfg_file(cfg_name=params2_name)
 
     dataset_name = "DG3"
     wandb_exp_name = "my-dt-" + dataset_name + "__" + start_time_str
@@ -46,6 +47,8 @@ def train(args, cfg_name, params2_name):
         config=cfg
         )
     cfg=wandb.config
+    params2 = read_cfg_file(cfg_name=join(ROOT,cfg.params2_name))
+
     pprint.pprint(cfg)
 
     rtg_target = cfg.rtg_target
@@ -75,12 +78,10 @@ def train(args, cfg_name, params2_name):
     dropout_p = cfg.dropout_p         # dropout probability
 
     # load data from this file
-    dataset_path = cfg.dataset_path
+    dataset_path = join(ROOT,cfg.dataset_path)
     dataset_name = cfg.dataset_name
     # saves model and csv in this directory
-    log_dir = cfg.log_dir
-    if not os.path.exists('log_dir'):
-        os.makedirs('log_dir')
+    log_dir = join(ROOT, cfg.log_dir)
 
     # training and evaluation device
     device = torch.device(cfg.device)
@@ -90,16 +91,17 @@ def train(args, cfg_name, params2_name):
         print("\n ---------- Modifying cfg params for quick run --------------- \n")
         max_train_iters = 2
         num_updates_per_iter = 10
+        num_eval_ep = 10
         at_pl_t = 4
 
 
     prefix = "my_dt_" + dataset_name
 
     save_model_name =  prefix + "_model_" + start_time_str + ".pt"
-    save_model_path = os.path.join(log_dir, save_model_name)
+    save_model_path = join(log_dir, save_model_name)
     save_best_model_path = save_model_path[:-3] + "_best.pt"
     log_csv_name = prefix + "_log_" + start_time_str + ".csv"
-    log_csv_path = os.path.join(log_dir, log_csv_name)
+    log_csv_path = join(log_dir, log_csv_name)
 
     csv_writer = csv.writer(open(log_csv_path, 'a', 1))
     csv_header = (["duration", "num_updates", "action_loss",
@@ -131,7 +133,6 @@ def train(args, cfg_name, params2_name):
     print(f"train_stats = {train_traj_stats}")
 
     val_traj_dataset = cgw_trajec_test_dataset(val_traj_set, context_len, rtg_scale, train_traj_stats)
-    visualize_input(val_traj_dataset, stats=train_traj_stats, env=env, log_wandb=True)
 
     train_traj_data_loader = DataLoader(
                             train_traj_dataset,
@@ -152,14 +153,8 @@ def train(args, cfg_name, params2_name):
     # print(f"act_dim = {act_dim}")
 
 
-    env = gym.make(env_name)
-    env.setup(cfg, params2)
-
-    state_dim = env.observation_space.shape[0]
-    act_dim = env.action_space.shape[0]
-
     # # visualise input
-    # visualize_input(train_traj_dataset, stats=train_traj_stats, env=env, log_wandb=True)
+    # visualize_input(val_traj_dataset, stats=train_traj_stats, env=env, log_wandb=True)
 
 
     model = DecisionTransformer(
@@ -255,9 +250,9 @@ def train(args, cfg_name, params2_name):
         # visualize output
         if i_train_iter%4 == 1:                        
             visualize_output(op_traj_dict_list, i_train_iter, stats=train_traj_stats, env=env, log_wandb=True)
-            fname = '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/attention_heatmaps/'
+            fname = join(ROOT,'tmp/attention_heatmaps/')
             fname += save_model_name[:-3] + '_' + 'trainId_' + '.png'
-            norm_fname = '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/normalized_att_heatmaps/'
+            norm_fname = join(ROOT, 'tmp/normalized_att_heatmaps/')
             norm_fname += save_model_name[:-3] + '_' + 'trainId_' + '.png'
             for b_id, attention_weights_tr in enumerate(attention_weights_tr_list):
                 normalized_weights_tr= F.softmax(attention_weights_tr, dim=-1)
@@ -343,12 +338,6 @@ def train(args, cfg_name, params2_name):
     print("saved last updated model at: " + save_model_path)
     print("=" * 60)
     
-    torch.onnx.export(model, (timesteps,states, actions, returns_to_go), "model.onnx",
-        #  input_names="states,actions,rtg,timesteps",
-        #  output_names= "pred_actions"
-         )
-        
-    wandb.save("model.onnx")
     # wandb.finish()
     # Load best model and visualize attention and trajs
     model = torch.load(tmp_path)
@@ -361,7 +350,7 @@ def train(args, cfg_name, params2_name):
                                                 state_std = train_traj_stats[1],
                                                 comp_val_loss = comp_val_loss)
     movie_name = save_model_name + "_traj_with_attention_" 
-    movie_path = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/attention_traj_videos/"
+    movie_path = join(ROOT,"tmp/attention_traj_videos/")
     aa_movie_sname = movie_path + movie_name + "aa.mp4" 
     as_movie_sname = movie_path + movie_name + "as.mp4"
     aa_writer = imageio.get_writer(aa_movie_sname, fps=1)
@@ -399,7 +388,7 @@ def train(args, cfg_name, params2_name):
             attention_weights = op_traj_dict['attention_weights']
             normalized_weights = F.softmax(attention_weights, dim=-1)
 
-            norm_fname = '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/normalized_att_heatmaps/'
+            norm_fname = join(ROOT, 'tmp/normalized_att_heatmaps/')
             norm_fname += save_model_name[:-3] + '_' + 'valId_' + str(i) + ".png"
 
             info_string = f"Val_on_best_model-traj-{i}_BId-{-1}_"
@@ -434,9 +423,7 @@ def sweep_train():
         config=defaults
         )
     cfg=wandb.config                # cfg is a dictionary without nested 'value' keys
-    print(f"VERIFY wandb.config : {cfg}")
-    params2 = read_cfg_file(cfg_name=cfg.params2_name)
-   
+    params2 = read_cfg_file(cfg_name=join(ROOT,cfg.params2_name))
     rtg_target = cfg.rtg_target
     env_name = cfg.env_name
     state_dim = cfg.state_dim
@@ -464,12 +451,11 @@ def sweep_train():
     dropout_p = cfg.dropout_p         # dropout probability
 
     # load data from this file
-    dataset_path = cfg.dataset_path
+    dataset_path = join(ROOT,cfg.dataset_path)
     dataset_name = cfg.dataset_name
     # saves model and csv in this directory
-    log_dir = cfg.log_dir
-    if not os.path.exists('log_dir'):
-        os.makedirs('log_dir')
+    log_dir = join(ROOT,cfg.log_dir)
+    print(dataset_path, log_dir)
 
     # training and evaluation device
     device = torch.device(cfg.device)
@@ -479,6 +465,7 @@ def sweep_train():
         print("\n ---------- Modifying cfg params for quick run --------------- \n")
         max_train_iters = 2
         num_updates_per_iter = 10
+        num_eval_ep = 10
         at_pl_t = 4
 
 
@@ -637,9 +624,9 @@ def sweep_train():
         # visualize output
         if i_train_iter%4 == 1:                        
             visualize_output(op_traj_dict_list, i_train_iter, stats=train_traj_stats, env=env, log_wandb=True)
-            fname = '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/attention_heatmaps/'
+            fname = join(ROOT,'tmp/attention_heatmaps/')
             fname += save_model_name[:-3] + '_' + 'trainId_' + '.png'
-            norm_fname = '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/normalized_att_heatmaps/'
+            norm_fname = join(ROOT, 'tmp/normalized_att_heatmaps/')
             norm_fname += save_model_name[:-3] + '_' + 'trainId_' + '.png'
             for b_id, attention_weights_tr in enumerate(attention_weights_tr_list):
                 normalized_weights_tr= F.softmax(attention_weights_tr, dim=-1)
@@ -726,12 +713,7 @@ def sweep_train():
     print("saved last updated model at: " + save_model_path)
     print("=" * 60)
     
-    torch.onnx.export(model, (timesteps,states, actions, returns_to_go), "model.onnx",
-        #  input_names="states,actions,rtg,timesteps",
-        #  output_names= "pred_actions"
-         )
-        
-    wandb.save("model.onnx")
+  
     # wandb.finish()
     # Load best model and visualize attention and trajs
     model = torch.load(tmp_path)
@@ -744,7 +726,7 @@ def sweep_train():
                                                 state_std = train_traj_stats[1],
                                                 comp_val_loss = comp_val_loss)
     movie_name = save_model_name + "_traj_with_attention_" 
-    movie_path = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/attention_traj_videos/"
+    movie_path = join(ROOT,"tmp/attention_traj_videos/")
     aa_movie_sname = movie_path + movie_name + "aa.mp4" 
     as_movie_sname = movie_path + movie_name + "as.mp4"
     aa_writer = imageio.get_writer(aa_movie_sname, fps=1)
@@ -782,7 +764,7 @@ def sweep_train():
             attention_weights = op_traj_dict['attention_weights']
             normalized_weights = F.softmax(attention_weights, dim=-1)
 
-            norm_fname = '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/normalized_att_heatmaps/'
+            norm_fname = join(ROOT, 'tmp/normalized_att_heatmaps/')
             norm_fname += save_model_name[:-3] + '_' + 'valId_' + str(i) + ".png"
 
             info_string = f"Val_on_best_model-traj-{i}_BId-{-1}_"
@@ -828,14 +810,13 @@ if __name__ == "__main__":
     parser.add_argument('--quick_run', type=bool, default=False)
     args = parser.parse_args()
 
-    cfg_name = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/cfg/contGrid_v6.yaml"
-    params2_name ="/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/params.yml"
-    sweeep_cfg_name = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/cfg/contGrid_v6_sweep.yaml" 
+    cfg_name = join(ROOT,"cfg/contGrid_v6.yaml")
+    sweeep_cfg_name = join(ROOT,"cfg/contGrid_v6_sweep.yaml")
     print(f'args.mode = {args.mode}')
 
     if args.mode == 'single_run':
         print("----- beginning single_run ------")
-        train(args, cfg_name, params2_name)
+        train(args, cfg_name)
 
 
     elif args.mode == 'sweep':

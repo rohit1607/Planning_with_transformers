@@ -62,7 +62,8 @@ class MaskedCausalAttention(nn.Module):
 
         # print(f"k.size(-1) = {k.size(-1)}")
         # weights (B, N, T, T)  <-- B,N,T,D  @  B,N,D,T
-        weights = torch.matmul(q, k.transpose(2,3)) / math.sqrt(k.size(-1))
+        weights = torch.matmul(q, k.transpose(2,3)) / math.sqrt(float(k.size(-1)))
+
         # causal mask applied to weights
         weights = weights.masked_fill(self.mask[...,:T,:T] == 0, float('-inf'))
         self.attention_weights = weights

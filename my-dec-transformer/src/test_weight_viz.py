@@ -12,7 +12,8 @@ import torch.nn.functional as F
 from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt
 import sys
-sys.path.insert(0, '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/')
+from root_path import ROOT
+sys.path.insert(0, ROOT)
 from utils.utils import log_and_viz_params
 # wandb.login()
 # wandb.init(project="param_viz_test",

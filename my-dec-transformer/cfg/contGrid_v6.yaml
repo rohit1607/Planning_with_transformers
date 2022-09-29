@@ -12,9 +12,9 @@ target_radius: 2
 rtg_target: 60
 rtg_scale: 1
 dataset_name: "DG3"
-dataset_path: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/traj_data_for_model_6_trad2.pkl"
-log_dir: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log"
-params2_name: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/params.yml"
+dataset_path: "data/DG3/traj_data_for_model_6_trad2.pkl"
+log_dir: "log"
+params2_name: "data/DG3/params.yml"
 
 split_tr_tst_val: [0.8, 0.1, 0.1]
 split_ran_seed: 42

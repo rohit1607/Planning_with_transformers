@@ -214,7 +214,8 @@ class ContGridWorld_v6(gym.Env):
         return np.array(self.state), self.reward, self.done, info
 
 
-    def reset(self, reset_state=[float('inf'),float('inf'),float('inf')]):
+    def reset(self, reset_state=[float('inf'),float('inf'),float('inf')],
+                                    seed=None,return_info=None,options=None):
         """
         if providing arg reset_state , just give [t,x,y]. 
         u,v will computed within this function separately

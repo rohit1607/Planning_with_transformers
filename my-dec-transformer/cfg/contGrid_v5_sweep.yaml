@@ -18,7 +18,7 @@ parameters:
   F: 
     value: 1
   vel_field: 
-    value: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/raw_data/nT_120"
+    value: "data/DG3/raw_data/nT_120"
   del_t: 
     value: 1.
   vmax_by_F: 
@@ -36,11 +36,11 @@ parameters:
   dataset_name:
     value: "DG3"
   dataset_path: 
-    value: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/traj_data_for_model_5_trad2.pkl"
+    value: "data/DG3/traj_data_for_model_5_trad2.pkl"
   log_dir: 
-    value: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log"
+    value: "log"
   params2_name: 
-    value: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/params.yml"
+    value: "data/DG3/params.yml"
 
 
   split_tr_tst_val: 

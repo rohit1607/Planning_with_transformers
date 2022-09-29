@@ -12,9 +12,11 @@ import torch.nn.functional as F
 
 import gym
 import gym_examples
+from root_path import ROOT
+from os.path import join
 
 from model_min_dt import DecisionTransformer
-sys.path.insert(0, '/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/')
+sys.path.insert(0, ROOT)
 from utils.utils import read_cfg_file, log_and_viz_params
 from src_utils import get_data_split, cgw_trajec_dataset, plot_attention_weights, visualize_output, evaluate_on_env
 from src_utils import viz_op_traj_with_attention, cgw_trajec_test_dataset, visualize_input
@@ -124,7 +126,7 @@ def visualize(model_path, cfg_name, params2_name):
                                                 comp_val_loss = comp_val_loss)
 
     movie_name = model_name + "_traj_with_attention_" 
-    movie_path = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/tmp/attention_traj_videos/"
+    movie_path = join(ROOT,"tmp/attention_traj_videos/")
     aa_movie_sname = movie_path + movie_name + "aa.mp4" 
     as_movie_sname = movie_path + movie_name + "as.mp4"
     aa_writer = imageio.get_writer(aa_movie_sname, fps=1)
@@ -165,7 +167,7 @@ def visualize(model_path, cfg_name, params2_name):
 
 
 
-cfg_name = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/cfg/contGrid_v6.yaml"
-params2_name ="/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/DG3/params.yml"
-model_path = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/log/my_dt_DG3_model_09-21-10-51.p"
+cfg_name = join(ROOT,"cfg/contGrid_v6.yaml")
+params2_name =join(ROOT,"data/DG3/params.yml")
+model_path = join(ROOT,"log/my_dt_DG3_model_09-21-10-51.p")
 visualize(model_path,cfg_name,params2_name)
