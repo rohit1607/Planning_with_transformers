@@ -30,7 +30,7 @@ import imageio.v2 as imageio
 wandb.login()
 
 
-def visualize(model_path, cfg_name):
+def visualize(model_path, cfg_name, paper_plot_info=None):
     model_name = model_path.split('/')[-1]
     start_time = datetime.now().replace(microsecond=0)
     start_time_str = start_time.strftime("%m-%d-%H-%M")
@@ -111,9 +111,9 @@ def visualize(model_path, cfg_name):
     print(f"act_dim = {act_dim}")
 
     val_traj_dataset = cgw_trajec_test_dataset(val_traj_set, context_len, rtg_scale, train_traj_stats)
-    visualize_input(val_traj_dataset, stats=train_traj_stats,
-                     env=env, log_wandb=True, info_str='val_set',
-                    wandb_fname="Input_validation_trajs")
+    # visualize_input(val_traj_dataset, stats=train_traj_stats,
+    #                  env=env, log_wandb=True, info_str='val_set',
+    #                 wandb_fname="Input_validation_trajs")
 
 
     results, op_traj_dict_list = evaluate_on_env(model, device, context_len, 
@@ -125,6 +125,28 @@ def visualize(model_path, cfg_name):
                                                 state_std = train_traj_stats[1],
                                                 comp_val_loss = comp_val_loss)
 
+    from paper_plots import paper_plots
+    if paper_plot_info != None:
+        model_name = model_path.split('/')[-1]
+        print(f"model_name = {model_name}")
+        save_dir = "paper_plots/"  + model_name
+        save_dir = join(ROOT,save_dir)
+        if not os.path.exists(save_dir):
+            os.mkdir(save_dir)
+        pp = paper_plots(env, op_traj_dict_list, train_traj_stats,
+                         paper_plot_info=paper_plot_info,
+                         save_dir=save_dir)
+        pp.plot_vel_mmoc()
+        pp.plot_loss_returns()
+        # pp.plot_traj_by_arr(train_traj_dataset)
+        # pp.plot_val_ip_op3_op5(val_traj_dataset)
+        # pp.plot_traj_by_arr(val_traj_dataset, set_str="_val")
+        # pp.plot_att_heatmap(100)
+        # pp.plot_traj_by_att("a_a_attention")
+        # pp.plot_traj_by_att("a_s_attention")
+
+
+    sys.exit()
     movie_name = model_name + "_traj_with_attention_" 
     movie_path = join(ROOT,"tmp/attention_traj_videos/")
     aa_movie_sname = movie_path + movie_name + "aa.mp4" 
@@ -169,4 +191,11 @@ def visualize(model_path, cfg_name):
 
 cfg_name = join(ROOT,"cfg/contGrid_v6.yaml")
 model_path = join(ROOT,"log/my_dt_DG3_model_09-21-10-51.p")
-visualize(model_path,cfg_name)
+paper_plot_info = {"trajs_by_arr": {"fname":"T_arr"},
+                    "trajs_by_att": {"ts":[17,31,46],"fname":"att"},
+                    "att_heatmap":{"fname":"heatmap"},
+                    "trajs_ip_op3_op5":{"fname":"val_ip_op3_op5"},
+                    "loss_avg_returns":{"fname":"loss"},
+                    "vel_field":{"fname":"vel_field", "ts":[1,60,119]}
+                    }
+visualize(model_path,cfg_name,paper_plot_info=paper_plot_info)
