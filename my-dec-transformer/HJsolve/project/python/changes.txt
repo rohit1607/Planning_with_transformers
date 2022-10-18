@@ -1,0 +1,7 @@
+This file will contain the original lines
+
+in Grid.py
+	def _plot_contours_with_path3(self,heur=1,freq=1):
+        CHANGING LIMITS FROM 100 TO 20
+            plt.xlim(0,100)
+            plt.ylim(0,100)

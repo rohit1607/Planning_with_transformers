@@ -40,7 +40,7 @@ def train(args, cfg_name ):
 
     cfg = read_cfg_file(cfg_name=cfg_name)
 
-    dataset_name = "DG3"
+    dataset_name = cfg['dataset_name']
     wandb_exp_name = "my-dt-" + dataset_name + "__" + start_time_str
     wandb.init(project="my_decision_transformer",
         name = wandb_exp_name,
@@ -128,6 +128,9 @@ def train(args, cfg_name ):
     train_traj_set, test_traj_set, val_traj_set = set_split
     test_idx, train_idx, val_idx = idx_split
     print(f"len(val_traj_set) = {len(val_traj_set)}")
+    # print(f"*** debug: state_dim={state_dim}, env_name= {env_name}")
+
+    # sys.exit()
     train_traj_dataset = cgw_trajec_dataset(train_traj_set, context_len, rtg_scale, state_dim=state_dim)
     train_traj_stats = (train_traj_dataset.state_mean, train_traj_dataset.state_std)
     print(f"train_stats = {train_traj_stats}")
@@ -153,8 +156,8 @@ def train(args, cfg_name ):
     # print(f"act_dim = {act_dim}")
 
 
-    # # visualise input
-    # visualize_input(val_traj_dataset, stats=train_traj_stats, env=env, log_wandb=True)
+    # visualise input
+    visualize_input(train_traj_dataset, stats=train_traj_stats, env=env, log_wandb=True)
 
 
     model = DecisionTransformer(
@@ -189,12 +192,13 @@ def train(args, cfg_name ):
     # p_log = log_and_viz_params(model)
 
     for i_train_iter in range(max_train_iters):
-
+        print(f"----i_train_iter  = {i_train_iter} -------")
         log_action_losses = []
         model.train()
         wandb.log({"loss": action_loss })
         
         for itr in range(num_updates_per_iter):
+            # print(f" inner itr = {itr}")
             #TODO: Find meaning of try/except here
             try:
                 timesteps, states, actions, returns_to_go, traj_mask = next(train_data_iter)
@@ -218,7 +222,7 @@ def train(args, cfg_name ):
             # only consider non padded elements
             action_preds = action_preds.view(-1, act_dim)[traj_mask.view(-1,) > 0]
             action_target = action_target.view(-1, act_dim)[traj_mask.view(-1,) > 0]
-
+            # print(f"**** debug: action_target = {action_target}")
             # Get the training_attention_weights for the first batch_size no. of trajectories
             if itr == 0:
                 attention_weights_tr_list = []
@@ -249,7 +253,7 @@ def train(args, cfg_name ):
 
         # visualize output
         if i_train_iter%4 == 1:                        
-            visualize_output(op_traj_dict_list, i_train_iter, stats=train_traj_stats, env=env, log_wandb=True)
+            visualize_output(op_traj_dict_list, i_train_iter, stats=train_traj_stats, env=env, plot_policy=True, log_wandb=True)
             fname = join(ROOT,'tmp/attention_heatmaps/')
             fname += save_model_name[:-3] + '_' + 'trainId_' + '.png'
             norm_fname = join(ROOT, 'tmp/normalized_att_heatmaps/')
@@ -345,7 +349,7 @@ def train(args, cfg_name ):
                                                 env, rtg_target, rtg_scale,
                                                 val_idx, val_traj_set,
                                                 # num_eval_ep,
-                                                max_eval_ep_len, 
+                                                max_test_ep_len = max_eval_ep_len, 
                                                 state_mean = train_traj_stats[0], 
                                                 state_std = train_traj_stats[1],
                                                 comp_val_loss = comp_val_loss)
@@ -380,6 +384,7 @@ def train(args, cfg_name ):
    
     aa_writer.close()
     as_writer.close()
+    print(f"------ logging attention videos")
     wandb.log({"aa_attention_traj": wandb.Video(aa_movie_sname, format='mp4')})
     wandb.log({"as_attention_traj": wandb.Video(as_movie_sname, format='mp4')})
 
@@ -402,6 +407,20 @@ def train(args, cfg_name ):
 ------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------
 
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
 
 """
 
@@ -623,7 +642,7 @@ def sweep_train():
 
         # visualize output
         if i_train_iter%4 == 1:                        
-            visualize_output(op_traj_dict_list, i_train_iter, stats=train_traj_stats, env=env, log_wandb=True)
+            visualize_output(op_traj_dict_list, i_train_iter, stats=train_traj_stats, env=env, plot_policy=True, log_wandb=True)
             fname = join(ROOT,'tmp/attention_heatmaps/')
             fname += save_model_name[:-3] + '_' + 'trainId_' + '.png'
             norm_fname = join(ROOT, 'tmp/normalized_att_heatmaps/')
@@ -721,7 +740,7 @@ def sweep_train():
                                                 env, rtg_target, rtg_scale,
                                                 val_idx, val_traj_set,
                                                 # num_eval_ep,
-                                                max_eval_ep_len, 
+                                                max_eval_ep_len = max_eval_ep_len, 
                                                 state_mean = train_traj_stats[0], 
                                                 state_std = train_traj_stats[1],
                                                 comp_val_loss = comp_val_loss)
@@ -741,6 +760,7 @@ def sweep_train():
                                     log_wandb=False,
                                     at_time=t,
                                     plot_flow=True,
+                                    plot_policy=True
                                     )
         aa_writer.append_data(imageio.imread(aa_fname))
 
@@ -808,9 +828,11 @@ if __name__ == "__main__":
     # parser.add_argument('--device', type=str, default='cuda')
     parser.add_argument('--mode', type=str, default='single_run')
     parser.add_argument('--quick_run', type=bool, default=False)
+    parser.add_argument('--env', type=str, default='v6')
     args = parser.parse_args()
 
-    cfg_name = join(ROOT,"cfg/contGrid_v6.yaml")
+    cfg_name = "cfg/contGrid_" + args.env + ".yaml"
+    cfg_name = join(ROOT,cfg_name)
     sweeep_cfg_name = join(ROOT,"cfg/contGrid_v6_sweep.yaml")
     print(f'args.mode = {args.mode}')
 

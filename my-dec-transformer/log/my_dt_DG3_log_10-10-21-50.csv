@@ -1,0 +1,2 @@
+duration,num_updates,action_loss,eval_avg_reward,eval_avg_ep_len,eval_d4rl_score
+0:01:18,50,4.358917016983032,-218.222,119.222

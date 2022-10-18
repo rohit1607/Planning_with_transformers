@@ -1,3 +1,3 @@
 import os
-ROOT = os.path.dirname(os.getcwd())
-print("ROOT =", os.path.dirname(os.getcwd()))
+ROOT = "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer"
+print("ROOT =", ROOT)

@@ -11,11 +11,10 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib import cm
-import matplotlib.colors as mcol
 import matplotlib.colors as colors
 from os.path import join
-from root_path import ROOT
-
+from src.root_path import ROOT
+import sys
 
 def discount_cumsum(x, gamma):
     disc_cumsum = np.zeros_like(x)
@@ -284,7 +283,10 @@ def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
             # rzn = np.random.randint(env.n_rzns, size=1)[0]
             # ith element of val_idx is the rzn'th realization of the velocity field
             # the above also corresponds to the i'th element of the val_set
+            # print(f"**** verify\n i ={i},\n num_eval_ep={num_eval_ep}")
             rzn = val_idx[i]
+
+
             env.set_rzn(rzn)
 
             op_traj_dict = {}
@@ -329,8 +331,9 @@ def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
                                                 rewards_to_go[:,t-context_len+1:t+1])
                     act = act_preds[0, -1].detach()
 
+              
                 running_state, running_reward, done, info = env.step(act.cpu().numpy())
-                # print(f"****** Verify:\n running_state =  info= {info}   \n done = {done}")
+    
                 # add action in placeholder
                 actions[0, t] = act
 
@@ -417,6 +420,7 @@ def plot_vel_field(env,t,r=0, g_strmplot_lw=1, g_strmplot_arrowsize=1):
     # Make modes the last axis
     Ui = np.transpose(env.Ui,(0,2,3,1))
     Vi = np.transpose(env.Vi,(0,2,3,1))
+    # print(f"**** verify: t = {t}")
     vx_grid = env.U[t,:,:] + np.dot(Ui[t,:,:,:],env.Yi[t,r,:])
     vy_grid = env.V[t,:,:] + np.dot(Vi[t,:,:,:],env.Yi[t,r,:])
     vx_grid = np.flipud(vx_grid)
@@ -512,10 +516,15 @@ def visualize_output(op_traj_dict_list,
         plt.xlim([0, env.xlim])
         plt.ylim([0, env.ylim])
         # print("****VERIFY: env.target_pos: ", env.target_pos)
-        target_circle = plt.Circle(env.target_pos, env.target_rad, color='r', alpha=0.3)
-        ax.add_patch(target_circle)
+        if env.target_pos.ndim == 1:
+            target_circle = plt.Circle(env.target_pos, env.target_rad, color='r', alpha=0.3)
+            ax.add_patch(target_circle)
+        elif env.target_pos.ndim > 1:
+            for target_pos in env.target_pos:
+                target_circle = plt.Circle(target_pos, env.target_rad, color='r', alpha=0.3)
+                ax.add_patch(target_circle)
         if plot_flow and at_time!=None:
-            plot_vel_field(env,at_time)
+            plot_vel_field(env,at_time-1)
     plt.savefig(fname, dpi=300)
 
     if log_wandb:
@@ -601,11 +610,16 @@ def viz_op_traj_with_attention(op_traj_dict_list,
         plt.xlim([0, env.xlim])
         plt.ylim([0, env.ylim])
         # print("****VERIFY: env.target_pos: ", env.target_pos)
-        target_circle = plt.Circle(env.target_pos, env.target_rad, color='r', alpha=0.3)
-        ax.add_patch(target_circle)
+        if env.target_pos.ndim == 1:
+            target_circle = plt.Circle(env.target_pos, env.target_rad, color='r', alpha=0.3)
+            ax.add_patch(target_circle)
+        elif env.target_pos.ndim > 1:
+            for target_pos in env.target_pos:
+                target_circle = plt.Circle(target_pos, env.target_rad, color='r', alpha=0.3)
+                ax.add_patch(target_circle)
 
         if plot_flow and at_time!=None:
-            plot_vel_field(env,at_time)
+            plot_vel_field(env,at_time-1)
 
     plt.savefig(fname, dpi=300)
     wandbfname = "pred_trajs_with_" + mode
@@ -692,12 +706,19 @@ def visualize_input(traj_dataset,
     if env != None:
         plt.xlim([0, env.xlim])
         plt.ylim([0, env.ylim])
-        # print("****VERIFY: env.target_pos: ", env.target_pos)
-        target_circle = plt.Circle(env.target_pos, env.target_rad, color='r', alpha=0.3)
-        ax.add_patch(target_circle)
+        print("****VERIFY: env.target_pos: ", env.target_pos)
+        print(f"**** verify: {len(env.target_pos)}")
+        if env.target_pos.ndim == 1:
+            target_circle = plt.Circle(env.target_pos, env.target_rad, color='r', alpha=0.3)
+            ax.add_patch(target_circle)
+        elif env.target_pos.ndim > 1:
+            for target_pos in env.target_pos:
+                target_circle = plt.Circle(target_pos, env.target_rad, color='r', alpha=0.3)
+                ax.add_patch(target_circle)
+
 
         if plot_flow and at_time!=None:
-            plot_vel_field(env,at_time)    
+            plot_vel_field(env,at_time-1)    
     plt.savefig(fname, dpi=300)
 
     if log_wandb:

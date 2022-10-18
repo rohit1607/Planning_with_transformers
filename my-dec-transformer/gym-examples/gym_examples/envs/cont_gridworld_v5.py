@@ -121,41 +121,46 @@ class ContGridWorld_v5(gym.Env):
     def scale_velocity(self):
         self.speed = np.sqrt(self.U**2 + self.V**2)
         self.max_speed = np.max(self.speed)
-        
-        self.scale_factor= self.F * self.vmax_by_F / self.max_speed
+        if self.max_speed > 0:
+            self.scale_factor= self.F * self.vmax_by_F / self.max_speed
+        else:
+            self.scale_factor = 1        
         self.U *= self.scale_factor
         self.V *= self.scale_factor
         self.Ui *= self.scale_factor
         self.Vi *= self.scale_factor
 
 
-    def get_velocity(self, state):
+    def get_velocity(self, state, rzn=None):
         """
         extract velocity from vel matrices u and v [:,i,j]; i down; j right
         vel: (U,V)
         """
        
         t, x, y = state
-
+        # print(f"*** verify \n state={state},\n dxy={self.dxy} ")
         j = int(x // self.dxy)
         i = int((self.ylim - y) // self.dxy)
         t = int(t)
 
         # vx = vel_field_data[0][t, i, j] + np.matmul(vel_field_data[2][t, :, i, j],vel_field_data[4][t, rzn,:])
         # vy = vel_field_data[1][t, i, j] + np.matmul(vel_field_data[3][t, :, i, j], vel_field_data[4][t, rzn,:])
-
-        u = self.U[t,i,j] + np.matmul(self.Ui[t,:,i,j],self.Yi[t,self.rzn,:])
-        v = self.V[t,i,j] + np.matmul(self.Vi[t,:,i,j],self.Yi[t,self.rzn,:])
+        if rzn != None:
+            u = self.U[t,i,j] + np.matmul(self.Ui[t,:,i,j],self.Yi[t,rzn,:])
+            v = self.V[t,i,j] + np.matmul(self.Vi[t,:,i,j],self.Yi[t,rzn,:])
+        else:    
+            u = self.U[t,i,j] + np.matmul(self.Ui[t,:,i,j],self.Yi[t,self.rzn,:])
+            v = self.V[t,i,j] + np.matmul(self.Vi[t,:,i,j],self.Yi[t,self.rzn,:])
         return u, v
 
 
     def transition(self, action, add_noise=False):
         # action *= (2*np.pi/self.n_actions)
-     
         u,v = self.get_velocity(self.state)
         self.state[0] += 1
-        self.state[1] += (self.F*math.cos(action) + u)*self.del_t
-        self.state[2] += (self.F*math.sin(action) + v)*self.del_t
+        self.state[1] += float((self.F*math.cos(action) + u)*self.del_t)
+        self.state[2] += float((self.F*math.sin(action) + v)*self.del_t)
+
         # add noise
         # self.state += 0.05*np.random.randint(-3,4)
 
@@ -170,6 +175,10 @@ class ContGridWorld_v5(gym.Env):
             if check_state[i] >= lims[i] or check_state[i]<0:
                 status = True
                 break
+        # extra condition to check if y is 0 -> i is 100 --> out of bounds of vel matrix
+        if check_state[2] == 0:
+            status = True
+
         return status
 
 
@@ -206,11 +215,11 @@ class ContGridWorld_v5(gym.Env):
             # idx = np.random.randint(0, len(self.start_pos))
             x0, y0 = self.start_pos.copy()
             reset_state = [0, x0, y0]
-        self.state = np.array(reset_state)
+        self.state = np.array(reset_state, dtype=np.float32)
         self.done = False
         self.reward = 0
         # self.target_state = reset_state
-        return np.array(self.state)
+        return np.array(self.state,dtype=np.float32)
 
 
     def render(self):

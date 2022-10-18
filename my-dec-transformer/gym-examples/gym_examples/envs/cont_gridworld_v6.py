@@ -123,9 +123,11 @@ class ContGridWorld_v6(gym.Env):
 
     def scale_velocity(self):
         self.speed = np.sqrt(self.U**2 + self.V**2)
-        self.max_speed = np.max(self.speed)
-        
-        self.scale_factor= self.F * self.vmax_by_F / self.max_speed
+        self.max_speed = np.max(self.speed) 
+        if self.max_speed > 0:
+            self.scale_factor= self.F * self.vmax_by_F / self.max_speed
+        else:
+            self.scale_factor = 1   
         self.U *= self.scale_factor
         self.V *= self.scale_factor
         self.Ui *= self.scale_factor
@@ -181,6 +183,9 @@ class ContGridWorld_v6(gym.Env):
             if check_state[i] >= lims[i] or check_state[i]<0:
                 status = True
                 break
+        # extra condition to check if y is 0 -> i is 100 --> out of bounds of vel matrix
+        if check_state[2] == 0:
+            status = True
         return status
 
 
@@ -237,11 +242,11 @@ class ContGridWorld_v6(gym.Env):
             # print(f"tmp_reset_state = {tmp_reset_state}")
             u, v = self.get_velocity(tmp_reset_state)
             reset_state = reset_state + [u ,v]
-        self.state = np.array(reset_state)
+        self.state = np.array(reset_state, dtype=np.float32)
         self.done = False
         self.reward = 0
         # self.target_state = reset_state
-        return np.array(self.state)
+        return np.array(self.state, dtype=np.float32)
 
 
     def render(self):
