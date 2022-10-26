@@ -17,3 +17,6 @@ register(id='gym_examples/contGrid-v6',entry_point='gym_examples.envs:ContGridWo
 
 register(id='gym_examples/contGrid-v5_1',entry_point='gym_examples.envs:ContGridWorld_v5_1',)
 register(id='gym_examples/contGrid-v6_1',entry_point='gym_examples.envs:ContGridWorld_v6_1',)
+
+register(id='gym_examples/contGrid-v7_1',entry_point='gym_examples.envs:ContGridWorld_v7_1',)
+

@@ -104,23 +104,27 @@ class ContGridWorld_v5_1(gym.Env):
 
         self.Umax, self.Vmax = np.max(self.U), np.max(self.V)
         self.Umean, self.Vmean = np.mean(np.abs(self.U)), np.mean(np.abs(self.V))
-        print("="*20)
-        print("start_pos: ",self.start_pos)
-        print(f"start_pos.shape={self.start_pos.shape}")
-        print(f"target_pos= {self.target_pos}")
-        print(f"n_rzns = {self.n_rzns}")
-        print(f"Ui.shape = {self.Ui.shape}")        
-        print("xlim: ", self.xlim)
-        print(f"Umax={self.Umax}")
-        print(f"Vmax={self.Vmax}")
-        print(f"Umean={self.Umean}")
-        print(f"Vmean={self.Vmean}")
-        print("="*20)
+        # print("="*20)
+        # print("start_pos: ",self.start_pos)
+        # print(f"start_pos.shape={self.start_pos.shape}")
+        # print(f"target_pos= {self.target_pos}")
+        # print(f"n_rzns = {self.n_rzns}")
+        # print(f"Ui.shape = {self.Ui.shape}")        
+        # print("xlim: ", self.xlim)
+        # print(f"Umax={self.Umax}")
+        # print(f"Vmax={self.Vmax}")
+        # print(f"Umean={self.Umean}")
+        # print(f"Vmean={self.Vmean}")
+        # print("="*20)
 
     def set_rzn(self, rzn):
         assert(int(rzn) < self.n_rzns), print("Error: Invalid rzn_id")
         self.rzn = int(rzn)
 
+    def set_state_destination(self, target_id):
+        assert (target_id < len(self.target_pos))
+        self.state_target_pos =  self.target_pos[target_id]
+        return self.state_target_pos 
 
     def scale_velocity(self):
         self.speed = np.sqrt(self.U**2 + self.V**2)
@@ -158,11 +162,13 @@ class ContGridWorld_v5_1(gym.Env):
 
     def transition(self, action, add_noise=False):
         # action *= (2*np.pi/self.n_actions)
-     
         u,v = self.get_velocity(self.state)
+        # print(f"verify: {action}, {u}, |{self.F*math.cos(action)}, {self.state}")
         self.state[0] += 1
         self.state[1] += (self.F*math.cos(action) + u)*self.del_t
         self.state[2] += (self.F*math.sin(action) + v)*self.del_t
+        # print(f"verify: updated state {self.state}")    
+
         # add noise
         # self.state += 0.05*np.random.randint(-3,4)
 

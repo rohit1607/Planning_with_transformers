@@ -10,7 +10,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
 import seaborn as sns
-
+import sys
 
 
 class MaskedCausalAttention(nn.Module):
@@ -105,7 +105,7 @@ class Block(nn.Module):
 
 class DecisionTransformer(nn.Module):
     def __init__(self, state_dim, act_dim, n_blocks, h_dim, context_len,
-                 n_heads, drop_p, max_timestep=4096):
+                 n_heads, drop_p, max_timestep=4096, target_token=False):
         super().__init__()
 
         self.state_dim = state_dim
@@ -113,7 +113,11 @@ class DecisionTransformer(nn.Module):
         self.h_dim = h_dim
 
         ### transformer blocks
-        input_seq_len = 3 * context_len
+        if target_token:
+            input_seq_len = (3 * context_len) +1 
+        else:
+            input_seq_len = 3 * context_len
+
         blocks = [Block(h_dim, input_seq_len, n_heads, drop_p) for _ in range(n_blocks)]
         self.blocks = blocks
         self.transformer = nn.Sequential(*blocks)
@@ -123,7 +127,7 @@ class DecisionTransformer(nn.Module):
         self.embed_timestep = nn.Embedding(max_timestep, h_dim)
         self.embed_rtg = torch.nn.Linear(1, h_dim)
         self.embed_state = torch.nn.Linear(state_dim, h_dim)
-
+        
         # # discrete actions
         # self.embed_action = torch.nn.Embedding(act_dim, h_dim)
         # use_action_tanh = False # False for discrete actions
@@ -140,7 +144,7 @@ class DecisionTransformer(nn.Module):
         )
 
 
-    def forward(self, timesteps, states, actions, returns_to_go):
+    def forward(self, timesteps, states, actions, returns_to_go, target_token=None):
 
         B, T, _ = states.shape
 
@@ -151,17 +155,39 @@ class DecisionTransformer(nn.Module):
         action_embeddings = self.embed_action(actions) + time_embeddings
         returns_embeddings = self.embed_rtg(returns_to_go) + time_embeddings
 
+        
         # stack rtg, states and actions and reshape sequence as
         # (r_0, s_0, a_0, r_1, s_1, a_1, r_2, s_2, a_2 ...)
         h = torch.stack(
             (returns_embeddings, state_embeddings, action_embeddings), dim=1
         ).permute(0, 2, 1, 3).reshape(B, 3 * T, self.h_dim)
 
+
+        # print(f"h.shape = {h.shape} \n states.shape = {states.shape}")
+        if target_token!=None:
+            # print(f"target_token.shape =  {target_token.shape}")
+            target_token = torch.unsqueeze(target_token, 1)
+            target_st_embeddings = self.embed_state(target_token)
+            # print(f" target_st_embeddings.shape = {target_st_embeddings.shape}")
+            h = torch.cat((target_st_embeddings,h), axis=1)
+            # print(f"h.shape = {h.shape} ")
+
+        #     # target token == target position 
+        #     target_state = [35, target_token[0], target_token[1]]
+        #     target_states = []
+        #     target_state_embedding = self.embed_state()
+        #     pass
+        # sys.exit()
+
         h = self.embed_ln(h)
 
         # transformer and prediction
+        # print(f"pre-transf h.shape = {h.shape} ")
         h = self.transformer(h)
+        # print(f"post-transf h.shape = {h.shape} ")
 
+        if target_token!=None:
+            h = h[:,1:,:]   # B x (3T + 1) x hdim  --> B x (3T ) x hdim  exclude target tokem
         # get h reshaped such that its size = (B x 3 x T x h_dim) and
         # h[:, 0, t] is conditioned on the input sequence r_0, s_0, a_0 ... r_t
         # h[:, 1, t] is conditioned on the input sequence r_0, s_0, a_0 ... r_t, s_t

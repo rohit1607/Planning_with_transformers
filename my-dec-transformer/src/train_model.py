@@ -168,6 +168,7 @@ def train(args, cfg_name ):
                 context_len=context_len,
                 n_heads=n_heads,
                 drop_p=dropout_p,
+                target_token=True
             ).to(device)
 
     optimizer = torch.optim.AdamW(
@@ -201,10 +202,10 @@ def train(args, cfg_name ):
             # print(f" inner itr = {itr}")
             #TODO: Find meaning of try/except here
             try:
-                timesteps, states, actions, returns_to_go, traj_mask = next(train_data_iter)
+                timesteps, states, actions, returns_to_go, traj_mask, target_pos = next(train_data_iter)
             except StopIteration:
                 train_data_iter = iter(train_traj_data_loader)
-                timesteps, states, actions, returns_to_go, traj_mask = next(train_data_iter)
+                timesteps, states, actions, returns_to_go, traj_mask, target_pos = next(train_data_iter)
 
             timesteps = timesteps.to(device)    # B x T
             states = states.to(device)          # B x T x state_dim
@@ -212,12 +213,15 @@ def train(args, cfg_name ):
             returns_to_go = returns_to_go.to(device).unsqueeze(dim=-1) # B x T x 1
             traj_mask = traj_mask.to(device)    # B x T
             action_target = torch.clone(actions).detach().to(device)
+            target_pos = torch.clone(target_pos).detach().to(device)
+            # print(f"####### \nstates.shape = {states.shape},\n target_pos.shape ={target_pos.shape}")
 
             state_preds, action_preds, return_preds = model.forward(
                                                             timesteps=timesteps,
                                                             states=states,
                                                             actions=actions,
-                                                            returns_to_go=returns_to_go
+                                                            returns_to_go=returns_to_go,
+                                                            target_token=target_pos
                                                         )
             # only consider non padded elements
             action_preds = action_preds.view(-1, act_dim)[traj_mask.view(-1,) > 0]

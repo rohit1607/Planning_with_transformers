@@ -29,60 +29,46 @@ import imageio.v2 as imageio
 
 wandb.login()
 
+def evaluate_model(cfg, model_path):
 
-def visualize(model_path, cfg_name, paper_plot_info=None):
-    model_name = model_path.split('/')[-1]
-    start_time = datetime.now().replace(microsecond=0)
-    start_time_str = start_time.strftime("%m-%d-%H-%M")
-
-    cfg = read_cfg_file(cfg_name=cfg_name)
-    dataset_name = "DG3"
-    wandb_exp_name = "viz_my-dt-" + dataset_name + "__" + model_name
-    wandb.init(project="visualize_attention",
-        name = wandb_exp_name,
-        config=cfg
-        )
-    cfg=wandb.config
-    params2 = read_cfg_file(cfg_name=join(ROOT,cfg.params2_name))
+    params2 = read_cfg_file(cfg_name=join(ROOT,cfg["params2_name"]))
 
     pprint.pprint(cfg)
+    rtg_target = cfg["rtg_target"]
+    env_name = cfg["env_name"]
+    state_dim = cfg["state_dim"]
+    split_tr_tst_val = cfg["split_tr_tst_val"]
+    split_ran_seed = cfg["split_ran_seed"]
 
-    rtg_target = cfg.rtg_target
-    env_name = cfg.env_name
-    state_dim = cfg.state_dim
-    split_tr_tst_val = cfg.split_tr_tst_val
-    split_ran_seed = cfg.split_ran_seed
+    max_eval_ep_len = cfg["max_eval_ep_len"]  # max len of one episode
+    num_eval_ep = cfg["num_eval_ep"]       # num of evaluation episodes
 
-    max_eval_ep_len = cfg.max_eval_ep_len  # max len of one episode
-    num_eval_ep = cfg.num_eval_ep       # num of evaluation episodes
-
-    rtg_scale = cfg.rtg_scale
-    batch_size = cfg.batch_size           # training batch size
-    lr = cfg.lr                            # learning rate
-    wt_decay = cfg.wt_decay               # weight decay
-    warmup_steps = cfg.warmup_steps       # warmup steps for lr scheduler
+    rtg_scale = cfg["rtg_scale"]
+    batch_size = cfg["batch_size" ]          # training batch size
+    lr = cfg["lr"]                           # learning rate
+    wt_decay = cfg["wt_decay"]               # weight decay
+    warmup_steps = cfg["warmup_steps"]       # warmup steps for lr scheduler
 
     # total updates = max_train_iters x num_updates_per_iter
-    max_train_iters = cfg.max_train_iters
-    num_updates_per_iter = cfg.num_updates_per_iter
-    comp_val_loss = cfg.comp_val_loss
+    max_train_iters = cfg["max_train_iters"]
+    num_updates_per_iter = cfg["num_updates_per_iter"]
+    comp_val_loss = cfg["comp_val_loss"]
 
-    context_len = cfg.context_len     # K in decision transformer
-    n_blocks = cfg.n_blocks          # num of transformer blocks
-    embed_dim = cfg.embed_dim          # embedding (hidden) dim of transformer
-    n_heads = cfg.n_heads            # num of transformer heads
-    dropout_p = cfg.dropout_p         # dropout probability
+    context_len = cfg["context_len"]     # K in decision transformer
+    n_blocks = cfg["n_blocks"]          # num of transformer blocks
+    embed_dim = cfg["embed_dim"]          # embedding (hidden) dim of transformer
+    n_heads = cfg["n_heads"]            # num of transformer heads
+    dropout_p = cfg["dropout_p"]         # dropout probability
 
     # load data from this file
-    dataset_path = join(ROOT,cfg.dataset_path)
-    dataset_name = cfg.dataset_name
+    dataset_path = join(ROOT,cfg["dataset_path"])
+    dataset_name = cfg["dataset_name"]
     # saves model and csv in this directory
-    log_dir = join(ROOT,cfg.log_dir)
- 
+    log_dir = join(ROOT,cfg["log_dir"])
 
     # training and evaluation device
-    device = torch.device(cfg.device)
-
+    device = torch.device(cfg["device"])
+    
 
     model = torch.load(model_path)
     model.eval()
@@ -119,11 +105,34 @@ def visualize(model_path, cfg_name, paper_plot_info=None):
     results, op_traj_dict_list = evaluate_on_env(model, device, context_len, 
                                                 env, rtg_target, rtg_scale,
                                                 val_idx, val_traj_set,
-                                                # num_eval_ep,
-                                                max_eval_ep_len, 
+                                                num_eval_ep = num_eval_ep,
+                                                max_test_ep_len = max_eval_ep_len, 
                                                 state_mean = train_traj_stats[0], 
                                                 state_std = train_traj_stats[1],
                                                 comp_val_loss = comp_val_loss)
+
+    return env, train_traj_dataset, train_traj_stats, val_traj_dataset, op_traj_dict_list
+
+
+def visualize(cfgs_n_model_paths, paper_plot_info=None):
+    (cfg_name, model_path), (txy_cfg_name,txy_model_path) = cfgs_n_model_paths
+
+    model_name = model_path.split('/')[-1]
+    start_time = datetime.now().replace(microsecond=0)
+    start_time_str = start_time.strftime("%m-%d-%H-%M")
+
+    cfg = read_cfg_file(cfg_name=cfg_name)
+    dataset_name = cfg['dataset_name']
+    wandb_exp_name = "viz_my-dt-" + dataset_name + "__" + model_name
+    wandb.init(project="visualize_attention",
+        name = wandb_exp_name,
+        config=cfg
+        )
+    cfg=wandb.config
+    env,train_traj_dataset, train_traj_stats, val_traj_dataset, op_traj_dict_list = evaluate_model(cfg,model_path)
+    
+    txy_cfg = read_cfg_file(cfg_name=txy_cfg_name)
+    env2, train_traj_dataset2, train_traj_stats2, val_traj_dataset2, op_traj_dict_list2 = evaluate_model(txy_cfg,txy_model_path)
 
     from paper_plots import paper_plots
     if paper_plot_info != None:
@@ -136,10 +145,11 @@ def visualize(model_path, cfg_name, paper_plot_info=None):
         pp = paper_plots(env, op_traj_dict_list, train_traj_stats,
                          paper_plot_info=paper_plot_info,
                          save_dir=save_dir)
-        pp.plot_vel_mmoc()
-        pp.plot_loss_returns()
-        # pp.plot_traj_by_arr(train_traj_dataset)
-        # pp.plot_val_ip_op3_op5(val_traj_dataset)
+        # pp.plot_vel_mmoc()
+        # pp.plot_loss_returns()
+        pp.plot_traj_by_arr(train_traj_dataset)
+        pp.plot_val_ip_op3_op5(train_traj_stats,val_traj_dataset,
+                                train_traj_stats2, op_traj_dict_list2)
         # pp.plot_traj_by_arr(val_traj_dataset, set_str="_val")
         # pp.plot_att_heatmap(100)
         # pp.plot_traj_by_att("a_a_attention")
@@ -188,9 +198,12 @@ def visualize(model_path, cfg_name, paper_plot_info=None):
     wandb.log({"as_attention_traj": wandb.Video(as_movie_sname, format='mp4')})
 
 
-
-cfg_name = join(ROOT,"cfg/contGrid_v6.yaml")
-model_path = join(ROOT,"log/my_dt_DG3_model_09-21-10-51.p")
+# TODO: save cfg files with models.
+cfg_name = join(ROOT,"archive/contGrid_v6_HW.yaml")
+model_path = join(ROOT,"log/my_dt_HW_v2_tmp_model_10-18-00-54.p")
+txy_cfg_name = join(ROOT,"archive/contGrid_v5_HW.yaml")
+txy_model_path = join(ROOT,"log/my_dt_HW_v2_tmp_model_10-18-01-08.p")
+cfgs_n_model_paths = [(cfg_name, model_path), (txy_cfg_name,txy_model_path)]
 paper_plot_info = {"trajs_by_arr": {"fname":"T_arr"},
                     "trajs_by_att": {"ts":[17,31,46],"fname":"att"},
                     "att_heatmap":{"fname":"heatmap"},
@@ -198,4 +211,4 @@ paper_plot_info = {"trajs_by_arr": {"fname":"T_arr"},
                     "loss_avg_returns":{"fname":"loss"},
                     "vel_field":{"fname":"vel_field", "ts":[1,60,119]}
                     }
-visualize(model_path,cfg_name,paper_plot_info=paper_plot_info)
+visualize(cfgs_n_model_paths, paper_plot_info=paper_plot_info)

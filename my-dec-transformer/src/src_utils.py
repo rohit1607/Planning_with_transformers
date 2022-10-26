@@ -116,17 +116,22 @@ class cgw_trajec_dataset(Dataset):
 
             # all ones since no padding
             traj_mask = torch.ones(self.context_len, dtype=torch.long)
+            target_state = torch.from_numpy(traj['target_pos'])
 
         else:
             padding_len = self.context_len - traj_len
 
             # padding with zeros
             states = torch.from_numpy(traj['states'])
+            # print(f" in cwg: states.shape = {states.shape}")
+
             states = torch.cat([states,
                                 torch.zeros(([padding_len] + list(states.shape[1:])),
                                 dtype=states.dtype)],
                                dim=0)
+            # print(f" in cwg: states.shape = {states.shape}")
 
+            # sys.exit()
             actions = torch.from_numpy(traj['actions'])
             actions = torch.cat([actions,
                                 torch.zeros(([padding_len] + list(actions.shape[1:])),
@@ -144,8 +149,12 @@ class cgw_trajec_dataset(Dataset):
             traj_mask = torch.cat([torch.ones(traj_len, dtype=torch.long),
                                    torch.zeros(padding_len, dtype=torch.long)],
                                   dim=0)
+            target_state = torch.from_numpy(traj['target_pos'])
 
-        return  timesteps, states, actions, returns_to_go, traj_mask
+        # print(f"### verify: target_state = {target_state}")
+        target_state = np.insert(target_state,0,35,axis=0)
+        # print(f"### verify: target_state = {target_state}")
+        return  timesteps, states, actions, returns_to_go, traj_mask, target_state
 
 
 
@@ -189,6 +198,7 @@ class cgw_trajec_test_dataset(Dataset):
     def __getitem__(self, idx):
         traj = self.trajectories[idx]
         traj_len = traj['states'].shape[0]
+        target_state = torch.from_numpy(traj['target_pos'])
 
         if traj_len >= self.context_len:
             # sample random index to slice trajectory
@@ -229,15 +239,17 @@ class cgw_trajec_test_dataset(Dataset):
             traj_mask = torch.cat([torch.ones(traj_len, dtype=torch.long),
                                    torch.zeros(padding_len, dtype=torch.long)],
                                   dim=0)
+        target_state = np.insert(target_state,0,35,axis=0)
 
-        return  timesteps, states, actions, returns_to_go, traj_mask
+        return  timesteps, states, actions, returns_to_go, traj_mask, target_state
 
 def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
                     val_idx, val_traj_set,
                     num_eval_ep=None, # None: use all episodes in val set
                     max_test_ep_len=120,
                     state_mean=None, state_std=None, render=False,
-                    comp_val_loss = False):
+                    comp_val_loss = False,
+                    target_token=None):
 
     eval_batch_size = 1  # required for forward pass
     if num_eval_ep == None:
@@ -279,14 +291,16 @@ def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
 
     with torch.no_grad():
         op_traj_dict_list = []
+        # print(f"verify:  num_eval_ep= {num_eval_ep}")
         for i in range(num_eval_ep):
             # rzn = np.random.randint(env.n_rzns, size=1)[0]
             # ith element of val_idx is the rzn'th realization of the velocity field
             # the above also corresponds to the i'th element of the val_set
             # print(f"**** verify\n i ={i},\n num_eval_ep={num_eval_ep}")
             rzn = val_idx[i]
-
-
+            target_token = val_traj_set[i]['target_pos']
+            # print(f"len(val_traj_set) = {len(val_traj_set)}")
+            # print(f"target_token ={target_token}")
             env.set_rzn(rzn)
 
             op_traj_dict = {}
@@ -298,7 +312,18 @@ def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
             rewards_to_go = torch.zeros((eval_batch_size, max_test_ep_len, 1),
                                 dtype=torch.float32, device=device)
 
+            # print(f" in eval : states.shape = {states.shape}")
+            target_token = torch.from_numpy(target_token)
+            target_token = np.insert(target_token,0,35,axis=0)
+            target_token = torch.from_numpy(np.expand_dims(target_token, axis=0))
+            target_token = torch.clone(target_token).detach().to(device)
+
+            # print(f"in eval :target_token ={target_token}, shape = {target_token.shape}")
+
+            # sys.exit()
+
             # init episode
+            # target_token = 
             running_state = np.array(env.reset())
             running_reward = 0
             running_rtg = rtg_target / rtg_scale
@@ -322,13 +347,15 @@ def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
                     _, act_preds, _ = model.forward(timesteps[:,:context_len],
                                                 states[:,:context_len],
                                                 actions[:,:context_len],
-                                                rewards_to_go[:,:context_len])
+                                                rewards_to_go[:,:context_len],
+                                                target_token)
                     act = act_preds[0, t].detach()
                 else:
                     _, act_preds, _ = model.forward(timesteps[:,t-context_len+1:t+1],
                                                 states[:,t-context_len+1:t+1],
                                                 actions[:,t-context_len+1:t+1],
-                                                rewards_to_go[:,t-context_len+1:t+1])
+                                                rewards_to_go[:,t-context_len+1:t+1],
+                                                target_token)
                     act = act_preds[0, -1].detach()
 
               
@@ -663,13 +690,15 @@ def visualize_input(traj_dataset,
 
     if traj_idx==None:
         traj_idx = [k for k in range(len(traj_dataset))]
-   
+        # TODO: verify wgy 320 out 400 are here
+        print(f" traj_idx= {traj_idx}")
     if color_by_time:
         t_dones = []
         for idx, traj in enumerate(traj_dataset):
             if idx in traj_idx:
-                timesteps, states, actions, returns_to_go, traj_mask = traj
+                timesteps, states, actions, returns_to_go, traj_mask, _ = traj
                 t_done = int(np.sum(traj_mask.numpy()))   # no. of points to plot. No need to plot masked data.
+                # print(f"traj_mask = {traj_mask}")
             t_dones.append(t_done)
         vmin = min(t_dones)
         vmax = max(t_dones)
@@ -680,7 +709,7 @@ def visualize_input(traj_dataset,
 
     for idx, traj in enumerate(traj_dataset):
         if idx in traj_idx:
-            timesteps, states, actions, returns_to_go, traj_mask = traj
+            timesteps, states, actions, returns_to_go, traj_mask, _ = traj
             t_done = int(np.sum(traj_mask.numpy()))   # no. of points to plot. No need to plot masked data.
            
             if at_time != None:

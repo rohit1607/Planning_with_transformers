@@ -22,7 +22,7 @@ import matplotlib.colors as mcol
 import matplotlib.colors as colors
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 import seaborn as sns
-
+import pickle
 from src_utils import scale_attention_rows
 
 class paper_plots:
@@ -65,8 +65,8 @@ class paper_plots:
             t_done = int(np.sum(traj_mask.numpy()))   # no. of points to plot. No need to plot masked data.
             t_dones.append(t_done)
         vmin = min(t_dones)
-        # vmax = max(t_dones)
-        vmax = 51
+        vmax = max(t_dones)
+        # vmax = 51
         # print(f"---- Info: tdone: min={vmin}, max={vmax} ")
         plt.hist(t_dones)
         plt.savefig("../tmp/tdone-hist")
@@ -78,7 +78,7 @@ class paper_plots:
         sm = cm.ScalarMappable(norm=cNorm, cmap=cmap)
 
         self.setup_ax(ax)       
-        im = self.plot_vel_field(ax,t=vmax)
+        im = self.plot_vel_field(ax,t=vmax, r=199)
         # traj_dataset=random.shuffle(traj_dataset)
         for idx, traj in enumerate(traj_dataset):
             timesteps, states, actions, returns_to_go, traj_mask = traj
@@ -95,7 +95,7 @@ class paper_plots:
 
 
         cbar_fontsize = 12
-        cbar = fig.colorbar(sm, ax=ax, ticks=[i for i in range(vmin, vmax+1)])
+        cbar = fig.colorbar(sm, ax=ax, ticks=[i for i in range(vmin, vmax+1, 3)])
         cbar.set_label("Arrival Time (non-dim units)", fontsize=cbar_fontsize)
         
         cbarv = fig.colorbar(im, ax=ax)
@@ -106,7 +106,9 @@ class paper_plots:
         return
 
 
-    def plot_val_ip_op3_op5(self, traj_dataset, at_time=None):
+    def plot_val_ip_op3_op5(self, stats, traj_dataset, 
+                            txy_stats, txy_op_traj_dict_list, 
+                            at_time=None):
         fig, axs = plt.subplots(1, 3, sharey=True, figsize=(15,5))
 
         info = self.paper_plot_info["trajs_ip_op3_op5"]
@@ -116,8 +118,8 @@ class paper_plots:
             t_done = int(np.sum(traj_mask.numpy()))   # no. of points to plot. No need to plot masked data.
             t_dones.append(t_done)
         vmin = min(t_dones)
-        # vmax = max(t_dones)
-        vmax = 51
+        vmax = max(t_dones)
+        # vmax = 51
 
         # Make a user-defined colormap.
         cNorm = colors.Normalize(vmin=vmin, vmax=vmax)
@@ -126,13 +128,13 @@ class paper_plots:
 
         ax = axs[0]
         self.setup_ax(ax)       
-        im = self.plot_vel_field(ax,t=vmax)
+        im = self.plot_vel_field(ax,t=vmax,r=199)
         # traj_dataset=random.shuffle(traj_dataset)
         for idx, traj in enumerate(traj_dataset):
             timesteps, states, actions, returns_to_go, traj_mask = traj
             t_done = int(np.sum(traj_mask.numpy()))   # no. of points to plot. No need to plot masked data
            
-            mean, std = self.stats
+            mean, std = stats
             states = (states*std) + mean
             states = states*(traj_mask.reshape(-1,1))
 
@@ -141,20 +143,28 @@ class paper_plots:
             # if idx>10:
             #     break
 
-
         ax= axs[1]
         self.setup_ax(ax, show_ylabel=False)
-        im = self.plot_vel_field(ax,t=vmax)
+        im = self.plot_vel_field(ax,t=vmax,r=199)
+        for idx, traj in enumerate(txy_op_traj_dict_list):
+            # print(traj['states'])
+            states = traj['states']
+            t_done =  traj['t_done']
 
+            mean, std = txy_stats
+            states = (states*std) + mean
+
+            ax.plot(states[0,:t_done+1,1], states[0,:t_done+1,2], color=sm.to_rgba(t_done))
+            # ax.scatter(states[-1,1], states[-1,2], alpha=0.5, zorder=10000, s=5)
 
         ax = axs[2]
         self.setup_ax(ax, show_ylabel=False)
-        im = self.plot_vel_field(ax,t=vmax)
+        im = self.plot_vel_field(ax,t=vmax,r=199)
         for idx,traj in enumerate(self.op_traj_dict_list):
             states = traj['states']
             t_done =  traj['t_done']
  
-            mean, std = self.stats
+            mean, std = stats
             states = (states*std) + mean
         
             # Plot sstates
@@ -173,7 +183,7 @@ class paper_plots:
         cbar = fig.colorbar(sm, ax=axs.ravel().tolist(), shrink=0.65)
         cbar.set_label("Arrival Time (non-dim units)", fontsize=cbar_fontsize)
      
-        cbarv = fig.colorbar(im, ax=axs.ravel().tolist(), shrink=0.65)
+        cbarv = fig.colorbar(im, ax=axs.ravel().tolist(), shrink=0.65 )
         cbarv.set_label("Velocity Magnitude", fontsize=cbar_fontsize)
 
 
@@ -292,9 +302,17 @@ class paper_plots:
             ax.set_ylabel(ylabel)
         if show_states:
             ax.scatter(self.env.start_pos[0], self.env.start_pos[1], color='k', marker='o')
-            ax.scatter(self.env.target_pos[0], self.env.target_pos[1], color='k', marker='*')
-            target_circle = plt.Circle(self.env.target_pos, self.env.target_rad, color='r', alpha=0.3)
-            ax.add_patch(target_circle)
+        
+            if self.env.target_pos.ndim == 1:
+                ax.scatter(self.env.target_pos[0], self.env.target_pos[1], color='k', marker='*')
+                target_circle = plt.Circle(self.env.target_pos, self.env.target_rad, color='r', alpha=0.3)
+                ax.add_patch(target_circle)
+            elif self.env.target_pos.ndim > 1:
+                for target_pos in self.env.target_pos:
+                    ax.scatter(target_pos[0], target_pos[1], color='k', marker='*')
+                    target_circle = plt.Circle(target_pos, self.env.target_rad, color='r', alpha=0.3)
+                    ax.add_patch(target_circle)
+
 
 
     def plot_att_heatmap(self, set_idx=0, sample_idx=0):

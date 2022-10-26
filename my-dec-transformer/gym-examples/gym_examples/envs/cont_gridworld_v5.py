@@ -102,15 +102,15 @@ class ContGridWorld_v5(gym.Env):
 
         self.Umax, self.Vmax = np.max(self.U), np.max(self.V)
         self.Umean, self.Vmean = np.mean(np.abs(self.U)), np.mean(np.abs(self.V))
-        print("="*20)
-        print("init: ",self.start_pos)
-        print(f"start_pos.shape={self.start_pos.shape}")
-        print("xlim: ", self.xlim)
-        print(f"Umax={self.Umax}")
-        print(f"Vmax={self.Vmax}")
-        print(f"Umean={self.Umean}")
-        print(f"Vmean={self.Vmean}")
-        print("="*20)
+        # print("="*20)
+        # print("init: ",self.start_pos)
+        # print(f"start_pos.shape={self.start_pos.shape}")
+        # print("xlim: ", self.xlim)
+        # print(f"Umax={self.Umax}")
+        # print(f"Vmax={self.Vmax}")
+        # print(f"Umean={self.Umean}")
+        # print(f"Vmean={self.Vmean}")
+        # print("="*20)
 
 
     def set_rzn(self, rzn):
