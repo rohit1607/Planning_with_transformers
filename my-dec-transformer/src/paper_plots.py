@@ -56,12 +56,13 @@ class paper_plots:
         im = ax.contourf(X, Y, v_mag_grid, cmap = "Blues", alpha = 0.5, zorder = -1e5)
         return im
 
+    
 
     def plot_traj_by_arr(self, traj_dataset, set_str=""):
         info = self.paper_plot_info["trajs_by_arr"]
         t_dones = []
         for traj in traj_dataset:
-            _,_,_,_, traj_mask = traj
+            _,_,_,_, traj_mask,_ = traj
             t_done = int(np.sum(traj_mask.numpy()))   # no. of points to plot. No need to plot masked data.
             t_dones.append(t_done)
         vmin = min(t_dones)
@@ -81,7 +82,7 @@ class paper_plots:
         im = self.plot_vel_field(ax,t=vmax, r=199)
         # traj_dataset=random.shuffle(traj_dataset)
         for idx, traj in enumerate(traj_dataset):
-            timesteps, states, actions, returns_to_go, traj_mask = traj
+            timesteps, states, actions, returns_to_go, traj_mask, _ = traj
             t_done = int(np.sum(traj_mask.numpy()))   # no. of points to plot. No need to plot masked data
            
             mean, std = self.stats
@@ -96,29 +97,29 @@ class paper_plots:
 
         cbar_fontsize = 12
         cbar = fig.colorbar(sm, ax=ax, ticks=[i for i in range(vmin, vmax+1, 3)])
-        cbar.set_label("Arrival Time (non-dim units)", fontsize=cbar_fontsize)
+        cbar.set_label("Arrival Time (non-dim)", fontsize=cbar_fontsize)
         
         cbarv = fig.colorbar(im, ax=ax)
-        cbarv.set_label("Velocity Magnitude", fontsize=cbar_fontsize)
+        cbarv.set_label("Velocity Magnitude (non-dim)", fontsize=cbar_fontsize)
         fname = info["fname"] + set_str
         save_name = join(self.save_dir,fname)
         plt.savefig(save_name, bbox_inches = 'tight', dpi=600)
-        return
+        return ax
 
 
-    def plot_val_ip_op3_op5(self, stats, traj_dataset, 
-                            txy_stats, txy_op_traj_dict_list, 
+    def plot_val_ip_op(self, traj_dataset, 
                             at_time=None):
-        fig, axs = plt.subplots(1, 3, sharey=True, figsize=(15,5))
+        fig, axs = plt.subplots(1, 2, sharey=True, figsize=(10,5))
 
-        info = self.paper_plot_info["trajs_ip_op3_op5"]
+        info = self.paper_plot_info["plot_val_ip_op"]
         t_dones = []
         for traj in traj_dataset:
-            _,_,_,_, traj_mask = traj
+            _,_,_,_, traj_mask,_ = traj
             t_done = int(np.sum(traj_mask.numpy()))   # no. of points to plot. No need to plot masked data.
             t_dones.append(t_done)
         vmin = min(t_dones)
         vmax = max(t_dones)
+
         # vmax = 51
 
         # Make a user-defined colormap.
@@ -131,67 +132,149 @@ class paper_plots:
         im = self.plot_vel_field(ax,t=vmax,r=199)
         # traj_dataset=random.shuffle(traj_dataset)
         for idx, traj in enumerate(traj_dataset):
-            timesteps, states, actions, returns_to_go, traj_mask = traj
+            timesteps, states, actions, returns_to_go, traj_mask,_ = traj
             t_done = int(np.sum(traj_mask.numpy()))   # no. of points to plot. No need to plot masked data
-           
-            mean, std = stats
+            mean, std = self.stats
             states = (states*std) + mean
             states = states*(traj_mask.reshape(-1,1))
 
             ax.plot(states[:t_done,1], states[:t_done,2], color=sm.to_rgba(t_done), alpha=1 )
             ax.scatter(states[-1,1], states[-1,2], alpha=0.5, zorder=10000, s=5)
-            # if idx>10:
-            #     break
 
-        ax= axs[1]
-        self.setup_ax(ax, show_ylabel=False)
-        im = self.plot_vel_field(ax,t=vmax,r=199)
-        for idx, traj in enumerate(txy_op_traj_dict_list):
-            # print(traj['states'])
-            states = traj['states']
-            t_done =  traj['t_done']
-
-            mean, std = txy_stats
-            states = (states*std) + mean
-
-            ax.plot(states[0,:t_done+1,1], states[0,:t_done+1,2], color=sm.to_rgba(t_done))
-            # ax.scatter(states[-1,1], states[-1,2], alpha=0.5, zorder=10000, s=5)
-
-        ax = axs[2]
+        pr_t_dones = []
+        ax = axs[1]
         self.setup_ax(ax, show_ylabel=False)
         im = self.plot_vel_field(ax,t=vmax,r=199)
         for idx,traj in enumerate(self.op_traj_dict_list):
             states = traj['states']
             t_done =  traj['t_done']
- 
-            mean, std = stats
+            pr_t_dones.append(t_done)
+            mean, std = self.stats
             states = (states*std) + mean
         
             # Plot sstates
             # shape: (eval_batch_size, max_test_ep_len, state_dim)
-            ax.plot(states[0,:t_done+1,1], states[0,:t_done+1,2], color=sm.to_rgba(t_done))
+            if t_done < 53:
+                ax.plot(states[0,:t_done+1,1], states[0,:t_done+1,2], color=sm.to_rgba(t_done))
                 
-
+        wandb.run.summary["mean Tarr logged dataset"] = np.mean(t_dones)
+        wandb.run.summary["std Tarr logged dataset"] = np.std(t_dones)
+        wandb.run.summary["mean Tarr prediction" ] = np.mean(pr_t_dones)
+        wandb.run.summary["std Tarr prediction" ] = np.std(pr_t_dones)
+     
         # cbar_fontsize = 12
         # cbar = fig.colorbar(sm, ax=ax, ticks=[i for i in range(vmin, vmax+1)])
         # cbar.set_label("Arrival Time (non-dim units)", fontsize=cbar_fontsize)
         
         # cbarv = fig.colorbar(im, ax=ax)
         # cbarv.set_label("Velocity Magnitude", fontsize=cbar_fontsize)
+        plt.subplots_adjust( left= 0.1, right=0.9, top=0.9, bottom=0.2, wspace=-0.05)
 
-        cbar_fontsize = 12
-        cbar = fig.colorbar(sm, ax=axs.ravel().tolist(), shrink=0.65)
-        cbar.set_label("Arrival Time (non-dim units)", fontsize=cbar_fontsize)
+        cax_arr = ax.inset_axes([1.05, 0, 0.05, 1])
+        cax_vel = ax.inset_axes([1.30, 0, 0.05, 1])
+        cbar_fontsize = 14
+        cbar = fig.colorbar(sm, ax=axs.ravel().tolist(), cax=cax_arr)
+        cbar.set_label("Arrival Time (non-dim)", fontsize=cbar_fontsize)
      
-        cbarv = fig.colorbar(im, ax=axs.ravel().tolist(), shrink=0.65 )
-        cbarv.set_label("Velocity Magnitude", fontsize=cbar_fontsize)
+        cbarv = fig.colorbar(im, ax=axs.ravel().tolist(), cax=cax_vel)
+        cbarv.set_label("Velocity Magnitude (non-dim)", fontsize=cbar_fontsize)
 
 
         fname = info["fname"] 
         save_name = join(self.save_dir,fname)
         plt.savefig(save_name, bbox_inches = 'tight', dpi=600)
 
+    def plot_train_val_ip_op(self, tr_traj_dataset, val_traj_dataset,
+                            at_time=None):
+        fig, axs = plt.subplots(1, 3, sharey=True, figsize=(15,5))
 
+        info = self.paper_plot_info["plot_train_val_ip_op"]
+        t_dones = []
+        for traj in val_traj_dataset:
+            _,_,_,_, traj_mask,_ = traj
+            t_done = int(np.sum(traj_mask.numpy()))   # no. of points to plot. No need to plot masked data.
+            t_dones.append(t_done)
+        vmin = min(t_dones)
+        vmax = max(t_dones)
+
+        # vmax = 51
+
+        # Make a user-defined colormap.
+        cNorm = colors.Normalize(vmin=vmin, vmax=vmax)
+        cmap = plt.get_cmap('YlOrRd')
+        sm = cm.ScalarMappable(norm=cNorm, cmap=cmap)
+
+        ax = axs[0]
+        self.setup_ax(ax)       
+        im = self.plot_vel_field(ax,t=vmax,r=199)
+        # traj_dataset=random.shuffle(traj_dataset)
+        for idx, traj in enumerate(tr_traj_dataset):
+            timesteps, states, actions, returns_to_go, traj_mask,_ = traj
+            t_done = int(np.sum(traj_mask.numpy()))   # no. of points to plot. No need to plot masked data
+            mean, std = self.stats
+            states = (states*std) + mean
+            states = states*(traj_mask.reshape(-1,1))
+
+            ax.plot(states[:t_done,1], states[:t_done,2], color=sm.to_rgba(t_done), alpha=1 )
+            ax.scatter(states[-1,1], states[-1,2], alpha=0.5, zorder=10000, s=5)
+
+        ax = axs[1]
+        self.setup_ax(ax)       
+        im = self.plot_vel_field(ax,t=vmax,r=199)
+        # traj_dataset=random.shuffle(traj_dataset)
+        for idx, traj in enumerate(val_traj_dataset):
+            timesteps, states, actions, returns_to_go, traj_mask,_ = traj
+            t_done = int(np.sum(traj_mask.numpy()))   # no. of points to plot. No need to plot masked data
+            mean, std = self.stats
+            states = (states*std) + mean
+            states = states*(traj_mask.reshape(-1,1))
+
+            ax.plot(states[:t_done,1], states[:t_done,2], color=sm.to_rgba(t_done), alpha=1 )
+            ax.scatter(states[-1,1], states[-1,2], alpha=0.5, zorder=10000, s=5)
+
+        pr_t_dones = []
+        ax = axs[2]
+        self.setup_ax(ax, show_ylabel=False)
+        im = self.plot_vel_field(ax,t=vmax,r=199)
+        print(f"{len(self.op_traj_dict_list)}")
+        # sys.exit()
+        for idx,traj in enumerate(self.op_traj_dict_list):
+            states = traj['states']
+            t_done =  traj['t_done']
+            pr_t_dones.append(t_done)
+            mean, std = self.stats
+            states = (states*std) + mean
+        
+            # Plot sstates
+            # shape: (eval_batch_size, max_test_ep_len, state_dim)
+            ax.plot(states[0,:t_done+1,1], states[0,:t_done+1,2], color=sm.to_rgba(t_done))
+                
+        wandb.run.summary["mean Tarr logged dataset"] = np.mean(t_dones)
+        wandb.run.summary["std Tarr logged dataset"] = np.std(t_dones)
+        wandb.run.summary["mean Tarr prediction" ] = np.mean(pr_t_dones)
+        wandb.run.summary["std Tarr prediction" ] = np.std(pr_t_dones)
+     
+        # cbar_fontsize = 12
+        # cbar = fig.colorbar(sm, ax=ax, ticks=[i for i in range(vmin, vmax+1)])
+        # cbar.set_label("Arrival Time (non-dim units)", fontsize=cbar_fontsize)
+        
+        # cbarv = fig.colorbar(im, ax=ax)
+        # cbarv.set_label("Velocity Magnitude", fontsize=cbar_fontsize)
+        plt.subplots_adjust( left= 0.1, right=0.9, top=0.9, bottom=0.2, wspace=-0.05)
+
+        cax_arr = ax.inset_axes([1.05, 0, 0.05, 1])
+        cax_vel = ax.inset_axes([1.30, 0, 0.05, 1])
+        cbar_fontsize = 14
+        cbar = fig.colorbar(sm, ax=axs.ravel().tolist(), cax=cax_arr)
+        cbar.set_label("Arrival Time (non-dim)", fontsize=cbar_fontsize)
+     
+        cbarv = fig.colorbar(im, ax=axs.ravel().tolist(), cax=cax_vel)
+        cbarv.set_label("Velocity Magnitude (non-dim)", fontsize=cbar_fontsize)
+
+
+        fname = info["fname"] 
+        save_name = join(self.save_dir,fname)
+        plt.savefig(save_name, bbox_inches = 'tight', dpi=600)
 
 
 
@@ -273,33 +356,41 @@ class paper_plots:
                             show_ylabel=True, 
                             show_states=True,
                             show_xticks=True,
-                            show_yticks=True,):
+                            show_yticks=True,
+                            lab_fs = 15,
+                            tick_fs = 14,
+                            ):
         ax.set_aspect('equal', adjustable='box')
         ax.set_xlim([0,self.env.xlim])
         ax.set_ylim([0,self.env.ylim])
-        ax.xaxis.set_ticks(np.arange(0,self.env.xlim +25,25))
-        ax.yaxis.set_ticks(np.arange(0,self.env.xlim +25,25))
+        xticks = np.arange(0,self.env.xlim +25,25)
+        yticks = xticks.copy()
+        ax.xaxis.set_ticks(xticks)
+        ax.yaxis.set_ticks(yticks)
+        ax.set_xticklabels(xticks, fontsize=tick_fs)
+        ax.set_yticklabels(yticks, fontsize=tick_fs)
 
         if not show_xticks:
             ax.tick_params(axis='x',       
                             which='both',      
                             bottom=False,      
-                            labelbottom=False)
+                            labelbottom=False,
+                            labelsize=tick_fs)
         if not show_yticks:
             ax.tick_params(axis='y',       
                     which='both',      
                     left=False,      
-                    labelleft=False)
-        
+                    labelleft=False,
+                    labelsize=tick_fs)
         xlabel = f"X "
         ylabel = f"Y "
         if self.non_dim_plots == True:
             xlabel += "(Non-Dim)"
             ylabel += "(Non-Dim)"
         if show_xlabel:
-            ax.set_xlabel(xlabel)
+            ax.set_xlabel(xlabel, fontsize=lab_fs)
         if show_ylabel:
-            ax.set_ylabel(ylabel)
+            ax.set_ylabel(ylabel,fontsize=lab_fs)
         if show_states:
             ax.scatter(self.env.start_pos[0], self.env.start_pos[1], color='k', marker='o')
         
@@ -493,3 +584,55 @@ class paper_plots:
         save_name = join(self.save_dir,fname)
         plt.savefig(save_name, bbox="tight", dpi=600)
 
+    def load_velocity(self, vel_fname):
+        U = np.load(join(vel_fname,"all_u_mat.npy"))
+        V = np.load(join(vel_fname,"all_v_mat.npy"))
+        Ui = np.load(join(vel_fname,"all_ui_mat.npy"))
+        Vi = np.load(join(vel_fname,"all_vi_mat.npy"))
+        Yi = np.load(join(vel_fname,"all_Yi.npy"))
+
+        # replace nans with 0s and scale velocity as per vmax_by_F factor
+        U[np.isnan(U)] = 0
+        V[np.isnan(V)] = 0
+        Ui[np.isnan(Ui)] = 0
+        Vi[np.isnan(Vi)] = 0
+        Yi[np.isnan(Yi)] = 0
+
+        return (U, V, Ui, Vi, Yi)
+    
+    def plot_vel_field_from_non_env_data(self, ax, vel_data, t=0,r=0, dxy=1, xlim=100, ylim=100, g_strmplot_lw=1.5, g_strmplot_arrowsize=1):
+        U, V, Ui, Vi, Yi = vel_data
+        Ui = np.transpose(Ui,(0,2,3,1))
+        Vi = np.transpose(Vi,(0,2,3,1))
+        vx_grid = U[t,:,:] + np.dot(Ui[t,:,:,:],Yi[t,r,:])
+        vy_grid = V[t,:,:] + np.dot(Vi[t,:,:,:],Yi[t,r,:])
+        vx_grid = np.flipud(vx_grid)
+        vy_grid = np.flipud(vy_grid)
+        Xs = np.arange(0,xlim) + (dxy/2)
+        Ys = np.arange(0,ylim) + (dxy/2)
+        X,Y = np.meshgrid(Xs, Ys)
+        ax.streamplot(X, Y, vx_grid, vy_grid, color = 'grey', zorder = 0,  linewidth=g_strmplot_lw, arrowsize=g_strmplot_arrowsize, arrowstyle='->')
+        v_mag_grid = (vx_grid**2 + vy_grid**2)**0.5
+        im = ax.contourf(X, Y, v_mag_grid, cmap = "Blues", alpha = 0.5, zorder = -1e5)
+        return im  
+
+    def plot_LHW_RHW_DG(self):
+        mHW_path = join(ROOT,"data/HW_v3/raw_data/nT_120")
+        dg_path = join(ROOT,"data/DG3/raw_data/nT_120")
+        mHW_data = self.load_velocity(mHW_path)
+        dg_data = self.load_velocity(dg_path)
+
+        fig, axs = plt.subplots(1,3, sharey=True, figsize=(15,5))
+        for ax in axs:
+            self.setup_ax(ax, show_states=False)       
+
+        im = self.plot_vel_field_from_non_env_data(axs[0], mHW_data,t=0,r=199)
+        im = self.plot_vel_field_from_non_env_data(axs[1], mHW_data,t=0,r=201)
+        im2 = self.plot_vel_field_from_non_env_data(axs[2], dg_data,t=0,r=201)
+
+        cbar_fontsize = 12
+        cbarv = fig.colorbar(im, ax=axs.ravel().tolist(), shrink=0.80)
+        cbarv.set_label("Velocity Magnitude", fontsize=cbar_fontsize)
+        fname = 'env_fields'
+        save_name = join(self.save_dir,fname)
+        plt.savefig(save_name, bbox_inches="tight", dpi=600)

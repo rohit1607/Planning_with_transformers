@@ -42,7 +42,7 @@ class ContGridWorld_v5_1(gym.Env):
         
         return
 
-    def setup(self, cfg, params2, rzn=0):
+    def setup(self, cfg, params2, rzn=0, add_trans_noise=False):
         """
         To be called expicitly to retreive params
         cfg: dict laoded from a yaml file
@@ -53,6 +53,8 @@ class ContGridWorld_v5_1(gym.Env):
         self.cfg = cfg
         self.params2 = params2
         self.params = cfg
+        self.add_trans_noise = add_trans_noise
+
         self.state_dim = int(self.params["state_dim"])
         self.action_dim = int(self.params["action_dim"])
         self.a_min, self.a_max = self.params["action_range"]
@@ -62,6 +64,8 @@ class ContGridWorld_v5_1(gym.Env):
         self.space_scale = self.params['space_scale']
         self.xlim, self.ylim = self.params2["grid_dims"]
         self.target_rad = self.params['target_radius']
+        self.noise_var = self.params['noise_var']
+        self.noise_std = np.array(self.noise_var)**0.5
         # self.action_space = gym.spaces.Discrete(self.n_actions)
         self.action_space = gym.spaces.Box(low=self.a_min, 
                                     high=self.a_max, 
@@ -170,7 +174,9 @@ class ContGridWorld_v5_1(gym.Env):
         # print(f"verify: updated state {self.state}")    
 
         # add noise
-        # self.state += 0.05*np.random.randint(-3,4)
+        if self.add_trans_noise:
+            self.state[1] += np.random.normal(0,self.noise_std[0])
+            self.state[2] += np.random.normal(0,self.noise_std[1])
 
 
     def is_outbound(self, check_state = [float('inf'),float('inf'),float('inf')]):

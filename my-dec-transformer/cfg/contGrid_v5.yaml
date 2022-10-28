@@ -1,4 +1,4 @@
-env_name: "gym_examples/contGrid-v5"
+env_name: "gym_examples/contGrid-v5_1"
 state_dim: 3
 action_dim: 1
 action_range: [0, 6.28318]
@@ -9,6 +9,9 @@ vmax_by_F: 2.
 space_scale: 100
 target_radius: 2
 
+add_transition_noise_during_inf: False
+noise_var: [0.1,0]
+
 rtg_target: 60
 rtg_scale: 1
 dataset_name: "DG3"
@@ -16,19 +19,20 @@ dataset_path: "data/DG3/traj_data_for_model_5_trad2.pkl"
 log_dir: "log"
 params2_name: "data/DG3/params.yml"
 
+random_split: True
 split_tr_tst_val: [0.8, 0.1, 0.1]
 split_ran_seed: 42
 comp_val_loss: False
 
 max_eval_ep_len: 120
-num_eval_ep: 100
+num_eval_ep: 500
 batch_size: 64
 
 lr: 0.0001
 wt_decay: 0
 warmup_steps: 10000
 max_train_iters: 30
-num_updates_per_iter: 50
+num_updates_per_iter: 400
 
 context_len: 60
 n_blocks: 1

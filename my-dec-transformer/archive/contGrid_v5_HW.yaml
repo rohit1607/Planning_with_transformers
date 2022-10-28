@@ -3,7 +3,7 @@ state_dim: 3
 action_dim: 1
 action_range: [0, 6.28318]
 F: 1
-vel_field: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/HW_v2_tmp/raw_data/nT_120"
+vel_field: "/home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/HW_v3/raw_data/nT_120"
 del_t: 1.
 vmax_by_F: 1.
 space_scale: 1
@@ -11,10 +11,10 @@ target_radius: 2
 
 rtg_target: 70
 rtg_scale: 1
-dataset_name: "HW_v2_tmp"
-dataset_path: "data/HW_v2_tmp/traj_data_for_model_5_trad2.pkl"
+dataset_name: "HW_v3"
+dataset_path: "data/HW_v3/traj_data_for_model_5_trad2.pkl"
 log_dir: "log"
-params2_name: "data/HW_v2_tmp/params.yml"
+params2_name: "data/HW_v3/params.yml"
 
 split_tr_tst_val: [0.8, 0.1, 0.1]
 split_ran_seed: 42
@@ -27,7 +27,7 @@ batch_size: 64
 lr: 0.00001
 wt_decay: 0
 warmup_steps: 10000
-max_train_iters: 150
+max_train_iters: 3
 num_updates_per_iter: 200
 
 context_len: 50

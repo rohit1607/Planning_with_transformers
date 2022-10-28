@@ -9,6 +9,10 @@ vmax_by_F: 1.
 space_scale: 1
 target_radius: 2
 
+
+add_transition_noise_during_inf: False
+noise_var: [0.1,0]
+
 rtg_target: 60
 rtg_scale: 1
 dataset_name: "HW_DG_DP"
@@ -16,19 +20,20 @@ dataset_path: "data/HW_DG_DP/traj_data_for_model_5_trad2.pkl"
 log_dir: "log"
 params2_name: "data/HW_DG_DP/params.yml"
 
-split_tr_tst_val: [0.8, 0.1, 0.1]
+random_split: True
+split_tr_tst_val: [0.7, 0.05, 0.25]
 split_ran_seed: 42
 comp_val_loss: False
 
 max_eval_ep_len: 120
-num_eval_ep: 40
+num_eval_ep: 100
 batch_size: 64
 
-lr: 0.00005
+lr: 0.0001
 wt_decay: 0
 warmup_steps: 10000
-max_train_iters: 50
-num_updates_per_iter: 600
+max_train_iters: 30
+num_updates_per_iter: 300
 
 context_len: 50
 n_blocks: 1

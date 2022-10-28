@@ -7,6 +7,9 @@ import time
 import math
 import yaml
 import matplotlib.pyplot as plt
+def save_yaml(savepath, data):
+    with open(savepath, 'w') as outfile:
+        yaml.dump(data, outfile, default_flow_style=False)
 
 def save_object(obj, filename):
     with open(filename, 'wb') as outp:  # Overwrites any existing file.

@@ -39,6 +39,7 @@ def evaluate_model(cfg, model_path):
     state_dim = cfg["state_dim"]
     split_tr_tst_val = cfg["split_tr_tst_val"]
     split_ran_seed = cfg["split_ran_seed"]
+    random_split = cfg.random_split
 
     max_eval_ep_len = cfg["max_eval_ep_len"]  # max len of one episode
     num_eval_ep = cfg["num_eval_ep"]       # num of evaluation episodes
@@ -81,7 +82,7 @@ def evaluate_model(cfg, model_path):
         traj_dataset = pickle.load(f)
 
     # Split dataset
-    idx_split, set_split = get_data_split(traj_dataset, split_tr_tst_val, split_ran_seed)
+    idx_split, set_split = get_data_split(traj_dataset, split_tr_tst_val, split_ran_seed,random_split=random_split)
     train_traj_set, test_traj_set, val_traj_set = set_split
     test_idx, train_idx, val_idx = idx_split
     train_traj_dataset = cgw_trajec_dataset(train_traj_set, context_len, rtg_scale)
@@ -115,7 +116,7 @@ def evaluate_model(cfg, model_path):
 
 
 def visualize(cfgs_n_model_paths, paper_plot_info=None):
-    (cfg_name, model_path), (txy_cfg_name,txy_model_path) = cfgs_n_model_paths
+    cfg_name, model_path = cfgs_n_model_paths
 
     model_name = model_path.split('/')[-1]
     start_time = datetime.now().replace(microsecond=0)
@@ -131,8 +132,7 @@ def visualize(cfgs_n_model_paths, paper_plot_info=None):
     cfg=wandb.config
     env,train_traj_dataset, train_traj_stats, val_traj_dataset, op_traj_dict_list = evaluate_model(cfg,model_path)
     
-    txy_cfg = read_cfg_file(cfg_name=txy_cfg_name)
-    env2, train_traj_dataset2, train_traj_stats2, val_traj_dataset2, op_traj_dict_list2 = evaluate_model(txy_cfg,txy_model_path)
+ 
 
     from paper_plots import paper_plots
     if paper_plot_info != None:
@@ -145,16 +145,17 @@ def visualize(cfgs_n_model_paths, paper_plot_info=None):
         pp = paper_plots(env, op_traj_dict_list, train_traj_stats,
                          paper_plot_info=paper_plot_info,
                          save_dir=save_dir)
-        # pp.plot_vel_mmoc()
-        # pp.plot_loss_returns()
+        pp.plot_val_ip_op(val_traj_dataset)
         pp.plot_traj_by_arr(train_traj_dataset)
-        pp.plot_val_ip_op3_op5(train_traj_stats,val_traj_dataset,
-                                train_traj_stats2, op_traj_dict_list2)
-        # pp.plot_traj_by_arr(val_traj_dataset, set_str="_val")
+        # pp.plot_train_val_ip_op(train_traj_dataset, val_traj_dataset)
+        pp.plot_traj_by_arr(val_traj_dataset, set_str="_val")
+
         # pp.plot_att_heatmap(100)
         # pp.plot_traj_by_att("a_a_attention")
         # pp.plot_traj_by_att("a_s_attention")
-
+        # pp.plot_vel_mmoc()
+        # pp.plot_loss_returns()
+        # pp.plot_LHW_RHW_DG()
 
     sys.exit()
     movie_name = model_name + "_traj_with_attention_" 
@@ -199,15 +200,16 @@ def visualize(cfgs_n_model_paths, paper_plot_info=None):
 
 
 # TODO: save cfg files with models.
-cfg_name = join(ROOT,"archive/contGrid_v6_HW.yaml")
-model_path = join(ROOT,"log/my_dt_HW_v2_tmp_model_10-18-00-54.p")
-txy_cfg_name = join(ROOT,"archive/contGrid_v5_HW.yaml")
-txy_model_path = join(ROOT,"log/my_dt_HW_v2_tmp_model_10-18-01-08.p")
-cfgs_n_model_paths = [(cfg_name, model_path), (txy_cfg_name,txy_model_path)]
+model_name = "my_dt_DG3_model_10-29-00-19"
+cfg_name = join(ROOT,f"log/{model_name}.yml")
+model_path = join(ROOT,f"log/{model_name}.p")
+
+cfgs_n_model_paths = (cfg_name, model_path)
 paper_plot_info = {"trajs_by_arr": {"fname":"T_arr"},
                     "trajs_by_att": {"ts":[17,31,46],"fname":"att"},
                     "att_heatmap":{"fname":"heatmap"},
-                    "trajs_ip_op3_op5":{"fname":"val_ip_op3_op5"},
+                    "plot_val_ip_op":{"fname":"val_ip_op"},
+                    "plot_train_val_ip_op":{"fname":"plot_train_val_ip_op"},
                     "loss_avg_returns":{"fname":"loss"},
                     "vel_field":{"fname":"vel_field", "ts":[1,60,119]}
                     }

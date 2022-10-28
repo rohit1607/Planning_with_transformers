@@ -19,7 +19,7 @@ import gym_examples
 from root_path import ROOT
 from model_min_dt import DecisionTransformer
 sys.path.insert(0, ROOT)
-from utils.utils import read_cfg_file, log_and_viz_params
+from utils.utils import read_cfg_file, save_yaml
 from src_utils import compute_val_loss, get_data_split, cgw_trajec_dataset, cgw_trajec_test_dataset, viz_op_traj_with_attention
 from src_utils import evaluate_on_env, visualize_output, visualize_input, plot_attention_weights
 import pickle
@@ -39,7 +39,7 @@ def train(args, cfg_name ):
     start_time_str = start_time.strftime("%m-%d-%H-%M")
 
     cfg = read_cfg_file(cfg_name=cfg_name)
-
+    cfg_copy = cfg.copy()
     dataset_name = cfg['dataset_name']
     wandb_exp_name = "my-dt-" + dataset_name + "__" + start_time_str
     wandb.init(project="my_decision_transformer",
@@ -51,12 +51,14 @@ def train(args, cfg_name ):
 
     pprint.pprint(cfg)
 
+    add_trans_noise = cfg.add_transition_noise_during_inf
+
     rtg_target = cfg.rtg_target
     env_name = cfg.env_name
     state_dim = cfg.state_dim
     split_tr_tst_val = cfg.split_tr_tst_val
     split_ran_seed = cfg.split_ran_seed
-
+    random_split = cfg.random_split
     max_eval_ep_len = cfg.max_eval_ep_len  # max len of one episode
     num_eval_ep = cfg.num_eval_ep       # num of evaluation episodes
 
@@ -124,10 +126,14 @@ def train(args, cfg_name ):
         traj_dataset = pickle.load(f)
     
     # Split dataset
-    idx_split, set_split = get_data_split(traj_dataset, split_tr_tst_val, split_ran_seed)
+    idx_split, set_split = get_data_split(traj_dataset,
+                                        split_ratio=split_tr_tst_val, 
+                                        random_seed=split_ran_seed, 
+                                        random_split=random_split)
     train_traj_set, test_traj_set, val_traj_set = set_split
     test_idx, train_idx, val_idx = idx_split
     print(f"len(val_traj_set) = {len(val_traj_set)}")
+    print(f"verify; test= {idx_split[0]},\n train = {idx_split[1]}, val={idx_split[2]}")
     # print(f"*** debug: state_dim={state_dim}, env_name= {env_name}")
 
     # sys.exit()
@@ -140,7 +146,7 @@ def train(args, cfg_name ):
     train_traj_data_loader = DataLoader(
                             train_traj_dataset,
                             batch_size=batch_size,
-                            shuffle=True,
+                            shuffle=False,
                             pin_memory=True,
                             drop_last=True
                         )    
@@ -148,7 +154,7 @@ def train(args, cfg_name ):
 
 
     env = gym.make(env_name)
-    env.setup(cfg, params2)
+    env.setup(cfg, params2, add_trans_noise=add_trans_noise)
 
     assert(env.observation_space.shape[0] == state_dim), "Error: state_dim mismatch!"
     state_dim = env.observation_space.shape[0]
@@ -179,8 +185,8 @@ def train(args, cfg_name ):
 
     # scheduler = torch.optim.lr_scheduler.LambdaLR(
     #                         optimizer,
-    #                         # lambda steps: min((steps+1)/warmup_steps, 1)
-    #                         lambda steps: min(1, 1)
+    #                         lambda steps: min((steps+1)/warmup_steps, 1)
+    #                         # lambda steps: min(1, 1)
 
     #                     )
 
@@ -256,7 +262,7 @@ def train(args, cfg_name ):
                                                     comp_val_loss = comp_val_loss)
 
         # visualize output
-        if i_train_iter%4 == 1:                        
+        if i_train_iter%10 == 1:                        
             visualize_output(op_traj_dict_list, i_train_iter, stats=train_traj_stats, env=env, plot_policy=True, log_wandb=True)
             fname = join(ROOT,'tmp/attention_heatmaps/')
             fname += save_model_name[:-3] + '_' + 'trainId_' + '.png'
@@ -324,7 +330,9 @@ def train(args, cfg_name ):
             tmp_path = save_model_path[:-1]
             torch.save(model, tmp_path)
 
-
+    cfg_copy_path = save_model_path[:-2] + "yml"
+    save_yaml(cfg_copy_path,cfg_copy)
+    print(f"cfg_copy_path = {cfg_copy_path}")
     wandb.run.summary["best_avg_returns"] = best_avg_returns
     wandb.run.summary["best_avg_episode_length"] = best_avg_episode_length
     #  wandb.run.summary[avg_val_loss= eval_avg_val_loss,
@@ -364,7 +372,9 @@ def train(args, cfg_name ):
     aa_writer = imageio.get_writer(aa_movie_sname, fps=1)
     as_writer = imageio.get_writer(as_movie_sname, fps=1)
 
-     
+    # output at best epoch
+    visualize_output(op_traj_dict_list, iter_i=best_epoch, stats=train_traj_stats, env=env, plot_policy=True, log_wandb=True)
+
     for t in range(1,at_pl_t,2):
         aa_fname = viz_op_traj_with_attention(op_traj_dict_list, 
                                     mode='a_a_attention', 
@@ -714,6 +724,10 @@ def sweep_train():
             tmp_path = save_model_path[:-1]
             torch.save(model, tmp_path)
 
+    cfg_copy_path = save_model_path[:-2] + ".yml"
+    save_yaml(cfg_copy_path,cfg)
+    print(f"cfg_copy_path = {cfg_copy_path}")
+    sys.exit()
     wandb.log({"best_avg_returns": best_avg_returns})
     wandb.run.summary["best_avg_returns"] = best_avg_returns
     wandb.run.summary["best_avg_episode_length"] = best_avg_episode_length

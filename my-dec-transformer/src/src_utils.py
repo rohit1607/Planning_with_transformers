@@ -24,7 +24,7 @@ def discount_cumsum(x, gamma):
     return disc_cumsum
 
 
-def get_data_split(traj_dataset, split_ratio=[0.6, 0.2, 0.2], random_seed=42):
+def get_data_split(traj_dataset, split_ratio=[0.6, 0.2, 0.2], random_seed=42, random_split=True):
     """"
 
     traj_dataset: contains traj infor for all rzns
@@ -37,14 +37,23 @@ def get_data_split(traj_dataset, split_ratio=[0.6, 0.2, 0.2], random_seed=42):
     all_idx = [i for i in range(n_trajs)]
     # split all idx to train and (test+val)
     test_val_size = split_ratio[1] + split_ratio[2]
-    train_idx, test_val_idx = train_test_split(all_idx, 
-                                        test_size=test_val_size,
-                                        random_state=random_seed,
-                                        shuffle=True)
-    # split (test+val into test and val)
-    val_size = split_ratio[2]/test_val_size
-    test_idx, val_idx = train_test_split(test_val_idx, test_size=val_size)
-    idx_split = (test_idx, train_idx, val_idx)
+    if random_split:
+        train_idx, test_val_idx = train_test_split(all_idx, 
+                                            test_size=test_val_size,
+                                            random_state=random_seed,
+                                            shuffle=True)
+        # split (test+val into test and val)
+        val_size = split_ratio[2]/test_val_size
+        test_idx, val_idx = train_test_split(test_val_idx, test_size=val_size)
+        idx_split = (test_idx, train_idx, val_idx)
+    else:
+        train_idx, test_val_idx = train_test_split(all_idx, 
+                                    test_size=test_val_size,
+                                    shuffle=False)
+        # split (test+val into test and val)
+        val_size = split_ratio[2]/test_val_size
+        test_idx, val_idx = train_test_split(test_val_idx, test_size=val_size, shuffle=False)
+        idx_split = (test_idx, train_idx, val_idx)
 
     train_traj_set = itemgetter(*train_idx)(traj_dataset)
     test_traj_set = itemgetter(*test_idx)(traj_dataset)

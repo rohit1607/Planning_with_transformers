@@ -1,0 +1,1827 @@
+!!python/object:wandb.sdk.wandb_config.Config
+_artifact_callback: !!python/object/apply:builtins.getattr
+- &id001 !!python/object:wandb.sdk.wandb_run.Run
+  _attach_id: 23xp8c52
+  _init_pid: 3786680
+- _config_artifact_callback
+_callback: !!python/object/apply:builtins.getattr
+- *id001
+- _config_callback
+_items:
+  F: 1
+  _wandb: {}
+  action_dim: 1
+  action_range:
+  - 0
+  - 6.28318
+  add_transition_noise_during_inf: false
+  batch_size: 64
+  comp_val_loss: false
+  context_len: 50
+  dataset_name: HW_v6
+  dataset_path: data/HW_v6/traj_data_for_model_5_trad2.pkl
+  del_t: 1.0
+  device: cuda
+  dropout_p: 0.1
+  embed_dim: 8
+  env_name: gym_examples/contGrid-v5_1
+  log_dir: log
+  lr: 0.0001
+  max_eval_ep_len: 120
+  max_train_iters: 3
+  n_blocks: 1
+  n_heads: 1
+  noise_var:
+  - 0.1
+  - 0
+  num_eval_ep: 40
+  num_updates_per_iter: 500
+  params2_name: data/HW_v6/params.yml
+  random_split: true
+  rtg_scale: 1
+  rtg_target: 70
+  space_scale: 1
+  split_ran_seed: 42
+  split_tr_tst_val:
+  - 0.8
+  - 0.1
+  - 0.1
+  state_dim: 3
+  target_radius: 2
+  vel_field: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/HW_v6/raw_data/nT_120
+  vmax_by_F: 1.0
+  warmup_steps: 0
+  wt_decay: 0
+_locked: {}
+_settings: !!python/object:wandb.sdk.wandb_settings.Settings
+  _Settings__frozen: false
+  _Settings__initialized: true
+  _Settings__preprocessing_warnings: {}
+  _Settings__unexpected_args: !!set {}
+  _Settings__validation_warnings: {}
+  _Settings_start_datetime: &id003 2022-10-28 19:20:51.254740
+  _Settings_start_time: 1666965051.2547398
+  _args: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 8
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value:
+    - --env
+    - v5_HW
+    name: _args
+  _cli_only_mode: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _cli_only_mode
+  _colab: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: true
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _colab
+  _config_dict: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _config_dict
+  _console: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: true
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _console
+  _cuda: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _cuda
+  _disable_meta: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: &id002 !!python/name:wandb.sdk.wandb_settings._str_as_bool ''
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _disable_meta
+  _disable_stats: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _disable_stats
+  _disable_viewer: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _disable_viewer
+  _except_exit: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _except_exit
+  _executable: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 8
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/my-dt-venv/bin/python
+    name: _executable
+  _internal_check_process: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: 8
+    name: _internal_check_process
+  _internal_queue_timeout: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: 2
+    name: _internal_queue_timeout
+  _jupyter: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: true
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _jupyter
+  _jupyter_name: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _jupyter_name
+  _jupyter_path: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _jupyter_path
+  _jupyter_root: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _jupyter_root
+  _kaggle: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: true
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _kaggle
+  _live_policy_rate_limit: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _live_policy_rate_limit
+  _live_policy_wait_time: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _live_policy_wait_time
+  _noop: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: true
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _noop
+  _offline: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: true
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _offline
+  _os: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 8
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: Linux-5.15.0-48-generic-x86_64-with-glibc2.35
+    name: _os
+  _platform: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: linux
+    name: _platform
+  _python: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 8
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: 3.10.4
+    name: _python
+  _require_service: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 8
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: 'True'
+    name: _require_service
+  _runqueue_item_id: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _runqueue_item_id
+  _save_requirements: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: true
+    name: _save_requirements
+  _service_transport: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _service_transport
+  _start_datetime: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 11
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: *id003
+    name: _start_datetime
+  _start_time: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 11
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: 1666965051.2547398
+    name: _start_time
+  _stats_pid: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 9
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: 3786680
+    name: _stats_pid
+  _stats_sample_rate_seconds: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: 2.0
+    name: _stats_sample_rate_seconds
+  _stats_samples_to_average: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: 15
+    name: _stats_samples_to_average
+  _tmp_code_dir: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: code
+    name: _tmp_code_dir
+  _tracelog: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _tracelog
+  _unsaved_keys: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _unsaved_keys
+  _windows: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: true
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: _windows
+  allow_val_change: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: allow_val_change
+  anonymous: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    - !!python/name:wandb.sdk.wandb_settings._validate_anonymous ''
+    _value: null
+    name: anonymous
+  api_key: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    - !!python/name:wandb.sdk.wandb_settings._validate_api_key ''
+    _value: null
+    name: api_key
+  base_url: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    - !!python/name:wandb.sdk.wandb_settings._validate_base_url ''
+    _value: https://api.wandb.ai
+    name: base_url
+  code_dir: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: code_dir
+  config_paths: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: config_paths
+  console: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    - !!python/name:wandb.sdk.wandb_settings._validate_console ''
+    _value: auto
+    name: console
+  deployment: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: true
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: deployment
+  disable_code: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: disable_code
+  disable_git: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 8
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: false
+    name: disable_git
+  disable_hints: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: disable_hints
+  disabled: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: false
+    name: disabled
+  docker: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 8
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: docker
+  email: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 5
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: rohitc.nitw@gmail.com
+    name: email
+  enable_job_creation: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: enable_job_creation
+  entity: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 14
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: transformer-planning
+    name: entity
+  files_dir: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: files
+    name: files_dir
+  force: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: force
+  git_commit: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 14
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: fe1c0c48b078feb65bc639f44f971603cc950c20
+    name: git_commit
+  git_remote: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: origin
+    name: git_remote
+  git_remote_url: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 14
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: https://github.com/rohit1607/Planning_with_transformers.git
+    name: git_remote_url
+  git_root: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: git_root
+  heartbeat_seconds: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: 30
+    name: heartbeat_seconds
+  host: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 14
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: rohi
+    name: host
+  ignore_globs: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: !!python/tuple []
+    name: ignore_globs
+  init_timeout: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: 30
+    name: init_timeout
+  is_local: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: true
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: is_local
+  label_disable: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: label_disable
+  launch: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: launch
+  launch_config_path: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: launch_config_path
+  log_dir: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: logs
+    name: log_dir
+  log_internal: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: debug-internal.log
+    name: log_internal
+  log_symlink_internal: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: debug-internal.log
+    name: log_symlink_internal
+  log_symlink_user: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: debug.log
+    name: log_symlink_user
+  log_user: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: debug.log
+    name: log_user
+  login_timeout: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: login_timeout
+  magic: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: magic
+  mode: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    - !!python/name:wandb.sdk.wandb_settings._validate_mode ''
+    _value: online
+    name: mode
+  notebook_name: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: notebook_name
+  problem: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    - !!python/name:wandb.sdk.wandb_settings._validate_problem ''
+    _value: fatal
+    name: problem
+  program: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 8
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src/train_model.py
+    name: program
+  program_relpath: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 8
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: my-dec-transformer/src/train_model.py
+    name: program_relpath
+  project: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 14
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    - !!python/name:wandb.sdk.wandb_settings._validate_project ''
+    _value: my_decision_transformer
+    name: project
+  project_url: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: true
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: project_url
+  quiet: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: quiet
+  reinit: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: reinit
+  relogin: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: relogin
+  resume: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: resume
+  resume_fname: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: wandb-resume.json
+    name: resume_fname
+  resumed: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: false
+    name: resumed
+  root_dir: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/src
+    name: root_dir
+  run_group: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: run_group
+  run_id: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 14
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: 23xp8c52
+    name: run_id
+  run_job_type: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: run_job_type
+  run_mode: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: true
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: run_mode
+  run_name: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 14
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: my-dt-HW_v6__10-28-19-20
+    name: run_name
+  run_notes: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: run_notes
+  run_tags: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: run_tags
+  run_url: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: true
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: run_url
+  sagemaker_disable: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: sagemaker_disable
+  save_code: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: save_code
+  settings_system: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: ~/.config/wandb/settings
+    name: settings_system
+  settings_workspace: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: settings
+    name: settings_workspace
+  show_colors: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: show_colors
+  show_emoji: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: show_emoji
+  show_errors: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: true
+    name: show_errors
+  show_info: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: true
+    name: show_info
+  show_warnings: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: true
+    name: show_warnings
+  silent: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: false
+    name: silent
+  start_method: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    - !!python/name:wandb.sdk.wandb_settings._validate_start_method ''
+    _value: null
+    name: start_method
+  strict: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: strict
+  summary_errors: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: summary_errors
+  summary_warnings: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: true
+    _preprocessor: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 14
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: 5
+    name: summary_warnings
+  sweep_id: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: sweep_id
+  sweep_param_path: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: sweep_param_path
+  sweep_url: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: true
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: sweep_url
+  symlink: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 8
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: true
+    name: symlink
+  sync_dir: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: true
+    _hook:
+    - !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: sync_dir
+  sync_file: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: true
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: sync_file
+  sync_symlink_latest: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: latest-run
+    name: sync_symlink_latest
+  system_sample: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: 15
+    name: system_sample
+  system_sample_seconds: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: 2
+    name: system_sample_seconds
+  table_raise_on_max_row_limit_exceeded: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: *id002
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: false
+    name: table_raise_on_max_row_limit_exceeded
+  timespec: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: true
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: timespec
+  tmp_dir: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: tmp
+    name: tmp_dir
+  username: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: false
+    _hook: null
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 8
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: rohit
+    name: username
+  wandb_dir: !!python/object:wandb.sdk.wandb_settings.Property
+    _Property__failed_preprocessing: false
+    _Property__failed_validation: false
+    _Property__frozen: false
+    _auto_hook: true
+    _hook: !!python/name:wandb.sdk.wandb_settings.%3Clambda%3E ''
+    _is_policy: false
+    _preprocessor: null
+    _source: !!python/object/apply:wandb.sdk.wandb_settings.Source
+    - 1
+    _validator:
+    - !!python/name:wandb.sdk.wandb_settings.helper ''
+    _value: null
+    name: wandb_dir
+_users: {}
+_users_cnt: 0
+_users_inv: {}
