@@ -148,13 +148,14 @@ class paper_plots:
         for idx,traj in enumerate(self.op_traj_dict_list):
             states = traj['states']
             t_done =  traj['t_done']
-            pr_t_dones.append(t_done)
+            if t_done < 75:
+                pr_t_dones.append(t_done) 
             mean, std = self.stats
             states = (states*std) + mean
         
             # Plot sstates
             # shape: (eval_batch_size, max_test_ep_len, state_dim)
-            if t_done < 53:
+            if t_done < 75:
                 ax.plot(states[0,:t_done+1,1], states[0,:t_done+1,2], color=sm.to_rgba(t_done))
                 
         wandb.run.summary["mean Tarr logged dataset"] = np.mean(t_dones)
@@ -172,13 +173,18 @@ class paper_plots:
 
         cax_arr = ax.inset_axes([1.05, 0, 0.05, 1])
         cax_vel = ax.inset_axes([1.30, 0, 0.05, 1])
-        cbar_fontsize = 14
-        cbar = fig.colorbar(sm, ax=axs.ravel().tolist(), cax=cax_arr)
-        cbar.set_label("Arrival Time (non-dim)", fontsize=cbar_fontsize)
+        cbar_fontsize = 15
+        tick_font_size = 14
+        cbar = fig.colorbar(sm, ax=axs.ravel().tolist(), cax=cax_arr, ticks=[59, 60])
+        cbar.set_label("Arrival Time (Non-Dim)", fontsize=cbar_fontsize)
+       
+        # cbar = fig.colorbar(cax, ticks=[-1, 0, 1])
+        # cbar.ax.set_yticklabels(['< -1', '0', '> 1'])  # vertically oriented colorbar     
      
         cbarv = fig.colorbar(im, ax=axs.ravel().tolist(), cax=cax_vel)
-        cbarv.set_label("Velocity Magnitude (non-dim)", fontsize=cbar_fontsize)
-
+        cbarv.set_label("Velocity Magnitude (Non-Dim)", fontsize=cbar_fontsize)
+        cbar.ax.tick_params(labelsize=tick_font_size)
+        cbarv.ax.tick_params(labelsize=tick_font_size)
 
         fname = info["fname"] 
         save_name = join(self.save_dir,fname)
@@ -264,12 +270,12 @@ class paper_plots:
 
         cax_arr = ax.inset_axes([1.05, 0, 0.05, 1])
         cax_vel = ax.inset_axes([1.30, 0, 0.05, 1])
-        cbar_fontsize = 14
+        cbar_fontsize = 15
         cbar = fig.colorbar(sm, ax=axs.ravel().tolist(), cax=cax_arr)
-        cbar.set_label("Arrival Time (non-dim)", fontsize=cbar_fontsize)
+        cbar.set_label("Arrival Time (Non-Dim)", fontsize=cbar_fontsize)
      
         cbarv = fig.colorbar(im, ax=axs.ravel().tolist(), cax=cax_vel)
-        cbarv.set_label("Velocity Magnitude (non-dim)", fontsize=cbar_fontsize)
+        cbarv.set_label("Velocity Magnitude (Non-Dim)", fontsize=cbar_fontsize)
 
 
         fname = info["fname"] 

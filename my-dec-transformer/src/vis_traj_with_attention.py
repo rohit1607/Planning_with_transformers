@@ -26,7 +26,8 @@ import seaborn as sns
 import wandb
 from datetime import datetime
 import imageio.v2 as imageio
-
+from pathlib import Path
+import matplotlib.pyplot as plt
 wandb.login()
 
 def evaluate_model(cfg, model_path):
@@ -34,6 +35,8 @@ def evaluate_model(cfg, model_path):
     params2 = read_cfg_file(cfg_name=join(ROOT,cfg["params2_name"]))
 
     pprint.pprint(cfg)
+    add_trans_noise = cfg.add_transition_noise_during_inf
+
     rtg_target = cfg["rtg_target"]
     env_name = cfg["env_name"]
     state_dim = cfg["state_dim"]
@@ -91,7 +94,7 @@ def evaluate_model(cfg, model_path):
    
 
     env = gym.make(env_name)
-    env.setup(cfg, params2)
+    env.setup(cfg, params2, add_trans_noise=add_trans_noise)
 
     state_dim = env.observation_space.shape[0]
     act_dim = env.action_space.shape[0]
@@ -146,9 +149,9 @@ def visualize(cfgs_n_model_paths, paper_plot_info=None):
                          paper_plot_info=paper_plot_info,
                          save_dir=save_dir)
         pp.plot_val_ip_op(val_traj_dataset)
-        pp.plot_traj_by_arr(train_traj_dataset)
+        # pp.plot_traj_by_arr(train_traj_dataset)
         # pp.plot_train_val_ip_op(train_traj_dataset, val_traj_dataset)
-        pp.plot_traj_by_arr(val_traj_dataset, set_str="_val")
+        # pp.plot_traj_by_arr(val_traj_dataset, set_str="_val")
 
         # pp.plot_att_heatmap(100)
         # pp.plot_traj_by_att("a_a_attention")
@@ -157,50 +160,64 @@ def visualize(cfgs_n_model_paths, paper_plot_info=None):
         # pp.plot_loss_returns()
         # pp.plot_LHW_RHW_DG()
 
-    sys.exit()
-    movie_name = model_name + "_traj_with_attention_" 
-    movie_path = join(ROOT,"tmp/attention_traj_videos/")
-    aa_movie_sname = movie_path + movie_name + "aa.mp4" 
-    as_movie_sname = movie_path + movie_name + "as.mp4"
-    aa_writer = imageio.get_writer(aa_movie_sname, fps=1)
-    as_writer = imageio.get_writer(as_movie_sname, fps=1)
    
-    visualize_output(op_traj_dict_list, stats=train_traj_stats, env=env, log_wandb=True,
-                                        plot_flow=True,
-                                        color_by_time=True,
-                                        )
-
-
-    for t in range(1, 50,40):
-        aa_fname = viz_op_traj_with_attention(op_traj_dict_list, 
-                                    mode='a_a_attention', 
-                                    stats=train_traj_stats, 
-                                    env=env, 
-                                    log_wandb=False,
-                                    at_time=t,
-                                    plot_flow=True,
-                                    )
-        aa_writer.append_data(imageio.imread(aa_fname))
-
-        as_fname = viz_op_traj_with_attention(op_traj_dict_list, 
-                                    mode='a_s_attention', 
-                                    stats=train_traj_stats, 
-                                    env=env, 
-                                    log_wandb=False,
-                                    at_time=t,
-                                    plot_flow=True,
-
-                                    )
-        as_writer.append_data(imageio.imread(as_fname))
+    # movie_name = model_name + "_traj_with_attention_" 
+    # movie_path = join(ROOT,"tmp/attention_traj_videos/")
+    # aa_movie_sname = movie_path + movie_name + "aa.mp4" 
+    # as_movie_sname = movie_path + movie_name + "as.mp4"
+    # aa_writer = imageio.get_writer(aa_movie_sname, fps=1)
+    # as_writer = imageio.get_writer(as_movie_sname, fps=1)
    
-    aa_writer.close()
-    as_writer.close()
-    wandb.log({"aa_attention_traj": wandb.Video(aa_movie_sname, format='mp4')})
-    wandb.log({"as_attention_traj": wandb.Video(as_movie_sname, format='mp4')})
+    # visualize_output(op_traj_dict_list, stats=train_traj_stats, env=env, log_wandb=True,
+    #                                     plot_flow=True,
+    #                                     color_by_time=True,
+    #                                     )
 
+
+    # for t in range(1, 50,40):
+    #     aa_fname = viz_op_traj_with_attention(op_traj_dict_list, 
+    #                                 mode='a_a_attention', 
+    #                                 stats=train_traj_stats, 
+    #                                 env=env, 
+    #                                 log_wandb=False,
+    #                                 at_time=t,
+    #                                 plot_flow=True,
+    #                                 )
+    #     aa_writer.append_data(imageio.imread(aa_fname))
+
+    #     as_fname = viz_op_traj_with_attention(op_traj_dict_list, 
+    #                                 mode='a_s_attention', 
+    #                                 stats=train_traj_stats, 
+    #                                 env=env, 
+    #                                 log_wandb=False,
+    #                                 at_time=t,
+    #                                 plot_flow=True,
+
+    #                                 )
+    #     as_writer.append_data(imageio.imread(as_fname))
+   
+    # aa_writer.close()
+    # as_writer.close()
+    # wandb.log({"aa_attention_traj": wandb.Video(aa_movie_sname, format='mp4')})
+    # wandb.log({"as_attention_traj": wandb.Video(as_movie_sname, format='mp4')})
+
+
+models = {1: "my_dt_DG3_model_10-29-00-19.p",
+            2: "my_dt_HW_v3_model_10-28-19-30.p",
+            3: "my_dt_HW_v4_model_10-28-22-12.p",
+            4: "my_dt_HW_v3_model_10-27-00-11.p",
+            5: "my_dt_HW_v7_model_10-26-20-03.p",
+            6: "my_dt_HW_v5_model_10-27-22-06.p",
+            7: "my_dt_HW_DG_DP_model_10-29-01-05.p",
+            8: "my_dt_HW_v3_model_10-27-12-04.p"
+}
+fig1_models = [1,2,5,6,3,7,4,8]
 
 # TODO: save cfg files with models.
-model_name = "my_dt_DG3_model_10-29-00-19"
+# for idx in fig1_models:
+idx = fig1_models[4]
+model_name = models[idx][:-2]
+print(f"############## model_name ={model_name}")
 cfg_name = join(ROOT,f"log/{model_name}.yml")
 model_path = join(ROOT,f"log/{model_name}.p")
 
@@ -212,5 +229,45 @@ paper_plot_info = {"trajs_by_arr": {"fname":"T_arr"},
                     "plot_train_val_ip_op":{"fname":"plot_train_val_ip_op"},
                     "loss_avg_returns":{"fname":"loss"},
                     "vel_field":{"fname":"vel_field", "ts":[1,60,119]}
-                    }
-visualize(cfgs_n_model_paths, paper_plot_info=paper_plot_info)
+                        }
+# visualize(cfgs_n_model_paths, paper_plot_info=paper_plot_info)
+    # print(f"-------------------- viz {idx} done ----------------")
+
+def combine_plots(models, fig1_models):
+
+    
+    # create a list of directories
+    files = [join(ROOT,f"paper_plots/{models[idx]}/val_ip_op.png") for idx in fig1_models]
+
+    # create the figure
+    fig, axs = plt.subplots(nrows=4, ncols=2, figsize=(10, 10))
+
+    # flatten the axis into a 1-d array to make it easier to access each axes
+    axs = axs.flatten()
+    # matplotlib.axes.xaxis.set_ticklabels([])
+    # matplotlib.axes.yaxis.set_ticklabels([])
+    plt.subplots_adjust( left= 0.1, right=0.9, top=0.9, bottom=0.2, wspace=0, hspace=0)
+
+    # iterate through and enumerate the files, use i to index the axes
+    for i, file in enumerate(files):
+        print(f"file = {file}")
+        # read the image in
+        pic = plt.imread(file)
+
+        # add the image to the axes
+        axs[i].imshow(pic)
+        axs[i].axes.xaxis.set_ticklabels([])
+        axs[i].axes.yaxis.set_ticklabels([])
+        axs[i].axis('off')
+        # axs[i].set(title = f"S{i}")
+        axs[i].set_title(f"S{i+1}", x=0, y=1.1, pad=-14)
+
+        # add an axes title; .stem is a pathlib method to get the filename
+        # axs[i].set(title=file.stem)
+
+    # add a figure title
+    fname = "combine_S1_8.png"
+    fname = join(ROOT,f"paper_plots/paper_figs/{fname}")
+    plt.savefig(fname,bbox_inches = 'tight', dpi=600)
+
+combine_plots(models, fig1_models)

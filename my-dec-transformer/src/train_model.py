@@ -444,6 +444,7 @@ def train(args, cfg_name ):
 
 
 def sweep_train():
+    sys.exit()
 
     start_time = datetime.now().replace(microsecond=0)
     start_time_str = start_time.strftime("%m-%d-%H-%M")
@@ -727,7 +728,6 @@ def sweep_train():
     cfg_copy_path = save_model_path[:-2] + ".yml"
     save_yaml(cfg_copy_path,cfg)
     print(f"cfg_copy_path = {cfg_copy_path}")
-    sys.exit()
     wandb.log({"best_avg_returns": best_avg_returns})
     wandb.run.summary["best_avg_returns"] = best_avg_returns
     wandb.run.summary["best_avg_episode_length"] = best_avg_episode_length
@@ -866,4 +866,3 @@ if __name__ == "__main__":
         sweep_cfg = read_cfg_file(cfg_name=sweeep_cfg_name)
         sweep_id = wandb.sweep(sweep_cfg)
         wandb.agent(sweep_id, function=sweep_train)
-

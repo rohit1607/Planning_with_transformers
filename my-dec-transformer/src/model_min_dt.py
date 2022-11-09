@@ -26,12 +26,14 @@ class MaskedCausalAttention(nn.Module):
 
         self.n_heads = n_heads
         self.max_T = max_T
-
-        self.q_net = nn.Linear(h_dim, h_dim)
-        self.k_net = nn.Linear(h_dim, h_dim)
-        self.v_net = nn.Linear(h_dim, h_dim)
-
-        self.proj_net = nn.Linear(h_dim, h_dim)
+        C = h_dim*n_heads
+        # self.q_net = nn.Linear(h_dim, h_dim)
+        # self.k_net = nn.Linear(h_dim, h_dim)
+        # self.v_net = nn.Linear(h_dim, h_dim)
+        self.q_net = nn.Linear(C, C)
+        self.k_net = nn.Linear(C, C)
+        self.v_net = nn.Linear(C, C)
+        self.proj_net = nn.Linear(C, C)
 
         self.att_drop = nn.Dropout(drop_p)
         self.proj_drop = nn.Dropout(drop_p)
@@ -45,7 +47,7 @@ class MaskedCausalAttention(nn.Module):
 
     def forward(self, x):
         B, T, C = x.shape   # batchsize, max_t, h_dim for n_head=1
-
+        # print(f'in attention x shape: {x.shape}, {x.size()}')
         # if (T == self.max_T):
         #     print("T == self.max_T")
         # else:
@@ -59,6 +61,7 @@ class MaskedCausalAttention(nn.Module):
         q = self.q_net(x).view(B, T, N, D).transpose(1,2)
         k = self.k_net(x).view(B, T, N, D).transpose(1,2)
         v = self.v_net(x).view(B, T, N, D).transpose(1,2)
+        # print(f'in attention q shape: {q.shape}')
 
         # print(f"k.size(-1) = {k.size(-1)}")
         # weights (B, N, T, T)  <-- B,N,T,D  @  B,N,D,T
@@ -76,8 +79,13 @@ class MaskedCausalAttention(nn.Module):
 
         # gather heads and project (B, N, T, D) -> (B, T, N*D)
         attention = attention.transpose(1, 2).contiguous().view(B,T,N*D)
+        # print(f"attention shape = {attention.shape}")
 
         out = self.proj_drop(self.proj_net(attention))
+        # print(f"out shape = {out.shape}")
+
+        # sys.exit()
+
         return out
 
 
@@ -85,14 +93,15 @@ class Block(nn.Module):
     def __init__(self, h_dim, max_T, n_heads, drop_p):
         super().__init__()
         self.attention = MaskedCausalAttention(h_dim, max_T, n_heads, drop_p)
+        C = h_dim*n_heads
         self.mlp = nn.Sequential(
-                nn.Linear(h_dim, 4*h_dim),
+                nn.Linear(C, 4*C),
                 nn.GELU(),
-                nn.Linear(4*h_dim, h_dim),
+                nn.Linear(4*C, C),
                 nn.Dropout(drop_p),
             )
-        self.ln1 = nn.LayerNorm(h_dim)
-        self.ln2 = nn.LayerNorm(h_dim)
+        self.ln1 = nn.LayerNorm(C)
+        self.ln2 = nn.LayerNorm(C)
 
     def forward(self, x):
         # Attention -> LayerNorm -> MLP -> LayerNorm
@@ -111,7 +120,7 @@ class DecisionTransformer(nn.Module):
         self.state_dim = state_dim
         self.act_dim = act_dim
         self.h_dim = h_dim
-
+        self.n_heads = n_heads
         ### transformer blocks
         if target_token:
             input_seq_len = (3 * context_len) +1 
@@ -127,7 +136,7 @@ class DecisionTransformer(nn.Module):
         self.embed_timestep = nn.Embedding(max_timestep, h_dim)
         self.embed_rtg = torch.nn.Linear(1, h_dim)
         self.embed_state = torch.nn.Linear(state_dim, h_dim)
-        
+        self.merge_heads_linear = torch.nn.Linear(h_dim*n_heads, h_dim)
         # # discrete actions
         # self.embed_action = torch.nn.Embedding(act_dim, h_dim)
         # use_action_tanh = False # False for discrete actions
@@ -181,11 +190,17 @@ class DecisionTransformer(nn.Module):
 
         h = self.embed_ln(h)
 
+        # myedit for making multihead work  
+        h = h.repeat((1,1,self.n_heads))
+
+
         # transformer and prediction
         # print(f"pre-transf h.shape = {h.shape} ")
         h = self.transformer(h)
         # print(f"post-transf h.shape = {h.shape} ")
-
+        h = self.merge_heads_linear(h)
+        # print(f"post-merge h.shape = {h.shape} ")
+        # sys.exit()
         if target_token!=None:
             h = h[:,1:,:]   # B x (3T + 1) x hdim  --> B x (3T ) x hdim  exclude target tokem
         # get h reshaped such that its size = (B x 3 x T x h_dim) and
