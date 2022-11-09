@@ -17,7 +17,7 @@ fonttools==4.35.0
 gitdb==4.0.9
 GitPython==3.1.27
 gym==0.25.0
--e git+https://github.com/rohit1607/Planning_with_transformers.git@bf1e90f1256fe890bcfc8ccfeb42a418bccb3328#egg=gym_examples&subdirectory=my-dec-transformer/gym-examples
+-e git+https://github.com/rohit1607/Planning_with_transformers.git@600e74f610cf5172b14c595ffdb3891dd814eb81#egg=gym_examples&subdirectory=my-dec-transformer/gym-examples
 gym-notices==0.0.7
 idna==3.3
 imageio==2.22.0
