@@ -1,0 +1,46 @@
+F: 1
+a_tl: 1000
+action_dim: 1
+action_range:
+- 0
+- 6.28318
+add_transition_noise_during_inf: false
+batch_size: 64
+comp_val_loss: false
+context_len: 50
+dataset_name: HW_v8
+dataset_path: data/HW_v8/traj_data_for_model_5_trad2.pkl
+del_t: 1.0
+device: cuda
+dropout_p: 0.1
+embed_dim: 12
+env_name: gym_examples/contGrid-v5_1
+log_dir: log
+lr: 0.001
+max_eval_ep_len: 120
+max_train_iters: 100
+n_blocks: 1
+n_heads: 4
+noise_var:
+- 0.1
+- 0
+num_eval_ep: 40
+num_updates_per_iter: 800
+params2_name: data/HW_v8/params.yml
+random_split: true
+rtg_scale: 1
+rtg_target: 60
+space_scale: 1
+split_ran_seed: 42
+split_tr_tst_val:
+- 0.8
+- 0.1
+- 0.1
+state_dim: 3
+target_conditioning: true
+target_radius: 2
+use_scheduler: true
+vel_field: /home/rohit/Documents/Research/Planning_with_transformers/Decision_transformer/my-dec-transformer/data/HW_v8/raw_data/nT_120
+vmax_by_F: 1.0
+warmup_steps: 1000
+wt_decay: 0

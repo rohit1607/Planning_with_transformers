@@ -26,6 +26,7 @@ import pickle
 import wandb
 import pprint
 import imageio.v2 as imageio
+import time
 wandb.login()
 
 
@@ -64,7 +65,8 @@ def train(args, cfg_name ):
 
     rtg_scale = cfg.rtg_scale
     batch_size = cfg.batch_size           # training batch size
-    lr = cfg.lr                            # learning rate
+    use_scheduler = cfg.use_scheduler
+    lr = cfg.lr                            # const learning rate
     wt_decay = cfg.wt_decay               # weight decay
     warmup_steps = cfg.warmup_steps       # warmup steps for lr scheduler
 
@@ -73,6 +75,7 @@ def train(args, cfg_name ):
     num_updates_per_iter = cfg.num_updates_per_iter
     comp_val_loss = cfg.comp_val_loss
 
+    target_conditioning = cfg.target_conditioning
     context_len = cfg.context_len     # K in decision transformer
     n_blocks = cfg.n_blocks          # num of transformer blocks
     embed_dim = cfg.embed_dim          # embedding (hidden) dim of transformer
@@ -146,7 +149,7 @@ def train(args, cfg_name ):
     train_traj_data_loader = DataLoader(
                             train_traj_dataset,
                             batch_size=batch_size,
-                            shuffle=False,
+                            shuffle=True,
                             pin_memory=True,
                             drop_last=True
                         )    
@@ -174,8 +177,15 @@ def train(args, cfg_name ):
                 context_len=context_len,
                 n_heads=n_heads,
                 drop_p=dropout_p,
-                target_token=True
+                target_token=target_conditioning    #True/False
             ).to(device)
+
+    pytorch_trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    pytorch_total_params = sum(p.numel() for p in model.parameters())
+    print(f"total params = {pytorch_total_params}")
+    print(f"trainable params = {pytorch_trainable_params}")
+    wandb.run.summary["total params"] = pytorch_total_params
+    wandb.run.summary["trainable params"] = pytorch_trainable_params
 
     optimizer = torch.optim.AdamW(
                         model.parameters(),
@@ -183,26 +193,30 @@ def train(args, cfg_name ):
                         weight_decay=wt_decay
                     )
 
-    # scheduler = torch.optim.lr_scheduler.LambdaLR(
-    #                         optimizer,
-    #                         lambda steps: min((steps+1)/warmup_steps, 1)
-    #                         # lambda steps: min(1, 1)
-
-    #                     )
+    c = 5e-4
+    l = 5e-6
+    d = 0.5 #fraction of nsteps at which lr reaches l
+    nsteps = num_updates_per_iter*max_train_iters
+    m = -(c-l)/(d*nsteps)
+    scheduler = torch.optim.lr_scheduler.LambdaLR(
+                            optimizer,
+                            # lambda step: 1e2* embed_dim**(-0.5) * min(1e-1* (step+1)**(-0.45), 2*(step+1) * warmup_steps**(-1.5)),
+                            lambda step: 1e3*max(m*step + c, l)
+                            # lambda steps: min(1, 1)
+                        )
 
     total_updates = 0
-    action_loss=None
+    action_loss = None
+    target_loss = 0
     i_train_iter=None
     eval_max_reward = float('-inf')
-
-    # wandb.watch(model, log_freq=1, log="all", log_graph=True)
-    # p_log = log_and_viz_params(model)
-
+    target_state_norm = [[None, target_pos[0], target_pos[1]] for target_pos in env.target_pos]
     for i_train_iter in range(max_train_iters):
         print(f"----i_train_iter  = {i_train_iter} -------")
         log_action_losses = []
         model.train()
-        wandb.log({"loss": action_loss })
+        wandb.log({"loss": action_loss,
+                    "target_loss": target_loss })
         
         for itr in range(num_updates_per_iter):
             # print(f" inner itr = {itr}")
@@ -219,34 +233,65 @@ def train(args, cfg_name ):
             returns_to_go = returns_to_go.to(device).unsqueeze(dim=-1) # B x T x 1
             traj_mask = traj_mask.to(device)    # B x T
             action_target = torch.clone(actions).detach().to(device)
-            target_pos = torch.clone(target_pos).detach().to(device)
+            target_pos_d = torch.clone(target_pos).detach().to(device)
             # print(f"####### \nstates.shape = {states.shape},\n target_pos.shape ={target_pos.shape}")
-
-            state_preds, action_preds, return_preds = model.forward(
-                                                            timesteps=timesteps,
-                                                            states=states,
-                                                            actions=actions,
-                                                            returns_to_go=returns_to_go,
-                                                            target_token=target_pos
-                                                        )
+            if target_conditioning:
+                state_preds, action_preds, return_preds = model.forward(
+                                                                timesteps=timesteps,
+                                                                states=states,
+                                                                actions=actions,
+                                                                returns_to_go=returns_to_go,
+                                                                target_token=target_pos_d
+                                                            )
+            else:
+                state_preds, action_preds, return_preds = model.forward(
+                                                timesteps=timesteps,
+                                                states=states,
+                                                actions=actions,
+                                                returns_to_go=returns_to_go,
+                                            )
             # only consider non padded elements
+            # state_preds = state_preds.view(-1, state_dim)[traj_mask.view(-1,) > 0]
+            # print(f" **** verify: traj_mask: {traj_mask.shape}, {traj_mask} \n\n----\n\n {traj_mask.view(-1,)}, {traj_mask.view(-1,).shape}")
+
+            # TODO: verify final_states_pred has parameter info so that gradients can be back computed
+            if cfg.add_target_loss:
+                final_state_idxs = torch.sum(traj_mask, dim=-1) - 1
+                final_states_pred = torch.zeros((batch_size,state_dim))
+                for i in range(batch_size):
+                    final_states_pred[i,:] = state_preds[i,final_state_idxs[i],:]
+                target_pos_norm = (target_pos- train_traj_dataset.state_mean) / train_traj_dataset.state_std
+                target_loss = F.mse_loss(final_states_pred[:,1:],  target_pos_norm[:,1:], reduction='mean')
+
+                # print(f" **** verify: final_state_idxs: {final_state_idxs.shape}, {final_state_idxs}")
+                # print(f" **** verify: final_states_pred: {final_states_pred.shape}, {final_states_pred}")
+                # print(f" - - - --  --  ")
+                # print(f" **** verify: target_pos: {target_pos.shape}, {target_pos}")
+                # print(f" stats... mean = {train_traj_dataset.state_mean},  std = {train_traj_dataset.state_std}")
+                # print(f" **** verify: target_pos_norm: {target_pos_norm.shape}, {target_pos_norm}")
+                # print(f" **** verify: target_pos_norm[:,1:]: {target_pos_norm[:,1:].shape}, {target_pos_norm[:,1:]}")
+                # print(f" **** verify: states: {state_preds.shape}, {state_preds}")
+                # print(f"**** debug pre view: action_target = {action_target.shape}")
             action_preds = action_preds.view(-1, act_dim)[traj_mask.view(-1,) > 0]
             action_target = action_target.view(-1, act_dim)[traj_mask.view(-1,) > 0]
-            # print(f"**** debug: action_target = {action_target}")
+            # print(f"**** debug: action_target = {action_target.shape}")
+            # sys.exit()
+
             # Get the training_attention_weights for the first batch_size no. of trajectories
             if itr == 0:
                 attention_weights_tr_list = []
                 for i_bl in range(n_blocks):
                     attention_weights_tr_list.append(model.blocks[i_bl].attention.attention_weights)
-            
-            action_loss = F.mse_loss(action_preds, action_target, reduction='mean')
+
+            action_loss = F.mse_loss(action_preds, action_target, reduction='mean') + int(cfg.add_target_loss)*cfg.a_tl*target_loss
 
             optimizer.zero_grad()
             action_loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), 0.25)
             optimizer.step()
-            # scheduler.step()
-
+            if use_scheduler:
+                scheduler.step()
+            # print(f"***** {scheduler.get_last_lr()}")
             log_action_losses.append(action_loss.detach().cpu().item())
             # p_log.log_params(device=device)
         
@@ -259,11 +304,14 @@ def train(args, cfg_name ):
                                                     max_test_ep_len=max_eval_ep_len, 
                                                     state_mean = train_traj_stats[0], 
                                                     state_std = train_traj_stats[1],
-                                                    comp_val_loss = comp_val_loss)
+                                                    comp_val_loss = comp_val_loss,
+                                                    target_conditioning = target_conditioning
+                                                    )
+        # sys.exit()
 
         # visualize output
         if i_train_iter%10 == 1:                        
-            visualize_output(op_traj_dict_list, i_train_iter, stats=train_traj_stats, env=env, plot_policy=True, log_wandb=True)
+            visualize_output(op_traj_dict_list, i_train_iter, stats=train_traj_stats, env=env, plot_policy=False, log_wandb=True)
             fname = join(ROOT,'tmp/attention_heatmaps/')
             fname += save_model_name[:-3] + '_' + 'trainId_' + '.png'
             norm_fname = join(ROOT, 'tmp/normalized_att_heatmaps/')
@@ -284,10 +332,10 @@ def train(args, cfg_name ):
         eval_avg_returns_per_success = results['eval/avg_returns_per_success']
         # eval_d4rl_score = get_d4rl_normalized_score(results['eval/avg_reward'], env_name) * 100
         wandb.log({"avg_returns": eval_avg_reward,
-                    "avg_episode_length": eval_avg_ep_len,
                     "avg_val_loss": eval_avg_val_loss,
                     "success_ratio": success_ratio,
-                    "avg_returns_per_success": eval_avg_returns_per_success})
+                    "lr" : scheduler.get_last_lr()[0] if use_scheduler else lr
+                    })
 
         mean_action_loss = np.mean(log_action_losses)
         time_elapsed = str(datetime.now().replace(microsecond=0) - start_time)
@@ -298,12 +346,17 @@ def train(args, cfg_name ):
         log_str = ("=" * 60 + '\n' +
                 "time elapsed: " + time_elapsed  + '\n' +
                 "num of updates: " + str(total_updates) + '\n' +
-                "action loss: " +  format(mean_action_loss, ".5f") + '\n'  
-               + "eval avg reward: " + format(eval_avg_reward, ".5f") + '\n' +
-                "eval avg ep len: " + format(eval_avg_ep_len, ".5f") + '\n' )
+                "action loss: " +  format(mean_action_loss, ".5f") + '\n' + 
+                "target loss: " +  format(target_loss, ".5f") + '\n' + 
+                "eval avg reward: " + format(eval_avg_reward, ".5f") + '\n' +
+                "eval avg ep len: " + format(eval_avg_ep_len, ".5f") + '\n' +
+                "learnign rate: " + str(scheduler.get_last_lr()[0]) + "\n"
+                
+                )
+
         #         "eval d4rl score: " + format(eval_d4rl_score, ".5f")
         #     )
-        print(log_str)
+        print(f"Summary: \n {log_str}")
 
         # TODO: write logs once code runs
         log_data = [time_elapsed, total_updates, mean_action_loss,
@@ -330,6 +383,7 @@ def train(args, cfg_name ):
             tmp_path = save_model_path[:-1]
             torch.save(model, tmp_path)
 
+
     cfg_copy_path = save_model_path[:-2] + "yml"
     save_yaml(cfg_copy_path,cfg_copy)
     print(f"cfg_copy_path = {cfg_copy_path}")
@@ -339,7 +393,7 @@ def train(args, cfg_name ):
     wandb.run.summary["best_success_ratio"] = best_success_ratio
     wandb.run.summary["best_avg_returns_per_success"] = best_avg_returns_per_success
     wandb.run.summary["best_epoch"] = best_epoch
-    
+
 
     print("=" * 60)
     print("finished training!")
@@ -364,7 +418,8 @@ def train(args, cfg_name ):
                                                 max_test_ep_len = max_eval_ep_len, 
                                                 state_mean = train_traj_stats[0], 
                                                 state_std = train_traj_stats[1],
-                                                comp_val_loss = comp_val_loss)
+                                                comp_val_loss = comp_val_loss,
+                                                target_conditioning = target_conditioning)
     movie_name = save_model_name + "_traj_with_attention_" 
     movie_path = join(ROOT,"tmp/attention_traj_videos/")
     aa_movie_sname = movie_path + movie_name + "aa.mp4" 
@@ -373,7 +428,7 @@ def train(args, cfg_name ):
     as_writer = imageio.get_writer(as_movie_sname, fps=1)
 
     # output at best epoch
-    visualize_output(op_traj_dict_list, iter_i=best_epoch, stats=train_traj_stats, env=env, plot_policy=True, log_wandb=True)
+    visualize_output(op_traj_dict_list, iter_i=best_epoch, stats=train_traj_stats, env=env, plot_policy=False, log_wandb=True)
 
     for t in range(1,at_pl_t,2):
         aa_fname = viz_op_traj_with_attention(op_traj_dict_list, 
@@ -444,7 +499,7 @@ def train(args, cfg_name ):
 
 
 def sweep_train():
-    sys.exit()
+    # sys.exit()
 
     start_time = datetime.now().replace(microsecond=0)
     start_time_str = start_time.strftime("%m-%d-%H-%M")
@@ -653,7 +708,9 @@ def sweep_train():
                                                     max_test_ep_len=max_eval_ep_len, 
                                                     state_mean = train_traj_stats[0], 
                                                     state_std = train_traj_stats[1],
-                                                    comp_val_loss = comp_val_loss)
+                                                    comp_val_loss = comp_val_loss,
+                                                    target_conditioning = target_conditioning
+                                                    )
 
         # visualize output
         if i_train_iter%4 == 1:                        
@@ -761,7 +818,9 @@ def sweep_train():
                                                 max_eval_ep_len = max_eval_ep_len, 
                                                 state_mean = train_traj_stats[0], 
                                                 state_std = train_traj_stats[1],
-                                                comp_val_loss = comp_val_loss)
+                                                comp_val_loss = comp_val_loss,
+                                                target_conditioning = target_conditioning
+                                                )
     movie_name = save_model_name + "_traj_with_attention_" 
     movie_path = join(ROOT,"tmp/attention_traj_videos/")
     aa_movie_sname = movie_path + movie_name + "aa.mp4" 

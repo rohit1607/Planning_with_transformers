@@ -203,6 +203,8 @@ class DecisionTransformer(nn.Module):
         # sys.exit()
         if target_token!=None:
             h = h[:,1:,:]   # B x (3T + 1) x hdim  --> B x (3T ) x hdim  exclude target tokem
+            # print(f"post prune target token h.shape = {h.shape} ")
+
         # get h reshaped such that its size = (B x 3 x T x h_dim) and
         # h[:, 0, t] is conditioned on the input sequence r_0, s_0, a_0 ... r_t
         # h[:, 1, t] is conditioned on the input sequence r_0, s_0, a_0 ... r_t, s_t
@@ -211,10 +213,13 @@ class DecisionTransformer(nn.Module):
         # each conditioned on all previous timesteps plus 
         # the 3 input variables at that timestep (r_t, s_t, a_t) in sequence.
         h = h.reshape(B, T, 3, self.h_dim).permute(0, 2, 1, 3)
+        # print(f"post reshape h.shape = {h.shape} ")
 
         # get predictions
         return_preds = self.predict_rtg(h[:,2])     # predict next rtg given r, s, a
         state_preds = self.predict_state(h[:,2])    # predict next state given r, s, a
         action_preds = self.predict_action(h[:,1])  # predict action given r, s
+        # print(f"h[:,2].shape =  {h[:,2].shape}")
+        # print(f"state_preds in model =  {state_preds.shape}")
 
         return state_preds, action_preds, return_preds

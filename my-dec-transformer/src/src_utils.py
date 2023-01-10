@@ -15,6 +15,7 @@ import matplotlib.colors as colors
 from os.path import join
 from src.root_path import ROOT
 import sys
+import time
 
 def discount_cumsum(x, gamma):
     disc_cumsum = np.zeros_like(x)
@@ -161,7 +162,8 @@ class cgw_trajec_dataset(Dataset):
             target_state = torch.from_numpy(traj['target_pos'])
 
         # print(f"### verify: target_state = {target_state}")
-        target_state = np.insert(target_state,0,35,axis=0)
+        dummy_t = float(int(0.8*self.context_len)) # time stamp for target state.
+        target_state = np.insert(target_state,0,dummy_t,axis=0)
         # print(f"### verify: target_state = {target_state}")
         return  timesteps, states, actions, returns_to_go, traj_mask, target_state
 
@@ -258,7 +260,7 @@ def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
                     max_test_ep_len=120,
                     state_mean=None, state_std=None, render=False,
                     comp_val_loss = False,
-                    target_token=None):
+                    target_conditioning=None):
 
     eval_batch_size = 1  # required for forward pass
     if num_eval_ep == None:
@@ -307,7 +309,6 @@ def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
             # the above also corresponds to the i'th element of the val_set
             # print(f"**** verify\n i ={i},\n num_eval_ep={num_eval_ep}")
             rzn = val_idx[i]
-            target_token = val_traj_set[i]['target_pos']
             # print(f"len(val_traj_set) = {len(val_traj_set)}")
             # print(f"target_token ={target_token}")
             env.set_rzn(rzn)
@@ -322,10 +323,14 @@ def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
                                 dtype=torch.float32, device=device)
 
             # print(f" in eval : states.shape = {states.shape}")
-            target_token = torch.from_numpy(target_token)
-            target_token = np.insert(target_token,0,35,axis=0)
-            target_token = torch.from_numpy(np.expand_dims(target_token, axis=0))
-            target_token = torch.clone(target_token).detach().to(device)
+            if target_conditioning:
+                target_token = val_traj_set[i]['target_pos']
+                target_token = torch.from_numpy(target_token)
+                target_token = np.insert(target_token,0,float(int(0.8*context_len)),axis=0)
+                target_token = torch.from_numpy(np.expand_dims(target_token, axis=0))
+                target_token = torch.clone(target_token).detach().to(device)
+            else:
+                target_token = None
 
             # print(f"in eval :target_token ={target_token}, shape = {target_token.shape}")
 
@@ -339,8 +344,8 @@ def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
             reached_target = False
             episode_returns = 0
             # print(f"******** Verify: type(running_state)= {type(running_state)} ")
-
             for t in range(max_test_ep_len):
+                # start_fp = time.time()
 
                 total_timesteps += 1
 
@@ -351,22 +356,22 @@ def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
                 # calcualate running rtg and add it in placeholder
                 running_rtg = running_rtg - (running_reward / rtg_scale)
                 rewards_to_go[0, t] = running_rtg
+                # start_fp = time.time()
 
                 if t < context_len:
                     _, act_preds, _ = model.forward(timesteps[:,:context_len],
                                                 states[:,:context_len],
                                                 actions[:,:context_len],
                                                 rewards_to_go[:,:context_len],
-                                                target_token)
+                                                target_token=target_token)
                     act = act_preds[0, t].detach()
                 else:
                     _, act_preds, _ = model.forward(timesteps[:,t-context_len+1:t+1],
                                                 states[:,t-context_len+1:t+1],
                                                 actions[:,t-context_len+1:t+1],
                                                 rewards_to_go[:,t-context_len+1:t+1],
-                                                target_token)
+                                                target_token=target_token)
                     act = act_preds[0, -1].detach()
-
               
                 running_state, running_reward, done, info = env.step(act.cpu().numpy())
     
@@ -389,6 +394,9 @@ def evaluate_on_env(model, device, context_len, env, rtg_target, rtg_scale,
                         reached_target = True
                         success_count += 1
                     break
+                # end_fp = time.time()
+                # print(f"rebuttal: forward pass time: {end_fp - start_fp}")
+              
             
             op_traj_dict['states'] = states.cpu()
             op_traj_dict['actions'] = actions.cpu()
@@ -580,6 +588,8 @@ def viz_op_traj_with_attention(op_traj_dict_list,
                         show_scatter=False,
                         plot_flow=False,
                         at_time=None,
+                        head_idx=0,
+                        target_conditioning=True,
                         ):
  
     path = join(ROOT, "tmp/last_exp_figs/")
@@ -610,9 +620,13 @@ def viz_op_traj_with_attention(op_traj_dict_list,
             else:
                 at_time = t_done
 
-            at_weights = traj['attention_weights'][0,0,:,:].cpu().detach().numpy()
-            a_s_wts_scaled = scale_attention_rows(at_weights[2::3,1::3])
-            a_a_wts_scaled = scale_attention_rows(at_weights[2::3,2::3])
+            at_weights = traj['attention_weights'][0,head_idx,:,:].cpu().detach().numpy()
+            if target_conditioning:
+                a_s_wts_scaled = scale_attention_rows(at_weights[3::3,2::3])
+                a_a_wts_scaled = scale_attention_rows(at_weights[3::3,3::3])
+            else:
+                a_s_wts_scaled = scale_attention_rows(at_weights[2::3,1::3])
+                a_a_wts_scaled = scale_attention_rows(at_weights[2::3,2::3])
 
             # print(f"******* Verify: visualize_op: states.shape= {states.shape}")
             if stats!=None:
@@ -765,6 +779,7 @@ def visualize_input(traj_dataset,
 
 
 def plot_attention_weights(weight_mat, set_idx=0, 
+                                        head_idx=0,
                                         scale_each_row=False, 
                                         cmap='bwr', 
                                         log_wandb = False,
@@ -785,7 +800,7 @@ def plot_attention_weights(weight_mat, set_idx=0,
     shape = weights.shape
     
     # Plot attenetion scores for the ith trajectory/sample among the batch (for training batch)
-    weights = weights[set_idx,0,:,:]
+    weights = weights[set_idx,head_idx,:,:]
     
     scale_str = ''
     if scale_each_row:
@@ -804,7 +819,7 @@ def plot_attention_weights(weight_mat, set_idx=0,
     bar = plt.colorbar(shw)
 
 
-    title =  scale_str + info_string + "setIdx-" +  str(set_idx)
+    title =  scale_str + info_string + "setIdx-" +  str(set_idx) + "_head-" +str(head_idx)
     plt.title(title)
     # plt.figure(figsize=(12,10))
     # ax = sns.heatmap(weights, linewidth=0.05)
